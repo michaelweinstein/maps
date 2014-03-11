@@ -5,10 +5,10 @@ import java.io.IOException;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 /*
  * this class performs binary search on a tsv file 
- * it assumes that the files are formatted like bacon files
+ * it assumes that the files are formatted like maps files
  * the search method requires the string to find, the string's
  * index in its line and the target string's index. These elements
- * can be found by asking the BaconFile
+ * can be found by asking the MapsFile
  */
 public class BinarySearch {
 
