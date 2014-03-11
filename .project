@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>maps</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>lib/index.tsv</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/course/cs032/data/maps/index.tsv</locationURI>
+		</link>
+		<link>
+			<name>lib/nodes.tsv</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/course/cs032/data/maps/nodes.tsv</locationURI>
+		</link>
+		<link>
+			<name>lib/ways.tsv</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/course/cs032/data/maps/ways.tsv</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>
