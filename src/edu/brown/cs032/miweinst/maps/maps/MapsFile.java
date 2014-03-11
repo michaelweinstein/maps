@@ -3,6 +3,7 @@ package edu.brown.cs032.miweinst.maps.maps;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.HashMap;
 /*
  *  This class adds some maps-specific functionality to 
@@ -12,15 +13,16 @@ import java.util.HashMap;
 public class MapsFile extends RandomAccessFile {
 
 	private HashMap<String,Integer> _headings;
-	private long _firstLineBreak, _length;
-	private String _filePath;
+	private long _length;
+	private String _filePath, _lastLine;
 	
 	
-	public MapsFile(String name, String mode) throws FileNotFoundException, IOException {
-		super(name, mode);
-		_firstLineBreak = 0;
+	public MapsFile(String name) throws FileNotFoundException, IOException {
+		super(name, "r");
 		_filePath = name;
+		_length = this.length();
 		this.setUpHeadingsMap(new HashMap<String,Integer>());
+		_lastLine = this.readLastLine();
 	}
 	
 	public void setUpHeadingsMap(HashMap<String,Integer> map) throws IOException {
@@ -37,40 +39,118 @@ public class MapsFile extends RandomAccessFile {
 	}
 	
 	public String readNextLine() throws IOException {
-	//int 10 indicates a break line
-	String returnStr = null;
+		/*
+		 * based on the current file pointer, we
+		 * return the next line. If we point to the
+		 * middle of a line, we read the line after 
+		 */
+		String returnStr = null;
 
-	if (this.getFilePointer() <= _firstLineBreak || this.getFilePointer() >= _length) {
-		return null; //should throw IOException
-	}
-	int curr_byte = this.read();
-	
-	while (curr_byte != 10) {	//set file pointer to previous break line
-		this.seek(this.getFilePointer() - 2);
-		curr_byte = this.read();
-	}
-	while (curr_byte == 10) { //find next byte that isn't a break line (this should almost always just run once)
-		curr_byte = this.read();
-	}
+		this.findNextBreakLine();
 		
-	int num_bytes = 0;
-	//find number of bytes in line by looking until next break line or end of file
-	while (curr_byte != 10 && this.getFilePointer() < _length) {
-		curr_byte = this.read();
-		num_bytes++;
-	}
-	
-	this.seek(this.getFilePointer() - num_bytes - 1); //set the file pointer to start of line
+		boolean line_end = false;
 		
-	byte[] b = new byte[num_bytes];
-	this.read(b); //read the line and then create a string out of its bytes
-	returnStr = new String(b,"UTF-8");
+		long start_line = this.getFilePointer(); 
+		
+		//read the file with byte arrays until we find the next break line
+		ArrayList<byte[]> byte_arrays = new ArrayList<byte[]>();
+		int index = 0;
+		int default_size = 300;
+		while (!line_end) {		
+			byte[] b = new byte[default_size];
+			this.read(b);
+			byte_arrays.add(b);
+			for (int i = 0; i < b.length; i++) {
+				if (b[i] == 10) {
+					line_end = true;
+					break;
+				}
+				index++;
+			}
+		}
+		//add the contents of our arrays into one larger array (up until breakline)
+		byte[] b = new byte[index];
+		int count = 0;
+		outer: for (byte[] arr: byte_arrays) {
+			for (int i=0; i < arr.length; i++) {
+				if (count >= index) {
+					break outer;
+				}
+				b[count] = arr[i];
+				count++;
+			}
+		}
+		//set file pointer to start of line and create a string out of the following bytes
+		this.seek(start_line);
+		this.read(b);
+		//this.seek(start_line);
+		returnStr = new String(b,"UTF-8");
 
-	return returnStr;
-}
+		return returnStr;
+	}
 	
-	private String readFirstLine() throws IOException {
+	private void findNextBreakLine() throws IOException {
+		/*
+		 * based on the current file pointer location,
+		 * we find the nearest breakline approaching
+		 * the end of the file 
+		 */
+		boolean new_line = false;
+		while (!new_line) {
+			byte[] curr_bytes = new byte[10];
+			this.read(curr_bytes);
+			for (int i = 0; i < curr_bytes.length; i++) {
+				if (curr_bytes[i] == 10) {
+					new_line = true;
+					this.seek(this.getFilePointer() - 10 + i + 1);
+					break;
+				} //end if
+			} //end for
+		}
+	}
+	
+	
+	public String readLastLine() throws IOException {
+		/*
+		 * this reads byte-by-byte from disk, but since we only
+		 * run it once (and cache result), it will not 
+		 * noticeably affect our runtime
+		 */
+		String returnStr = null;
+	
+		this.seek(this.length() - 2);
 		
+		int curr_byte = this.read();
+		
+		while (curr_byte != 10) {	//set file pointer to previous break line
+			this.seek(this.getFilePointer() - 2);
+			curr_byte = this.read();
+		}
+		while (curr_byte == 10) { //find next byte that isn't a break line (this should almost always just run once)
+			curr_byte = this.read();
+		}
+	
+		int num_bytes = 0;
+		//find number of bytes in line by looking until next break line or end of file
+		while (curr_byte != 10 && this.getFilePointer() < _length) {
+			curr_byte = this.read();
+			num_bytes++;
+		}
+		
+		this.seek(this.getFilePointer() - num_bytes - 1); //set the file pointer to start of line
+		byte[] b = new byte[num_bytes + 1];
+		this.read(b); //read the line and then create a string out of its bytes
+		returnStr = new String(b,"UTF-8");
+		//System.out.println("LAST LINE: " + returnStr);
+		return returnStr;
+	}
+	
+	
+	public String readFirstLine() throws IOException {
+		/*
+		 * this reads byte-by-byte from disk, but since we only
+		 * run it once, it will not noticeably affect our runtime
+		 */
 		String returnStr = null;
 
 		_length = this.length();
@@ -82,7 +162,7 @@ public class MapsFile extends RandomAccessFile {
 			curr_byte = this.read();
 			num_bytes++;
 		}
-		_firstLineBreak = num_bytes; //to be used in readNextLine() call from binarySearch
+
 		this.seek(0);
 			
 		byte[] b = new byte[num_bytes];
@@ -91,7 +171,10 @@ public class MapsFile extends RandomAccessFile {
 
 		return returnStr;
 	}
-	
+
+
 	public String getFilePath() { return _filePath; }
+	
+	public String getLastLine() { return _lastLine; }
 	
 }

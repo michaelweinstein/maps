@@ -3,7 +3,6 @@ package edu.brown.cs032.miweinst.maps.binarySearch;
 import java.io.IOException;
 
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
-
 /*
  * this class performs binary search on a tsv file 
  * it assumes that the files are formatted like bacon files
@@ -27,15 +26,17 @@ public class BinarySearch {
 		/*
 		 *  determines what we are looking for and makes call to recursive
 		 *  searchHelper() to find what we are looking for
+		 *  first, it checks last line to see if it contains target
 		 */
 		_toFind = toFind;
 		_inlinePosition = _file.getFieldIndex(field);
 		_inlineTargetPosition = _file.getFieldIndex(targetField);
 		
 		try {
-			
-			_length = _file.length();
-			this.searchHelper(0,_length);
+			if (!this.checkLastLine()) { //if last line does not contain, then look elsewhere
+				_length = _file.length();
+				this.searchHelper(0,_length);
+			}
 			
 			if (_target != null) { //reset target for next binSearch and return
 				String buffer = _target;
@@ -70,13 +71,8 @@ public class BinarySearch {
 			
 			if (line == null) return;
 
-			//System.out.println(line);
 			String[] curr_line = line.split("\t");
-			System.out.println("-------------");
-			for (int i = 0; i < curr_line.length; i++) {
-				System.out.println("elt at [" + i + "]: " + curr_line[i]);
-			}
-			System.out.println("-------------");
+
 			if (curr_line[_inlinePosition].compareTo(_toFind) > 0) {
 				searchHelper(start, mid); //look higher
 			}
@@ -97,5 +93,14 @@ public class BinarySearch {
 		}
 	} //end searchHelper
 
+	private boolean checkLastLine() {
+		String[] lastLine = _file.getLastLine().split("\t");
+		if (lastLine[_inlinePosition].compareTo(_toFind) == 0) {
+			_target = lastLine[_inlineTargetPosition];
+			return true;
+		}
+		return false;
+	}
+	
 	
 }
