@@ -21,11 +21,12 @@ public class DictionaryGenerator {
 		 * read each line (intended for use on index.tsv) and
 		 * print elements in name column into a text file in autocorrect 
 		 * directory. Text file will be used to populate our Trie, which 
-		 * we will generate suggestions from
+		 * we will generate suggestions from. It will be overwritten every
+		 * time we run this method
 		 */
 		try {
 			String dir = System.getProperty("user.dir") + 
-					"/maps/src/edu/brown/cs032/miweinst/maps/autocorrect/";
+					"/src/edu/brown/cs032/miweinst/maps/autocorrect/";
 			PrintWriter writer = new PrintWriter(dir + "autocorrect_dictionary.txt", "UTF-8");
 			_file.seek(0);
 			_file.readLine(); //don't add headings to dictionary
