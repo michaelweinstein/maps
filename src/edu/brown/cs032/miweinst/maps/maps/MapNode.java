@@ -19,5 +19,10 @@ public class MapNode {
 		return waysList.split(",");
 	}
 	
+	public String toString() {
+		String s = "MapNode. id: " + this.id + ", lat: " + this.loc.x + ", long: " + this.loc.y;
+		return s;
+	}
+	
 	
 }

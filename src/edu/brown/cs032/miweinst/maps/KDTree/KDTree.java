@@ -13,7 +13,13 @@ public class KDTree {
 		if (array.length > 0) this.buildTree(_root, array, 0, array.length);
 		System.out.println("ready");
 	}
-	
+	/*
+	 * the input array is sorted along the first dimension and then recursive
+	 * calls are made to sort the the two halves along the second dimension
+	 * and then the quarters are sorted along the next dimension. This process
+	 * continues until we are sorting one node. In this case, we create a leaf node
+	 * that contains the element and then move back up a level of recursion.
+	 */
 	private void buildTree(KDTreeNode node, KDComparable[] array, int start, int end) {
 
 		int mid = (start + end)/2;
@@ -51,6 +57,10 @@ public class KDTree {
 		} //end else
 	} //end buildTree()
 	
+	/*
+	 * sorts the portion of the array from
+	 * start to end along the given dimension 
+	 */
 	private void split(KDComparable[] array, int dim, int start, int end) {
 		Arrays.sort(array, start, end, new MyComparator(dim));
 	}

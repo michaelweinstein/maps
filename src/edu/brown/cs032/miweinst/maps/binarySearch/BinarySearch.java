@@ -26,17 +26,14 @@ public class BinarySearch {
 		/*
 		 *  determines what we are looking for and makes call to recursive
 		 *  searchHelper() to find what we are looking for
-		 *  first, it checks last line to see if it contains target
 		 */
 		_toFind = toFind;
 		_inlinePosition = _file.getFieldIndex(field);
 		_inlineTargetPosition = _file.getFieldIndex(targetField);
 		
 		try {
-			if (!this.checkLastLine()) { //if last line does not contain, then look elsewhere
-				_length = _file.length();
-				this.searchHelper(0,_length);
-			}
+			_length = _file.length();
+			this.searchHelper(0,_length);
 			
 			if (_target != null) { //reset target for next binSearch and return
 				String buffer = _target;
@@ -92,15 +89,5 @@ public class BinarySearch {
 			System.exit(0);
 		}
 	} //end searchHelper
-
-	private boolean checkLastLine() {
-		String[] lastLine = _file.getLastLine().split("\t");
-		if (lastLine[_inlinePosition].compareTo(_toFind) == 0) {
-			_target = lastLine[_inlineTargetPosition];
-			return true;
-		}
-		return false;
-	}
-	
 	
 }

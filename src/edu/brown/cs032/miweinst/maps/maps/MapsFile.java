@@ -1,5 +1,6 @@
 package edu.brown.cs032.miweinst.maps.maps;
 
+import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -43,9 +44,9 @@ public class MapsFile extends RandomAccessFile {
 		 * based on the current file pointer, we
 		 * return the next line. If we point to the
 		 * middle of a line, we read the line after 
-		 */
+		 */	
 		String returnStr = null;
-
+	  try {
 		this.findNextBreakLine();
 		
 		boolean line_end = false;
@@ -58,9 +59,11 @@ public class MapsFile extends RandomAccessFile {
 		int default_size = 300;
 		while (!line_end) {		
 			byte[] b = new byte[default_size];
-			this.read(b);
-			byte_arrays.add(b);
-			for (int i = 0; i < b.length; i++) {
+			if (this.read(b) == -1) { //encountered EOF, read last line
+				return readLastLine();
+			}
+			byte_arrays.add(b); //add the array to our list of arrays
+			for (int i = 0; i < b.length; i++) { //increment index until breakline
 				if (b[i] == 10) {
 					line_end = true;
 					break;
@@ -83,9 +86,11 @@ public class MapsFile extends RandomAccessFile {
 		//set file pointer to start of line and create a string out of the following bytes
 		this.seek(start_line);
 		this.read(b);
-		//this.seek(start_line);
 		returnStr = new String(b,"UTF-8");
-
+	  }
+	  catch(OutOfMemoryError e) {
+		  System.out.println("EOFException");
+	  }
 		return returnStr;
 	}
 	
@@ -98,7 +103,9 @@ public class MapsFile extends RandomAccessFile {
 		boolean new_line = false;
 		while (!new_line) {
 			byte[] curr_bytes = new byte[10];
+			
 			this.read(curr_bytes);
+
 			for (int i = 0; i < curr_bytes.length; i++) {
 				if (curr_bytes[i] == 10) {
 					new_line = true;

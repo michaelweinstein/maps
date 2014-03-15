@@ -14,7 +14,7 @@ public class MapsFileTest {
 	public void testHeadings() {
 		boolean pass = false;
 		try {
-			MapsFile ways = new MapsFile("./test_data_files/ways.tsv");
+			MapsFile ways = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/ways.tsv");
 			if (ways.getFieldIndex("id") == 0 &&
 					ways.getFieldIndex("name") == 1 &&
 					ways.getFieldIndex("version") == 2 &&
@@ -28,6 +28,7 @@ public class MapsFileTest {
 				pass = true;
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("IOException");
 			System.exit(0);
 		}
@@ -38,12 +39,13 @@ public class MapsFileTest {
 	public void testReadFirstLine() {
 		boolean pass = false;
 		try {
-			MapsFile index = new MapsFile("./test_data_files/index.tsv");
+			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/index.tsv");
 			if (index.readFirstLine().compareTo("name	nodes") == 0)
 			{
 				pass = true;
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("IOException");
 			System.exit(0);
 		}
@@ -54,14 +56,17 @@ public class MapsFileTest {
 	public void testReadLastLine() {
 		boolean pass = false;
 		try {
-			MapsFile index = new MapsFile("./test_data_files/index.tsv");
-			String lastLine = "3rd Street	/n/4132.7181.201400491," +
-							  "/n/4132.7181.201410028,/n/4132.7181.201410033";
+			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/index.tsv");
+			String lastLine = "3rd Street	/n/4136.7162.201410042,/n/4136.7162.201410046," +
+							  "/n/4136.7162.201410050,/n/4136.7162.201410065,/n/4136.7162.201410067," +
+							  "/n/4136.7162.201410070,/n/4136.7162.201410074,/n/4136.7162.201410080,/n/4136.7162.201410082";
+			System.out.println(index.readLastLine());
 			if (index.readLastLine().compareTo(lastLine) == 0)
 			{
 				pass = true;
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("IOException");
 			System.exit(0);
 		}
