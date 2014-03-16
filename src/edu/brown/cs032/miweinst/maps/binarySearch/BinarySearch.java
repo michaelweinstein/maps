@@ -53,7 +53,7 @@ public class BinarySearch {
 		return null;
 	} //end search()
 
-	public void searchHelper(long start, long end) {
+	private void searchHelper(long start, long end) {
 		/*
 		 *  binary search on BaconFile's bytes. Looks for _toFind
 		 *  and then returns the string stored in the inlineTargetPosition

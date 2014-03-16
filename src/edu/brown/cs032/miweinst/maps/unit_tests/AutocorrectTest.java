@@ -1,4 +1,4 @@
-package edu.brown.cs032.miweinst.maps.test;
+package edu.brown.cs032.miweinst.maps.unit_tests;
 
 import static org.junit.Assert.*;
 

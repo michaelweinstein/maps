@@ -9,6 +9,28 @@ public final class LatLng {
 		this.lat = checkLatitude(lat);
 		this.lng = checkLongitude(lng);
 	}
+	
+	/* PUBLIC METHODS */
+
+	/**
+	 * Finds distance between to LatLng objects.  
+	 * Just uses euclidean distance, because we 
+	 * are dealing with distances on small areas
+	 * of the Earth, so not calculating actual 
+	 * spheroidal distance between LatLngs.
+	 */
+	public final double dist(LatLng other) {
+		return Math.sqrt(dist2(other));
+	}
+	/**
+	 * Finds distance squared. Use for comparing distances because
+	 * it is faster without the sqrt operation. 
+	 */
+	public double dist2(LatLng other) {
+		if (equals(other)) 
+			return 0.0;
+		return Math.pow(other.lat - this.lat, 2) + Math.pow(other.lng - this.lng, 2);
+	}	
 
 	/* PRIVATE METHODS */
 	private static double checkLatitude(double lat) {
