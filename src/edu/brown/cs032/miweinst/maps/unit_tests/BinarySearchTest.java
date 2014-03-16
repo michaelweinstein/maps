@@ -15,7 +15,7 @@ public class BinarySearchTest {
 	public void test() {
 		boolean pass = false;
 		try {
-			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/index.tsv");
+			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/index.tsv");
 			BinarySearch bs = new BinarySearch(index);
 			
 			String nodes1 = "/n/4182.7140.1554255283,/n/4182.7140.1554255287," +

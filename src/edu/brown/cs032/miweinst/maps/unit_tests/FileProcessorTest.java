@@ -17,9 +17,9 @@ public class FileProcessorTest {
 	public void test() {
 		boolean pass = false;
 		try {
-			MapsFile nodes = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/nodes.tsv");
-			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/index.tsv");
-			MapsFile ways = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/test/test_data_files/ways.tsv");
+			MapsFile nodes = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/nodes.tsv");
+			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/index.tsv");
+			MapsFile ways = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/ways.tsv");
 			FileProcessor fp = new FileProcessor(nodes,index,ways);
 			MapNode[] nodes_array = fp.nodesArray();
 			if (nodes_array[0].toString().compareTo("MapNode. id: /n/4015.7374.527767659, lat: 40.158176, long: -73.748566") == 0 &&
