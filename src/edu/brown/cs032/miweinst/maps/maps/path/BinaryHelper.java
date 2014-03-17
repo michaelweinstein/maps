@@ -24,12 +24,11 @@ public class BinaryHelper {
 	 * Create MapNode from id.
 	 */
 	public static MapNode makeMapNode(String id) {		
-		String latString = nodes.search(id, "id", "latitude");
-		String lngString = nodes.search(id, "id", "longitude");
-		String wayslist = nodes.search(id, "id", "ways");
-		double lat = Double.parseDouble(latString);
-		double lng = Double.parseDouble(lngString);
-		return new MapNode(id, lat, lng, wayslist);
+		String[] cols = {"latitude", "longitude", "ways"};
+		String[] arr = nodes.search(id, "id", cols);
+		double lat = Double.parseDouble(arr[0]);
+		double lng = Double.parseDouble(arr[1]);
+		return new MapNode(id, lat, lng, arr[2]);
 	}
 	
 	/**
@@ -38,14 +37,19 @@ public class BinaryHelper {
 	 * Uses nodes.tsv.
 	 */
 	public static Way[] nodeToWayArr(MapNode node) {
-		String waysCSV = nodes.search(node.id, "id", "ways");
-		String[] waysIdArr = waysCSV.split(",");
+		String[] cols = {"ways"};
+		String[] waysCSV = nodes.search(node.id, "id", cols);
+		String[] waysIdArr = waysCSV[0].split(",");
 		Way[] waysArr = new Way[waysIdArr.length];
 		for (int i=0; i<waysIdArr.length; i++) {
 			String id = waysIdArr[i];
 			String start = node.id;
-			String end = ways.search(id, "id", "end");
-			waysArr[i] = new Way(id, start, end);
+			String[] newCols = {"end"};
+		
+//			System.out.println("looking for id: " + id + "in small ways.tsv");
+			
+			String[] end = ways.search(id, "id", newCols);
+			waysArr[i] = new Way(id, start, end[0]);
 		}
 		return waysArr;
 	}
@@ -57,11 +61,11 @@ public class BinaryHelper {
 	 * Uses ways.tsv.
 	 */
 	public static MapNode[] wayToEndNodes(String id) {
-		String start = ways.search(id, "id", "start");
-		String end = ways.search(id, "id", "end");
+		String[] cols = {"start", "end"};
+		String[] startend = ways.search(id, "id", cols);
 		MapNode[] endnodes = new MapNode[2];
-		endnodes[0] = makeMapNode(start);
-		endnodes[1] = makeMapNode(end);
+		endnodes[0] = makeMapNode(startend[0]);
+		endnodes[1] = makeMapNode(startend[1]);
 		return endnodes;
 	}
 }
