@@ -44,7 +44,7 @@ public class BinaryHelper {
 		for (int i=0; i<waysIdArr.length; i++) {
 			String id = waysIdArr[i];
 			String start = node.id;
-			String end = ways.search(node.id, "id", "end");
+			String end = ways.search(id, "id", "end");
 			waysArr[i] = new Way(id, start, end);
 		}
 		return waysArr;
@@ -56,9 +56,9 @@ public class BinaryHelper {
 	 * arr[0] = srcNode and arr[1] = dstNode.
 	 * Uses ways.tsv.
 	 */
-	public static MapNode[] wayToEndNodes(Way way) {
-		String start = ways.search(way.id, "id", "start");
-		String end = ways.search(way.id, "id", "end");
+	public static MapNode[] wayToEndNodes(String id) {
+		String start = ways.search(id, "id", "start");
+		String end = ways.search(id, "id", "end");
 		MapNode[] endnodes = new MapNode[2];
 		endnodes[0] = makeMapNode(start);
 		endnodes[1] = makeMapNode(end);

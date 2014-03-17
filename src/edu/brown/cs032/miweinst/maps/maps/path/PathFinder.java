@@ -74,7 +74,7 @@ public class PathFinder {
 				for (Way way: ways) {	
 					
 					//get list of actors in film
-					MapNode[] endNodes = BinaryHelper.wayToEndNodes(way);	
+					MapNode[] endNodes = BinaryHelper.wayToEndNodes(way.id);	
 					
 					//for each actor in film, other than actor1
 //					for (MapNode id: endNodes) {	
