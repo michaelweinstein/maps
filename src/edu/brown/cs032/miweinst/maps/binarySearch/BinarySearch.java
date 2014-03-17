@@ -7,37 +7,42 @@ import edu.brown.cs032.miweinst.maps.maps.MapsFile;
  * this class performs binary search on a tsv file 
  * it assumes that the files are formatted like maps files
  * the search method requires the string to find, the string's
- * index in its line and the target string's index. These elements
- * can be found by asking the MapsFile
+ * index in its line and the target strings' headings. The headings'
+ * indeices can be found by asking the MapsFile
  */
 public class BinarySearch {
 
 	private MapsFile _file;
 	private long _length;
-	private int _inlinePosition, _inlineTargetPosition;
-	private String _toFind, _target;
-	
+	private int _inlinePosition;
+	private int[] _inlineTargetPositions;
+	private String _toFind;
+	private String[] _targets;
+
 	public BinarySearch(MapsFile file) {
 		_file = file;
-		_target = null;
+		_targets = null;
 	}
 	
-	public String search(String toFind, String field, String targetField) {
+	public String[] search(String toFind, String field, String[] targetFields) {
 		/*
 		 *  determines what we are looking for and makes call to recursive
 		 *  searchHelper() to find what we are looking for
 		 */
 		_toFind = toFind;
 		_inlinePosition = _file.getFieldIndex(field);
-		_inlineTargetPosition = _file.getFieldIndex(targetField);
+		_inlineTargetPositions = new int[targetFields.length];
+		for (int i = 0; i < targetFields.length; i++) {
+			_inlineTargetPositions[i] = _file.getFieldIndex(targetFields[i]);
+		}
 		
 		try {
 			_length = _file.length();
 			this.searchHelper(0,_length);
 			
-			if (_target != null) { //reset target for next binSearch and return
-				String buffer = _target;
-				_target = null;
+			if (_targets != null) { //reset target for next binSearch and return
+				String[] buffer = _targets;
+				_targets = null;
 				return buffer;
 			}
 			
@@ -77,7 +82,11 @@ public class BinarySearch {
 				searchHelper(mid, end); //look lower
 			}
 			else {
-				_target = curr_line[_inlineTargetPosition]; //target found
+				_targets = new String[_inlineTargetPositions.length];
+				for (int i = 0; i < _inlineTargetPositions.length; i++) {
+					_targets[i] = curr_line[_inlineTargetPositions[i]]; //target found
+				}
+				
 			}
 		}
 		catch (IOException e) {

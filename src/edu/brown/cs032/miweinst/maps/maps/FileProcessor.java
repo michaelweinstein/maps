@@ -13,7 +13,7 @@ public class FileProcessor {
 		_waysFile = w;
 	}
 	
-	public MapNode[] nodesArray() throws IOException {
+	public KDTreeNode[] nodesArrayForKDTree() throws IOException {
 		ArrayList<MapNode> nodes = new ArrayList<MapNode>();
 		
 		//get necessary indices
