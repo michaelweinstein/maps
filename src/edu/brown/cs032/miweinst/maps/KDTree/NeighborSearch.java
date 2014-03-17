@@ -29,11 +29,11 @@ public class NeighborSearch {
 		
 		int dim = n.getDimension();
 
-		if (n.isLeaf() && _point.calculateDistance(n.getComparable().getPoint()) < _radius) {
+		if (n.isLeaf() && _point.dist(n.getComparable().getPoint()) < _radius) {
 			if (!_byName) {
 				this.insertIntoNeighbors(n);
 			} 
-			else if (_point.calculateDistance(n.getComparable().getPoint()) > 0.0) {
+			else if (_point.dist(n.getComparable().getPoint()) > 0.0) {
 				this.insertIntoNeighbors(n);
 			}
 		} //end if
@@ -71,13 +71,13 @@ public class NeighborSearch {
 		
 		while (index < _neighbors.length && !breakOut) {
 			
-			double neighborDistance = _point.calculateDistance(neighbor.getComparable().getPoint());
+			double neighborDistance = _point.dist(neighbor.getComparable().getPoint());
 			
 			if (_neighbors[index] == null) {
 				_neighbors[index] = neighbor;
 				breakOut = true;
 			}
-			else if (neighborDistance < _point.calculateDistance(_neighbors[index].getComparable().getPoint())) {
+			else if (neighborDistance < _point.dist(_neighbors[index].getComparable().getPoint())) {
 				KDTreeNode buffer = _neighbors[index];
 				_neighbors[index] = neighbor;
 				neighbor = buffer;
@@ -85,7 +85,7 @@ public class NeighborSearch {
 			index++;
 		} //end while
 		if (_neighbors[_neighbors.length - 1] != null && !_byRadius) { 
-			_radius = _point.calculateDistance(_neighbors[_neighbors.length - 1].getComparable().getPoint());
+			_radius = _point.dist(_neighbors[_neighbors.length - 1].getComparable().getPoint());
 		}
 		
 	} //end insertIntoNeighbors()

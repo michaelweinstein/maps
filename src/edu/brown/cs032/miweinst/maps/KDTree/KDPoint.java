@@ -14,10 +14,14 @@ public class KDPoint implements KDComparable {
 		_z = z;
 	}
 	
-	public double calculateDistance(KDPoint p) {
-		return java.lang.Math.sqrt(java.lang.Math.pow((_x - p.getX()),2.0) 
-								 + java.lang.Math.pow((_y - p.getY()),2.0)
-								 + java.lang.Math.pow((_z - p.getZ()),2.0));
+	public double dist2(KDPoint p) {
+		return Math.pow((_x - p.getX()),2.0) 
+			   + Math.pow((_y - p.getY()),2.0)
+			   + Math.pow((_z - p.getZ()),2.0);
+	}
+	
+	public double dist(KDPoint p) {
+		return Math.sqrt(this.dist2(p));
 	}
 	
 	public double getCoordinateInDimension(int dim) {
