@@ -1,5 +1,7 @@
 package edu.brown.cs032.miweinst.maps.KDTree;
 
+import edu.brown.cs032.miweinst.maps.util.LatLng;
+
 
 /*
  * the readme contains a description of how the neighbor
@@ -23,6 +25,17 @@ public class NeighborSearch {
 		_radius = r;
 		
 		if (!_byRadius) _radius = Double.MAX_VALUE;
+	}
+	
+	/*
+	 * Wrapper constructor if we want the closest neighbor to the given LatLng
+	 */
+	public NeighborSearch(LatLng ll) {
+		_point = new KDPoint(ll.lat,ll.lng,0.0);
+		_neighbors = new KDTreeNode[1];
+		_byRadius = false;
+		_byName = false;
+		_radius = Double.MAX_VALUE;
 	}
 	
 	public KDTreeNode[] nearestNeighbors(KDTreeNode n) {
