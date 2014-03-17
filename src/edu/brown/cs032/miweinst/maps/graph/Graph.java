@@ -225,6 +225,7 @@ public class Graph<N, E> {
 	 * Returns the GraphNode opposite from specified 
 	 * GraphNode n on the specified GraphEdge edge.
 	 */
+	@SuppressWarnings("unchecked")
 	public GraphNode<N> opposite(GraphNode<N> n, GraphEdge<E> edge) {
 		GraphNode<N> opposite = null;
 		if (n != null && edge != null) {
