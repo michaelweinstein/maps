@@ -43,5 +43,41 @@ public class App {
 			e.printStackTrace();
 		}
 	}
-
+	
+/*	public static void printPath(Graph<String, String> g, ArrayDeque<GraphNode<String>> path, String src, String dst) {
+		try {		
+			if (path != null) {
+				if (path.size() > 1) {
+					GraphNode<String> n1 = path.pop();
+					GraphNode<String> n2 = path.pop();
+					String a1 = BinarySearchUtil.idToActor(n1.getElement());
+					String a2 = BinarySearchUtil.idToActor(n2.getElement());
+					GraphEdge<String> edge = g.getEdge(n1, n2);
+					String film = BinarySearchUtil.idToFilm(edge.getElement());				
+					while (!path.isEmpty()) {				
+						//print line
+						System.out.println(a1 + " -> " + a2 + " : " + film);					
+						n1 = n2;
+						n2 = path.pop();
+						a1 = a2;					
+						a2 = BinarySearchUtil.idToActor(n2.getElement());				
+						edge = g.getEdge(n1, n2);
+						film = BinarySearchUtil.idToFilm(edge.getElement());
+					}
+					edge = g.getEdge(n1, n2);
+					film = BinarySearchUtil.idToFilm(edge.getElement());
+					//print line
+					System.out.println(a1 + " -> " + a2 + " : " + film);
+				}
+				//EDGE CASE: no path between actors was found
+				else 
+					System.out.println(src + " -/- " + dst);
+			}
+			//EDGE CASE: actors names can't be found
+			else 
+				System.out.println("ERROR: GraphBuilder.buildGraphFromNames actor1 or 2 cannot find ID");
+		} catch (IOException e) {
+			System.out.println("ERROR: IOException in App.printPath; invalid idToActor conversion");
+		}
+	}*/
 }

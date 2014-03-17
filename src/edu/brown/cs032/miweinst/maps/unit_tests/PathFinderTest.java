@@ -1,5 +1,7 @@
 package edu.brown.cs032.miweinst.maps.unit_tests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -19,18 +21,19 @@ public class PathFinderTest {
 	@Test
 	public void pathFinderTest() 
 	{
-////
-		//SET BINARY HELPER FILES (full-sized files?)
-		setFullBinaryHelperFiles();
-		
+		/**
+		 * Makes sure PathFinder runs successfully on large tsv files.
+		 * STILL NEED EXAMPLE TO TEST AGAINST, WAITING FOR SYSTEM TESTS.
+		 */
+		setFullBinaryHelperFiles();	
 		String startId = "/n/4017.7374.527767851";
 		String endId = "/n/4018.7373.527767859";
-		
 		Graph<MapNode, Way> g = new Graph<MapNode, Way>();
 		MapNode startNode = BinaryHelper.makeMapNode(startId);
-		MapNode endNode = BinaryHelper.makeMapNode(endId);
-		
+		MapNode endNode = BinaryHelper.makeMapNode(endId);	
 		ArrayDeque<GraphNode<MapNode>> path = PathFinder.buildGraphFromNames(g, startNode, endNode);
+		assertTrue(path.size() == 6);
+		assertTrue(g.size() == 11);
 	}
 	
 	//Helper method

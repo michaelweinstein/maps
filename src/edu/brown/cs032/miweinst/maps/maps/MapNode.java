@@ -22,18 +22,31 @@ public class MapNode implements KDComparable {
 		return waysList.split(",");
 	}
 	
-	
-	@Override
-	public String toString() {
-		String s = "MapNode. id: " + this.id + ", lat: " + this.loc.lat + ", long: " + this.loc.lng;
-		return s;
-	}
-	
 	/*
 	 * this method is overkill since our LatLng is public,
 	 * but it allows us to store MapNodes in the KDTree
 	 */
 	public KDPoint getPoint() {
 		return new KDPoint(this.loc.lat,this.loc.lng,0.0);
+	}
+	
+	/* HOLY TRINITY */
+	@Override
+	public String toString() {
+		String s = "MapNode. id: " + this.id + ", lat: " + this.loc.lat + ", long: " + this.loc.lng;
+		return s;
+	}
+	/** Returns true if MapNode ids are equals */
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) return true;
+		if (!(o instanceof MapNode)) return false;
+		MapNode x = (MapNode) o;
+		return this.id.equals(x.id);
+	}
+	/** Returns hash code of loc LatLng, which should be unique.*/
+	@Override
+	public int hashCode() {
+		return loc.hashCode();
 	}
 }
