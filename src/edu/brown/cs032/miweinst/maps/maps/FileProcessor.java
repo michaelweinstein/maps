@@ -32,10 +32,12 @@ public class FileProcessor {
 		String id = curr[idIndex];
 		//while we haven't reached the last line, read the next
 		//line and create a node from its data
-		while(id.compareTo(last_line[idIndex]) != 0) {
+		while(id.compareTo(last_line[idIndex]) != 0) { 
 			float lat = Float.parseFloat(curr[latIndex]);
 			float lon = Float.parseFloat(curr[longIndex]);
-			MapNode newNode = new MapNode(curr[idIndex],lat,lon,curr[waysIndex]);
+			String ways = null;
+			if (curr.length - 1 > waysIndex) ways = curr[waysIndex];
+			MapNode newNode = new MapNode(curr[idIndex],lat,lon,ways);
 			nodes.add(newNode);
 			curr = _nodesFile.readNextLine().split("\t");
 			id = curr[idIndex];

@@ -18,6 +18,7 @@ public class MapNode implements KDComparable {
 	}
 
 	private static String[] generateWays(String waysList) {
+		if (waysList == null) return new String[0];
 		return waysList.split(",");
 	}
 	@Override
