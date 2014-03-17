@@ -3,6 +3,8 @@ package edu.brown.cs032.miweinst.maps.maps;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
+
 public class FileProcessor {
 
 	private MapsFile _nodesFile, _indexFile, _waysFile;
@@ -17,7 +19,7 @@ public class FileProcessor {
 	 * reads through each line of the nodes file and creates
 	 * an array of MapNodes holding every node in the array
 	 */
-	public MapNode[] nodesArray() throws IOException {
+	public MapNode[] nodesArrayForKDTree() throws IOException {
 		ArrayList<MapNode> nodes = new ArrayList<MapNode>();
 		
 		//get necessary indices
@@ -34,10 +36,12 @@ public class FileProcessor {
 		String id = curr[idIndex];
 		//while we haven't reached the last line, read the next
 		//line and create a node from its data
-		while(id.compareTo(last_line[idIndex]) != 0) {
+		while(id.compareTo(last_line[idIndex]) != 0) { 
 			float lat = Float.parseFloat(curr[latIndex]);
 			float lon = Float.parseFloat(curr[longIndex]);
-			MapNode newNode = new MapNode(curr[idIndex],lat,lon,curr[waysIndex]);
+			String ways = null;
+			if (curr.length - 1 > waysIndex) ways = curr[waysIndex];
+			MapNode newNode = new MapNode(curr[idIndex],lat,lon,ways);
 			nodes.add(newNode);
 			curr = _nodesFile.readNextLine().split("\t");
 			id = curr[idIndex];

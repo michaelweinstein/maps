@@ -63,6 +63,9 @@ public class PathFinder {
 			else {		
 				//remove lowest-distance node
 				currNode = pq.poll();
+////				
+				System.out.println(currNode.getElement().id + " currNode.isExplored: " + currNode.isExplored());
+				
 				//get id of curr node
 				MapNode currMapNode = currNode.getElement();
 
@@ -74,7 +77,7 @@ public class PathFinder {
 				for (Way way: ways) {	
 					
 					//get list of actors in film
-					MapNode[] endNodes = BinaryHelper.wayToEndNodes(way);	
+					MapNode[] endNodes = BinaryHelper.wayToEndNodes(way.id);	
 					
 					//for each actor in film, other than actor1
 //					for (MapNode id: endNodes) {	
@@ -137,7 +140,10 @@ public class PathFinder {
 //						}
 					}
 //					}
-				}						
+				}					
+/////
+				System.out.println("SET EXPLORED: " + pq.size());
+				
 				/* Recursive Step */
 				currNode.setExplored(true);
 				//recursive step from new actor to same actor2					

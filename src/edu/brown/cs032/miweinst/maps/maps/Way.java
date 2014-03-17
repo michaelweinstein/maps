@@ -26,11 +26,11 @@ public class Way {
 	
 	
 	private static int getSegFromId(String id) {
-		String[] id_array = id.split(".");
+		String[] id_array = id.split("\\.");
 		return Integer.parseInt(id_array[3]);
 	}
 	private static int getDirFromId(String id) {
-		String[] id_array = id.split(".");
+		String[] id_array = id.split("\\.");
 		return Integer.parseInt(id_array[4]);
 	}
 

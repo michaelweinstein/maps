@@ -11,7 +11,6 @@ public class KDTree {
 		_root = new KDTreeNode();
 		_root.setRoot(true);
 		if (array.length > 0) this.buildTree(_root, array, 0, array.length);
-		System.out.println("ready");
 	}
 	/*
 	 * the input array is sorted along the first dimension and then recursive
