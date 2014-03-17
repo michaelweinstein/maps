@@ -36,9 +36,9 @@ public class PathFinderTest {
 	//Helper method
 	private void setFullBinaryHelperFiles() {
 		try {
-			MapsFile ways = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/ways.tsv");
-			MapsFile nodes = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/nodes.tsv");
-			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/index.tsv");
+			MapsFile ways = new MapsFile("/course/cs032/data/maps/ways.tsv");
+			MapsFile nodes = new MapsFile("/course/cs032/data/maps/nodes.tsv");
+			MapsFile index = new MapsFile("/course/cs032/data/maps/nodes.tsv");
 			BinaryHelper.setFiles(ways, nodes, index);
 		} catch (FileNotFoundException e) {
 			System.out.println("PathFinderTest.setFullBinaryHelperFiles FileNotFoundException");
