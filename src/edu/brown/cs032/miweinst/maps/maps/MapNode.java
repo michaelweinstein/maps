@@ -18,6 +18,8 @@ public class MapNode {
 	private static String[] generateWays(String waysList) {
 		return waysList.split(",");
 	}
+	
+	
 	@Override
 	public String toString() {
 		String s = "MapNode. id: " + this.id + ", lat: " + this.loc.lat + ", long: " + this.loc.lng;

@@ -13,6 +13,10 @@ public class FileProcessor {
 		_waysFile = w;
 	}
 	
+	/**
+	 * reads through each line of the nodes file and creates
+	 * an array of MapNodes holding every node in the array
+	 */
 	public MapNode[] nodesArray() throws IOException {
 		ArrayList<MapNode> nodes = new ArrayList<MapNode>();
 		
