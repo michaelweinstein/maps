@@ -3,6 +3,8 @@ package edu.brown.cs032.miweinst.maps.maps;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
+
 public class FileProcessor {
 
 	private MapsFile _nodesFile, _indexFile, _waysFile;
@@ -13,7 +15,7 @@ public class FileProcessor {
 		_waysFile = w;
 	}
 	
-	public KDTreeNode[] nodesArrayForKDTree() throws IOException {
+	public MapNode[] nodesArrayForKDTree() throws IOException {
 		ArrayList<MapNode> nodes = new ArrayList<MapNode>();
 		
 		//get necessary indices

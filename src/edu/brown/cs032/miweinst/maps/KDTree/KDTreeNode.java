@@ -59,7 +59,7 @@ public class KDTreeNode {
 
 	public KDPoint getPoint() { return _split; }
 	
-	public int getDimension() { return ((_depth % 3) + 1); }
+	public int getDimension() { return ((_depth % 2) + 1); }
 	
 	public void inheritSplit(KDTreeNode n) {
 		double x = n.getPoint().getX();
