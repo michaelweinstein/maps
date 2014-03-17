@@ -64,7 +64,7 @@ public class PathFinder {
 				//remove lowest-distance node
 				currNode = pq.poll();
 ////				
-				System.out.println(currNode.getElement().id + " currNode.isExplored: " + currNode.isExplored());
+//				System.out.println(currNode.getElement().id + " currNode.isExplored: " + currNode.isExplored());
 				
 				//get id of curr node
 				MapNode currMapNode = currNode.getElement();
@@ -84,31 +84,37 @@ public class PathFinder {
 					
 					//endNodes[0] == currNode
 					//for endnode of each way
-					MapNode endMapNode = endNodes[1];
+					MapNode nextMapNode = endNodes[1];
+					
+///////
+//					System.out.println("nextMapNode: " + nextMapNode.id);
 					
 					//explore if node is not yet created or unexplored
 					boolean explore = false;
 					//get GraphNode containing endMapNode, if one exists
-					GraphNode<MapNode> node = g.getNode(endMapNode);
+					GraphNode<MapNode> node = g.getNode(nextMapNode);
+////////					
+//					System.out.println("node: " + node);
+					
 					if (node == null) 
 						explore = true;
 					else if (!node.isExplored()) 
 						explore = true;	
 					
 					//if endMapNode != currMapNode and endMapNode not yet explored
-					if (!endMapNode.equals(currMapNode) && explore) {	
+					if (!nextMapNode.equals(currMapNode) && explore) {	
 						
 //						String currName = BinarySearchUtil.idToActor(currMapNode);
 //						String name = BinarySearchUtil.idToActor(endMapNode);						
 						//if actor is related to actor1 (pass in names, not ids)
 //						if (isRelated(currName, name)) {		
 						
-						/*Get node or create new node */							
+						/*Get node or create new node */			
 						//get or create node with endMapNode
 						if (node == null)
 							//create new node in graph with connected endMapNode
-							node = g.insertNode(endMapNode);
-
+							node = g.insertNode(nextMapNode);
+												
 						/*Create new edge if lower weight than any current edge*/ 							
 						//insertLowestWeightEdge from actor1 to actor; if Edge already exists, keep edge with lowest weight
 						GraphEdge<Way> newEdge = g.insertLowestWeightEdge(currNode, node, way, calculateEdgeWeight(currNode, node));
@@ -125,7 +131,7 @@ public class PathFinder {
 						pq.add(node);
 						
 						/* If target actor has been reached! */
-						if (endMapNode.equals(dstNode)) {		
+						if (nextMapNode.equals(dstNode)) {		
 							//populate path using prev pointers
 							GraphNode<MapNode> n = node;
 							path.push(n);
@@ -142,7 +148,7 @@ public class PathFinder {
 //					}
 				}					
 /////
-				System.out.println("SET EXPLORED: " + pq.size());
+//				System.out.println("SET EXPLORED: " + pq.size());
 				
 				/* Recursive Step */
 				currNode.setExplored(true);

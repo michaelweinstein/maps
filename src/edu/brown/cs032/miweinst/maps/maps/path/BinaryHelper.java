@@ -46,7 +46,7 @@ public class BinaryHelper {
 			String start = node.id;
 			String[] newCols = {"end"};
 //////		
-			System.out.println("looking for id: " + id + " in small ways.tsv (Binaryhelper.nodeToWayArr)");
+//			System.out.println("looking for id: " + id + " in small ways.tsv (Binaryhelper.nodeToWayArr)");
 			
 			String[] end = ways.search(id, "id", newCols);
 			waysArr[i] = new Way(id, start, end[0]);
