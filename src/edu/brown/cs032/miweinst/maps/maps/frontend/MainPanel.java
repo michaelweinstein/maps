@@ -10,17 +10,18 @@ import javax.swing.JPanel;
 public class MainPanel extends JPanel {
 	
 	private Dimension _size;
+	private InputPanel _inputPanel;
 	
 	public MainPanel(Dimension defaultSize) {
 		_size = defaultSize;
 		
 		DrawingPanel dp = new DrawingPanel(this);
-		InputPanel ip = new InputPanel(this);
+		_inputPanel = new InputPanel(this);
 		
 		//add panels to border layout
 		this.setLayout(new BorderLayout());
 		this.add(dp, BorderLayout.EAST);
-		this.add(ip, BorderLayout.WEST);
+		this.add(_inputPanel, BorderLayout.WEST);
 		
 		//sets size and background color of MainPanel
 		this.setPreferredSize(defaultSize);
@@ -36,4 +37,9 @@ public class MainPanel extends JPanel {
 	public final Dimension getSize() {
 		return _size;
 	}
+	
+	public InputPanel getInputPanel() {
+		return _inputPanel;
+	}
+	
 }

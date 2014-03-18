@@ -10,6 +10,7 @@ import edu.brown.cs032.miweinst.maps.KDTree.KDPoint;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
 import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
+import edu.brown.cs032.miweinst.maps.autocorrect.Autocorrect;
 import edu.brown.cs032.miweinst.maps.autocorrect.DictionaryGenerator;
 import edu.brown.cs032.miweinst.maps.graph.Graph;
 import edu.brown.cs032.miweinst.maps.graph.GraphEdge;
@@ -19,6 +20,7 @@ import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 import edu.brown.cs032.miweinst.maps.maps.Way;
 import edu.brown.cs032.miweinst.maps.maps.frontend.GUIFrame;
+import edu.brown.cs032.miweinst.maps.maps.frontend.InputPanel;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
 import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
@@ -26,6 +28,7 @@ import edu.brown.cs032.miweinst.maps.util.LatLng;
 public class App {
 
 	private static FileProcessor _fp = null;
+	private static Autocorrect _autocorrect = null;
 
 	public App(String[] args) {
 		//EDGE CASE: wrong number of args; exits
@@ -68,7 +71,10 @@ public class App {
 
 		//if args.length == 4 && args[0].equals("--gui")
 		if (gui) {
-			new GUIFrame();
+			GUIFrame guiFrame = new GUIFrame();
+			String filepath = System.getProperty("user.dir") + 
+							  "/src/edu/brown/cs032/miweinst/maps/autocorrect/autocorrect_dictionary.txt";
+			_autocorrect = Autocorrect.makeAutocorrect(filepath);
 		}
 		//if args.length == 3 (otherwise it would've been caught at top of constructor)
 		else {
@@ -185,4 +191,11 @@ public class App {
 		else 
 			System.out.println("ERROR: " + "One of the node IDs cannot be found.");
 	}
-}
+	
+	private void autocorrect(GUIFrame gui, Autocorrect autocorrect) {
+		InputPanel ip = gui.getMainPanel().getInputPanel();
+		
+	}
+	
+} //end class
+

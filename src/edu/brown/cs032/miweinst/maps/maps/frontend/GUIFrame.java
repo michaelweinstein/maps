@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class GUIFrame extends JFrame {
 
+	private MainPanel _mainPanel;
+	
 	public GUIFrame() {
 		super("Maps");
 		
@@ -17,11 +19,13 @@ public class GUIFrame extends JFrame {
 		this.setSize(w, h);
 		this.setPreferredSize(defaultSize);
 		
-		MainPanel mp = new MainPanel(defaultSize);
-		this.add(mp);
+		_mainPanel = new MainPanel(defaultSize);
+		this.add(_mainPanel);
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(true);
 	}
+	
+	public MainPanel getMainPanel() { return _mainPanel; }
 }
