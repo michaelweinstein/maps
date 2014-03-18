@@ -51,7 +51,7 @@ public class App {
 				nodesPath = args[2];
 				indexPath = args[3];
 			}
-			else 
+		else 
 				System.out.println("ERROR: If 4 arguments, first argument must be '--gui'");
 		}
 
