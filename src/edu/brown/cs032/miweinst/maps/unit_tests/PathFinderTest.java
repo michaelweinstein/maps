@@ -8,6 +8,7 @@ import java.util.ArrayDeque;
 
 import org.junit.Test;
 
+import edu.brown.cs032.miweinst.maps.App;
 import edu.brown.cs032.miweinst.maps.graph.Graph;
 import edu.brown.cs032.miweinst.maps.graph.GraphNode;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
@@ -34,9 +35,14 @@ public class PathFinderTest {
 		ArrayDeque<GraphNode<MapNode>> path = PathFinder.buildGraphFromNames(g, startNode, endNode);
 		assertTrue(path.size() == 6);
 		assertTrue(g.size() == 11);
+		
+////	Tests output specification in console
+		App.printPath(g, path, startId, endId);
 	}
 	
+	
 	//Helper method
+	/*Sets BinaryHelper files to large tsv files (NOT test files)*/
 	private void setFullBinaryHelperFiles() {
 		try {
 			MapsFile ways = new MapsFile("/course/cs032/data/maps/ways.tsv");

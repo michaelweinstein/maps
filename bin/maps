@@ -1,0 +1,6 @@
+#!/bin/bash
+
+java -cp derived/maps.jar edu.brown.cs032.miweinst.maps.Main ${1+"$@"}
+
+#I needed that weird argument at the end because $* wasn't storing 
+	#text between double quotes as a single argument!

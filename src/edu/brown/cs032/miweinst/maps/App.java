@@ -1,83 +1,188 @@
 package edu.brown.cs032.miweinst.maps;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 
+import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
+import edu.brown.cs032.miweinst.maps.KDTree.KDPoint;
+import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
+import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
+import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
 import edu.brown.cs032.miweinst.maps.autocorrect.DictionaryGenerator;
+import edu.brown.cs032.miweinst.maps.graph.Graph;
+import edu.brown.cs032.miweinst.maps.graph.GraphEdge;
+import edu.brown.cs032.miweinst.maps.graph.GraphNode;
+import edu.brown.cs032.miweinst.maps.maps.FileProcessor;
+import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
+import edu.brown.cs032.miweinst.maps.maps.Way;
 import edu.brown.cs032.miweinst.maps.maps.frontend.GUIFrame;
+import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
+import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
+import edu.brown.cs032.miweinst.maps.util.LatLng;
 
 public class App {
-	
+
+	private static FileProcessor _fp = null;
+
 	public App(String[] args) {
 		//EDGE CASE: wrong number of args; exits
-		if (args.length != 3) {
-			System.out.println("ERROR: Expecting 3 args -- ways nodes index");
+		if (args.length < 3 || args.length > 4) {
+			System.out.println("ERROR: Expecting 3 or 4 args -- [--gui] ways nodes index");
 			System.exit(0);
 		}
-		
-		//
-//		BinaryHelper.setFiles(args[0], args[1], args[2]);
-		
-		
-		//if (args.contains("--gui")) {
-		new GUIFrame();
-//		}
-		
-/// I THINK IT'S FINE, WE JUST NEED TO PASS IN args[2] INSTEAD OF HARDCODING
-		/*
-		 * The following generates a dictionary to process for the Trie.
-		 * It's a hack and should probably be changed in the future.
-		 */
-		MapsFile index = null;
+
+		//get default file paths (valid if args.length == 3)
+		String waysPath = args[0];
+		String nodesPath = args[1];
+		String indexPath = args[2];
+
+		//if gui, set boolean and get different file paths
+		boolean gui = false;
+		if (args.length == 4) {
+			if (args[0].equals("--gui")) {
+				gui = true;		
+				waysPath = args[1];
+				nodesPath = args[2];
+				indexPath = args[3];
+			}
+			else 
+				System.out.println("ERROR: If 4 arguments, first argument must be '--gui'");
+		}
+
+		//make MapsFile, set BinaryHelper files and create dictionary for autocorrect
 		try {
-			String curr_directory = System.getProperty("user.dir") + 
-									"/src/edu/brown/cs032/miweinst/maps";
-			index = new MapsFile(curr_directory + "/test/test_data_files/index.tsv");
+			MapsFile ways = new MapsFile(waysPath);
+			MapsFile nodes = new MapsFile(nodesPath);
+			MapsFile index = new MapsFile(indexPath);
+///////		DO WE NEED TO SET REFERENCES TO THESE FILES ANYWHERE ELSE??			
+			BinaryHelper.setFiles(ways, nodes, index);
 			new DictionaryGenerator(index);
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: " + "index file path not valid (FileNotFoundException)");
-			e.printStackTrace();
+///
+			_fp = new FileProcessor(nodes, index, ways);
 		} catch (IOException e) {
-			System.out.println("ERROR: " + "index file path not valid (IOException)");
-			e.printStackTrace();
+			System.out.println("ERROR: " + "File paths not valid!");
+		}
+
+		//if args.length == 4 && args[0].equals("--gui")
+		if (gui) {
+			new GUIFrame();
+		}
+		//if args.length == 3 (otherwise it would've been caught at top of constructor)
+		else {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			if (br != null) {
+				boolean runloop = true;
+				while (runloop) {
+					try {
+						String line = br.readLine();
+						//EDGE CASE: empty user input
+						if (line.trim().isEmpty()) {
+							runloop = false;
+							System.out.println("ERROR: " + "Console input empty -- program exiting");
+						}
+						else {
+							String[] input = line.split(" ");
+							if (input.length == 4) {
+								boolean streetNames = false;
+								//try input 'lat1 lon1 lat2 lon2'
+								try {
+									double lat1 = Double.parseDouble(input[0]);
+									double lng1 = Double.parseDouble(input[1]);
+									double lat2 = Double.parseDouble(input[2]);
+									double lng2 = Double.parseDouble(input[3]);
+									//get nearest node to each LatLng
+									MapNode srcNode = nearestNeighbor(new LatLng(lat1, lng1));
+									MapNode dstNode = nearestNeighbor(new LatLng(lat2, lng2));		
+									//find path between the two nodes
+									Graph<MapNode, Way> g = new Graph<MapNode, Way>();
+									ArrayDeque<GraphNode<MapNode>> path = PathFinder.buildGraphFromNames(g, srcNode, dstNode);
+									//prints output
+									printPath(g, path, srcNode.id, dstNode.id);
+								} catch (NumberFormatException e) {
+									streetNames = true;
+								}
+								//input 'street1 cross-street1 street2 cross-street2'
+								if (streetNames) {
+									String street1 = input[0];
+									String c_street1 = input[1];
+									String street2 = input[2];
+									String c_street2 = input[3];
+///////////////						PROCESS STREET NAMES INPUT
+								}
+							}
+							//EDGE CASE: wrong number of args in user input
+							else {
+								runloop = false;
+								System.out.println("ERROR: " + "Expecting 4 args (lat1 " + 
+										"lon1 lat2 lon2 OR 'Street 1' 'C-Street 1' 'Street 2' 'C-Street 2'");
+							}
+						}
+					} catch (IOException e) {
+						System.out.println("ERROR: " + "Console input cannot be read");
+					}
+				}	
+			}
 		}
 	}
-	
-/*	public static void printPath(Graph<String, String> g, ArrayDeque<GraphNode<String>> path, String src, String dst) {
-		try {		
-			if (path != null) {
-				if (path.size() > 1) {
-					GraphNode<String> n1 = path.pop();
-					GraphNode<String> n2 = path.pop();
-					String a1 = BinarySearchUtil.idToActor(n1.getElement());
-					String a2 = BinarySearchUtil.idToActor(n2.getElement());
-					GraphEdge<String> edge = g.getEdge(n1, n2);
-					String film = BinarySearchUtil.idToFilm(edge.getElement());				
-					while (!path.isEmpty()) {				
-						//print line
-						System.out.println(a1 + " -> " + a2 + " : " + film);					
-						n1 = n2;
-						n2 = path.pop();
-						a1 = a2;					
-						a2 = BinarySearchUtil.idToActor(n2.getElement());				
-						edge = g.getEdge(n1, n2);
-						film = BinarySearchUtil.idToFilm(edge.getElement());
-					}
-					edge = g.getEdge(n1, n2);
-					film = BinarySearchUtil.idToFilm(edge.getElement());
-					//print line
-					System.out.println(a1 + " -> " + a2 + " : " + film);
-				}
-				//EDGE CASE: no path between actors was found
-				else 
-					System.out.println(src + " -/- " + dst);
+
+	/**
+	 * Wrapper method for getting the nearest neighbor to a LatLng. 
+	 * Used to find nearest nodes to LatLng inputted by user.
+	 */
+	public static MapNode nearestNeighbor(LatLng latlng) throws IOException {
+		if (_fp != null) {
+			MapNode[] kdnodes_arr = _fp.nodesArrayForKDTree();
+			KDTree tree = new KDTree(kdnodes_arr);
+			NeighborSearch ns = new NeighborSearch(latlng);
+			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(tree.getRoot());
+			KDComparable mapnode = neighbor_arr[0].getComparable();
+
+/////////	WE SHOULDN'T USE INSTANCEOF; NEED A NEW WAY TO GET MAPNODE
+			if (mapnode instanceof MapNode) {
+				return (MapNode) mapnode;
 			}
-			//EDGE CASE: actors names can't be found
-			else 
-				System.out.println("ERROR: GraphBuilder.buildGraphFromNames actor1 or 2 cannot find ID");
-		} catch (IOException e) {
-			System.out.println("ERROR: IOException in App.printPath; invalid idToActor conversion");
+			else {
+				System.out.println("KDTreeNode.getComparable is NOT a MapNode (App.nearestNeighbor)");
+				return null;
+			}
 		}
-	}*/
+		else {
+			System.out.println("This shouldn't be happening! (App.nearestNeighbor)");
+			return null;
+		}
+	}
+
+	/**
+	 * Console output according to assignment specifications.
+	 */
+	public static void printPath(Graph<MapNode, Way> g, ArrayDeque<GraphNode<MapNode>> path, String srcId, String dstId) {
+		if (path != null) {
+			if (path.size() > 1) {
+				GraphNode<MapNode> n1 = path.pop();
+				GraphNode<MapNode> n2 = path.pop();
+				GraphEdge<Way> edge = g.getEdge(n1, n2);
+				while (!path.isEmpty()) {				
+					//print line
+					System.out.println(n1.getElement().id + " -> " + n2.getElement().id + 
+							" : " + edge.getElement().id);					
+					n1 = n2;
+					n2 = path.pop();			
+					edge = g.getEdge(n1, n2);
+				}
+				edge = g.getEdge(n1, n2);
+				//print line
+				System.out.println(n1.getElement().id + " -> " + n2.getElement().id + 
+						" : " + edge.getElement().id);
+			}
+			//EDGE CASE: no path between nodes was found
+			else 
+				System.out.println(srcId + " -/- " + dstId);
+		}
+		//EDGE CASE: node ids could not be found in PathFinder
+		else 
+			System.out.println("ERROR: " + "One of the node IDs cannot be found.");
+	}
 }
