@@ -10,11 +10,13 @@ import org.junit.Test;
 import edu.brown.cs032.miweinst.maps.maps.FileProcessor;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
+import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.util.LatLng;
 
 public class FileProcessorTest {
 
 	@Test
-	public void test() {
+	public void testNodesForKDTree() {
 		boolean pass = false;
 		try {
 			MapsFile nodes = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/nodes.tsv");
@@ -29,10 +31,31 @@ public class FileProcessorTest {
 				pass = true;
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertTrue(pass);
+	}
+	
+	@Test
+	public void testNodesForGUI() {
+		System.out.println("ready");
+		boolean pass = false;
+		try {
+			MapsFile nodes = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/nodes.tsv");
+			MapsFile index = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/index.tsv");
+			MapsFile ways = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/ways.tsv");
+			FileProcessor fp = new FileProcessor(nodes,index,ways);
+			MapNode[] nodes_array = fp.getNodesForGUI(new LatLng(40.3734759, -73.5618164), .109);
+			if (nodes_array[0].toString().compareTo("MapNode. id: /n/4036.7370.527767926, lat: 40.3655087, long: -73.7098019") == 0 &&
+				nodes_array[nodes_array.length - 1].toString().compareTo("MapNode. id: /n/4037.7356.527767972, lat: 40.3734759, long: -73.5618164") == 0)
+			{
+				pass = true;
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		assertTrue(pass);

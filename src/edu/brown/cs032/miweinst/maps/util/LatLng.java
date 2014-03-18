@@ -1,5 +1,7 @@
 package edu.brown.cs032.miweinst.maps.util;
 
+import java.math.BigDecimal;
+
 public final class LatLng {
 	
 	public final double lat;
@@ -32,6 +34,26 @@ public final class LatLng {
 		return Math.pow(other.lat - this.lat, 2) + Math.pow(other.lng - this.lng, 2);
 	}	
 
+	/*
+	 * determines if the input lat is
+	 * within diff degrees of ll.lat
+	 */
+	public static boolean isWithinLat(double lat, LatLng ll, double diff) {
+		BigDecimal bd1 = new BigDecimal(Math.abs(lat - ll.lat));
+		BigDecimal bd2 = new BigDecimal(diff);
+		//return (Double.compare(Math.abs(lat - ll.lat), diff) <= 0);
+		return (bd1.compareTo(bd2) <= 0);
+	}
+	
+	/*
+	 * determines if the input lng is
+	 * within diff degrees of ll.lng
+	 */
+	public static boolean isWithinLng(double lng, LatLng ll, double diff) {
+		return (Double.compare(Math.abs(lng - ll.lng), diff) <= 0);
+	}
+	
+	
 	/* PRIVATE METHODS */
 	private static double checkLatitude(double lat) {
 		if (lat < -90.0 || lat > 90.0) 

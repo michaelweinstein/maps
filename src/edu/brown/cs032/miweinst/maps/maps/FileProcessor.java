@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
+import edu.brown.cs032.miweinst.maps.util.LatLng;
 
 public class FileProcessor {
 
@@ -25,7 +26,7 @@ public class FileProcessor {
 		//get necessary indices
 		int idIndex = _nodesFile.getFieldIndex("id");
 		int latIndex = _nodesFile.getFieldIndex("latitude");
-		int longIndex = _nodesFile.getFieldIndex("longitude");
+		int lngIndex = _nodesFile.getFieldIndex("longitude");
 		int waysIndex = _nodesFile.getFieldIndex("ways");
 		
 		//read the last line first for its id
@@ -38,16 +39,138 @@ public class FileProcessor {
 		//line and create a node from its data
 		while(id.compareTo(last_line[idIndex]) != 0) { 
 			float lat = Float.parseFloat(curr[latIndex]);
-			float lon = Float.parseFloat(curr[longIndex]);
+			float lng = Float.parseFloat(curr[lngIndex]);
 			String ways = null;
 			if (curr.length - 1 > waysIndex) ways = curr[waysIndex];
-			MapNode newNode = new MapNode(curr[idIndex],lat,lon,ways);
+			MapNode newNode = new MapNode(curr[idIndex],lat,lng,ways);
 			nodes.add(newNode);
 			curr = _nodesFile.readNextLine().split("\t");
 			id = curr[idIndex];
 		}
 		return nodes.toArray(new MapNode[nodes.size()]);
 	} 
+
+	/*
+	 * looks through ways file and finds all ways that are within
+	 * constraint degrees from the input LatLng
+	 * input 'll' is intended to be the center of the bounding box
+	 * input 'constraint' is intended to be the length of the 
+	 * diagonal of the bounding box, in degrees
+	 */
+/*
+	public Way[] getWaysForGUI(LatLng ll, double constraint) throws IOException {
+		ArrayList<Way> ways = new ArrayList<Way>();
+		
+		int idIndex = _waysFile.getFieldIndex("id");
+		int startIndex = _waysFile.getFieldIndex("start");
+		int endIndex = _waysFile.getFieldIndex("end");
+		//read the last line first for its id
+		//so we know when we've reached it in our while loop
+		String[] last_line = _waysFile.readLastLine().split("\t");
+		
+		_waysFile.readFirstLine();
+		String curr[] = _waysFile.readNextLine().split("\t");
+		String id = curr[idIndex];
+		//while we haven't reached the last line, read next line
+		//break when we see a way within the area we are loading
+		while (id.compareTo(last_line[idIndex]) != 0) { 
+			if (Way.isWithinLat(id,ll,constraint)) {
+				ways.add(new Way(id, curr[startIndex], curr[endIndex]));
+				break;
+			}
+			curr = _waysFile.readNextLine().split("\t");
+			id = curr[idIndex];
+		}
+		//while we are within our bounding lat, iterate through and add
+		//if we are also within our bounding lng
+		while (Way.isWithinLat(id,ll,constraint) && id.compareTo(last_line[idIndex]) != 0) {
+			if (Way.isWithinLng(id,ll,constraint)) {
+				ways.add(new Way(id, curr[startIndex], curr[endIndex]));
+			}
+			curr = _waysFile.readNextLine().split("\t");
+			id = curr[idIndex];
+		}
+		//handle last last separately
+		if (Way.isWithinLat(last_line[idIndex],ll,constraint) && Way.isWithinLng(last_line[idIndex],ll,constraint)) {
+			ways.add(new Way(last_line[idIndex], last_line[startIndex], last_line[endIndex]));
+		}
+		
+		return ways.toArray(new Way[ways.size()]);
+	}
+*/
+	
+	/*
+	 * looks through nodes file and finds all nodes that are within
+	 * constraint degrees from the input LatLng
+	 * input 'll' is intended to be the center of the bounding box
+	 * input 'constraint' is intended to be the length of the 
+	 * diagonal of the bounding box, in degrees
+	 */
+	public MapNode[] getNodesForGUI(LatLng ll, double constraint) throws IOException {
+		ArrayList<MapNode> nodes = new ArrayList<MapNode>();
+		
+		int idIndex = _nodesFile.getFieldIndex("id");
+		int latIndex = _nodesFile.getFieldIndex("latitude");
+		int lngIndex = _nodesFile.getFieldIndex("longitude");
+		int waysIndex = _nodesFile.getFieldIndex("ways");
+		
+		//read the last line first for its id
+		//so we know when we've reached it in our while loop
+		String[] last_line = _nodesFile.readLastLine().split("\t");
+		
+		_nodesFile.readFirstLine();
+		
+		String curr[] = _nodesFile.readNextLine().split("\t");
+		String id = curr[idIndex];
+		double lat = Double.parseDouble(curr[latIndex]);
+		double lng = Double.parseDouble(curr[lngIndex]);
+		//while we haven't reached the last line, read next line
+		//break when we see a node with latitude within the area we are loading
+		while (id.compareTo(last_line[idIndex]) != 0) { 
+			if (LatLng.isWithinLat(lat,ll,constraint)) { //if lat is within constraint, break
+				if (LatLng.isWithinLng(lng,ll,constraint)) { //if lng is within constraint, make a node before breaking
+					nodes.add(new MapNode(id, lat, lng,curr[waysIndex]));
+					System.out.println("FIRST WHILE: " + new MapNode(id, lat, lng,curr[waysIndex]).toString());
+				} //end nested if
+				break;
+			}
+			curr = _nodesFile.readNextLine().split("\t");
+			id = curr[idIndex];
+			lat = Double.parseDouble(curr[latIndex]);
+			lng = Double.parseDouble(curr[lngIndex]);
+		}
+		//while we are within our bounding lat, iterate through and add
+		//if we are also within our bounding lng
+		curr = _nodesFile.readNextLine().split("\t");
+		id = curr[idIndex];
+		lat = Double.parseDouble(curr[latIndex]);
+		lng = Double.parseDouble(curr[lngIndex]);
+		//while we are within the constraint of the lat and we are not at the last line:
+		while (LatLng.isWithinLat(lat,ll,constraint) && id.compareTo(last_line[idIndex]) != 0) {
+			lat = Double.parseDouble(curr[latIndex]);
+			lng = Double.parseDouble(curr[lngIndex]);
+			//System.out.println(lat + "," + lng);
+			if (LatLng.isWithinLng(lng,ll,constraint)) { //if lng is within constraint, create a node and add it
+				nodes.add(new MapNode(id,lat,lng,curr[waysIndex]));
+				System.out.println("SECOND WHILE: " + new MapNode(id, lat, lng,curr[waysIndex]).toString());
+			}
+			curr = _nodesFile.readNextLine().split("\t");
+			id = curr[idIndex];
+		}
+		//handle last node separately
+		lat = Double.parseDouble(last_line[latIndex]);
+		lng = Double.parseDouble(last_line[lngIndex]);
+		if (LatLng.isWithinLat(lat,ll,constraint) && LatLng.isWithinLng(lng,ll,constraint)) {
+			System.out.println(new MapNode(last_line[idIndex], lat, lng, last_line[waysIndex]).toString());
+			nodes.add(new MapNode(last_line[idIndex], lat, lng, last_line[waysIndex]));
+		}
+		
+		return nodes.toArray(new MapNode[nodes.size()]);
+	}
+	
+	
+	
+	
 	
 	
 }

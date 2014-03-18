@@ -17,6 +17,21 @@ public class BoundingBox {
 		return false;
 	}
 	
+	/*
+	 * returns the center point of bounding box as a LatLng 
+	 */
+	public LatLng getCenter() {
+		double lat = (_northwest.lat + _southeast.lat)/2;
+		double lng = (_northwest.lng + _southeast.lng)/2;
+		return new LatLng(lat,lng);
+	}
+	/*
+	 * returns length of diagonal in degerees
+	 */
+	public double getDiagonalLength() {
+		return _northwest.dist2(_southeast);
+	}
+	
 	public LatLng getNorthwest() {
 		return _northwest;
 	}
