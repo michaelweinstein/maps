@@ -38,11 +38,8 @@ public final class LatLng {
 	 * determines if the input lat is
 	 * within diff degrees of ll.lat
 	 */
-	public static boolean isWithinLat(double lat, LatLng ll, double diff) {
-		BigDecimal bd1 = new BigDecimal(Math.abs(lat - ll.lat));
-		BigDecimal bd2 = new BigDecimal(diff);
-		//return (Double.compare(Math.abs(lat - ll.lat), diff) <= 0);
-		return (bd1.compareTo(bd2) <= 0);
+	public boolean isWithinRadius(LatLng other, double radius) {
+		return (this.dist(other) <= radius);
 	}
 	
 	/*

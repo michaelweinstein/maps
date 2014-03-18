@@ -12,12 +12,12 @@ public class LatLngTest {
 	public void test() {
 		boolean pass = false;
 		LatLng ll1 = new LatLng(40.105, -70.105);
-		LatLng ll2 = new LatLng(41.101, -71.101);
+		LatLng ll2 = new LatLng(40.101, -70.105);
 		if (ll1.equals(ll1) &&
 			!ll1.equals(ll2) &&
 			ll1.hashCode() != ll2.hashCode() &&
-			LatLng.isWithinLat(40.106, ll1, .0011) &&
-			!LatLng.isWithinLat(40.106, ll2, .1))
+			ll1.isWithinRadius(ll2, .004) &&
+			!ll1.isWithinRadius(ll2, .001))
 		{
 			pass = true;
 		}

@@ -53,7 +53,7 @@ public class MapsFile extends RandomAccessFile {
 	 */	
 	public String readNextLine() throws IOException {
 
-		String returnStr = null;
+	  String returnStr = null;
 	  try {
 		this.findNextBreakLine();
 		
@@ -124,7 +124,7 @@ public class MapsFile extends RandomAccessFile {
 			} //end for
 		}
 	}
-	
+
 	/*
 	 * this reads byte-by-byte from disk, but since we only
 	 * run it once (and cache result), it will not 
