@@ -45,9 +45,6 @@ public class BinaryHelper {
 			String id = waysIdArr[i];
 			String start = node.id;
 			String[] newCols = {"end"};
-//////		
-//			System.out.println("looking for id: " + id + " in small ways.tsv (Binaryhelper.nodeToWayArr)");
-			
 			String[] end = ways.search(id, "id", newCols);
 			waysArr[i] = new Way(id, start, end[0]);
 		}
@@ -67,5 +64,14 @@ public class BinaryHelper {
 		endnodes[0] = makeMapNode(startend[0]);
 		endnodes[1] = makeMapNode(startend[1]);
 		return endnodes;
+	}
+	
+/////// 	MICHAEL WILL FILL THIS IN
+	/**
+	 * Returns MapNode at intersection of two streets, if one exists.
+	 * Else returns null.
+	 */
+	public static MapNode findIntersection(String street1, String street2) {
+		return null;
 	}
 }
