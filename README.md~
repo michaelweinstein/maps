@@ -1,9 +1,12 @@
 maps
 ====
 
+TODO
+Street and Cross-Street input in REPL
+	BinaryHelper.findIntersection
+Still need to switch from Dijkstra's to A* in PathFinder! 
 
-Constructing a Street
-	Get each node on street from index.tsv
-	Get lat and long of each node from nodes.tsv, store in Vec2f
-	Convert coordinates to MapCanvas world 
-	Draw "Street" (awt.line2d) through points
+WRITE TESTS
+BinaryHelper.findIntersection
+App.nearestNeighbor
+REPL (System Tests)
