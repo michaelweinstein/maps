@@ -38,10 +38,16 @@ public class NeighborSearch {
 		_radius = Double.MAX_VALUE;
 	}
 	
+	/*
+	 * traverse the tree until we reach subspace that contains point.
+	 * we then traverse back up the tree, adding nodes that are within the radius
+	 * constraint. We can eliminate a branch by comparing its root's split distance
+	 * to our search radius 
+	 */
 	public KDTreeNode[] nearestNeighbors(KDTreeNode n) {
 		
 		int dim = n.getDimension();
-
+		//if our node is a leaf and meets the criteria, add it to the neighbors array
 		if (n.isLeaf() && _point.dist(n.getComparable().getPoint()) < _radius) {
 			if (!_byName) {
 				this.insertIntoNeighbors(n);
@@ -50,7 +56,7 @@ public class NeighborSearch {
 				this.insertIntoNeighbors(n);
 			}
 		} //end if
-		else if (!n.isLeaf()) {
+		else if (!n.isLeaf()) { //if it's not a leaf, keep traversing the tree
 			
 			MyComparator comparator = new MyComparator(dim);
 			int c = comparator.compare(_point, n.getPoint());
@@ -70,13 +76,20 @@ public class NeighborSearch {
 					this.nearestNeighbors(n.getLeftChild());
 				}
 			}
+			//reset searched fields for the next call to search
 			n.getLeftChild().setSearched(false);
 			n.getRightChild().setSearched(false);
 		} //end else if
-		n.setSearched(true);
+		n.setSearched(true); //set searched so we don't keep traversing same branch
 		return _neighbors;
 	}
 	
+	/*
+	 * inserts into the neighbors array that gets returned by the seach method.
+	 * this method looks through the array and inserts the neighbor into the 
+	 * correct spot (it is ordered by increasing distance from _point), so the
+	 * array does not need to be sorted at the end 
+	 */
 	private void insertIntoNeighbors(KDTreeNode neighbor) {
 		
 		int index = 0;

@@ -11,10 +11,10 @@ public class App {
 	
 	public App(String[] args) {
 		//EDGE CASE: wrong number of args; exits
-		if (args.length != 3) {
-			System.out.println("ERROR: Expecting 3 args -- ways nodes index");
-			System.exit(0);
-		}
+		//if (args.length != 3) {
+		//	System.out.println("ERROR: Expecting 3 args -- ways nodes index");
+		//	System.exit(0);
+		//}
 		
 		//
 //		BinaryHelper.setFiles(args[0], args[1], args[2]);

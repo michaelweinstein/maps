@@ -25,25 +25,34 @@ public class MapsFile extends RandomAccessFile {
 		_lastLine = this.readLastLine();
 	}
 	
+	/*
+	 * creates map of headings to their indices
+	 */
 	public void setUpHeadingsMap(HashMap<String,Integer> map) throws IOException {
 		_headings = map;
 		String[] first_line = this.readFirstLine().split("\t");
 		for (int i = 0; i < first_line.length; i++) {
 			_headings.put(first_line[i], i);
-		}
-		
+		}		
 	}
-	
+	/*
+	 * public access to index of heading 
+	 */
 	public int getFieldIndex(String field) { 
+		if (!_headings.containsKey(field)) {
+			System.out.println("ERROR: " + _filePath + " does not contain header '" + field + "'");
+			System.exit(0);
+		}
 		return _headings.get(field);
 	}
 	
+	/*
+	 * based on the current file pointer, we
+	 * return the next line. If we point to the
+	 * middle of a line, we read the line after 
+	 */	
 	public String readNextLine() throws IOException {
-		/*
-		 * based on the current file pointer, we
-		 * return the next line. If we point to the
-		 * middle of a line, we read the line after 
-		 */	
+
 		String returnStr = null;
 	  try {
 		this.findNextBreakLine();
@@ -93,12 +102,13 @@ public class MapsFile extends RandomAccessFile {
 		return returnStr;
 	}
 	
+	/*
+	 * based on the current file pointer location,
+	 * we find the nearest breakline approaching
+	 * the end of the file 
+	 */
 	private void findNextBreakLine() throws IOException {
-		/*
-		 * based on the current file pointer location,
-		 * we find the nearest breakline approaching
-		 * the end of the file 
-		 */
+
 		boolean new_line = false;
 		while (!new_line) {
 			byte[] curr_bytes = new byte[10];
@@ -115,13 +125,13 @@ public class MapsFile extends RandomAccessFile {
 		}
 	}
 	
-	
+	/*
+	 * this reads byte-by-byte from disk, but since we only
+	 * run it once (and cache result), it will not 
+	 * noticeably affect our runtime
+	 */
 	public String readLastLine() throws IOException {
-		/*
-		 * this reads byte-by-byte from disk, but since we only
-		 * run it once (and cache result), it will not 
-		 * noticeably affect our runtime
-		 */
+		
 		String returnStr = null;
 	
 		this.seek(this.length() - 2);
@@ -151,12 +161,12 @@ public class MapsFile extends RandomAccessFile {
 		return returnStr;
 	}
 	
-	
+	/*
+	 * this reads byte-by-byte from disk, but since we only
+	 * run it once, it will not noticeably affect our runtime
+	 */
 	public String readFirstLine() throws IOException {
-		/*
-		 * this reads byte-by-byte from disk, but since we only
-		 * run it once, it will not noticeably affect our runtime
-		 */
+
 		String returnStr = null;
 
 		_length = this.length();

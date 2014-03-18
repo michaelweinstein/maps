@@ -61,6 +61,10 @@ public class KDTreeNode {
 	
 	public int getDimension() { return ((_depth % 2) + 1); }
 	
+	/*
+	 * set the split based on another node
+	 * intended input node is the instance's parent node 
+	 */
 	public void inheritSplit(KDTreeNode n) {
 		double x = n.getPoint().getX();
 		double y = n.getPoint().getY();
