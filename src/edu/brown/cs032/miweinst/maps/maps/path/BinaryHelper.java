@@ -40,13 +40,13 @@ public class BinaryHelper {
 		String[] cols = {"ways"};
 		String[] waysCSV = nodes.search(node.id, "id", cols);
 		String[] waysIdArr = waysCSV[0].split(",");
-		Way[] waysArr = new Way[waysIdArr.length];
+		Way[] waysArr = new Way[waysIdArr.length];	
 		for (int i=0; i<waysIdArr.length; i++) {
 			String id = waysIdArr[i];
 			String start = node.id;
 			String[] newCols = {"end"};
-			String[] end = ways.search(id, "id", newCols);
-			waysArr[i] = new Way(id, start, end[0]);
+			String[] end = ways.search(id, "id", newCols);			
+			waysArr[i] = new Way(id, start, end[0]);			
 		}
 		return waysArr;
 	}

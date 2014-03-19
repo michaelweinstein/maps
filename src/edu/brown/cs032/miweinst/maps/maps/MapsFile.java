@@ -55,6 +55,7 @@ public class MapsFile extends RandomAccessFile {
 
 	  String returnStr = null;
 	  try {
+		  
 		this.findNextBreakLine();
 		
 		boolean line_end = false;
@@ -65,7 +66,7 @@ public class MapsFile extends RandomAccessFile {
 		ArrayList<byte[]> byte_arrays = new ArrayList<byte[]>();
 		int index = 0;
 		int default_size = 300;
-		while (!line_end) {		
+		while (!line_end) {					
 			byte[] b = new byte[default_size];
 			if (this.read(b) == -1) { //encountered EOF, read last line
 				return readLastLine();
@@ -79,6 +80,7 @@ public class MapsFile extends RandomAccessFile {
 				index++;
 			}
 		}
+		
 		//add the contents of our arrays into one larger array (up until breakline)
 		byte[] b = new byte[index];
 		int count = 0;
@@ -116,12 +118,18 @@ public class MapsFile extends RandomAccessFile {
 			this.read(curr_bytes);
 
 			for (int i = 0; i < curr_bytes.length; i++) {
+								
 				if (curr_bytes[i] == 10) {
 					new_line = true;
 					this.seek(this.getFilePointer() - 10 + i + 1);
 					break;
 				} //end if
-			} //end for
+//////	MICHAEL ADDED THIS TO FIX BUG WHEN READING LAST LINE
+		/* But I think this causes the last line to be read twice...*/
+				else if (curr_bytes[i] == 0) {
+					new_line = true;
+				}
+			} //end for			
 		}
 	}
 

@@ -11,8 +11,9 @@ public class BoundingBox {
 	}
 	
 	public boolean contains(LatLng pt) {
-		if (pt.lat > _northwest.lat && pt.lat < _southeast.lat) 
-			if (pt.lng < _northwest.lng && pt.lng > _southeast.lng) 
+		if (pt.lat < _northwest.lat && pt.lat > _southeast.lat) 
+//			if (pt.lng < _southeast.lng && pt.lng > _northwest.lng)
+			if (pt.lng > _northwest.lng && pt.lng < _southeast.lng) 
 				return true;
 		return false;
 	}
@@ -26,10 +27,25 @@ public class BoundingBox {
 		return new LatLng(lat,lng);
 	}
 	/*
-	 * returns length of diagonal in degerees
+	 * returns length of diagonal in degrees
 	 */
 	public double getDiagonalLength() {
-		return _northwest.dist2(_southeast);
+		return _northwest.dist(_southeast);
+//// MICHAEL CHANGED FROM DISTANCE SQUARED TO REGULAR DISTANCE
+//		return _northwest.dist2(_southeast);
+	}
+	
+	/**
+	 * Return width of BoundingBox, used for GUI scaling
+	 */
+	public double getWidth() {
+		return _southeast.lng - _northwest.lng;
+	}
+	/**
+	 * Return height of BoundingBox, used for GUI scaling
+	 */
+	public double getHeight() {
+		return _northwest.lat - _southeast.lat;
 	}
 	
 	public LatLng getNorthwest() {
