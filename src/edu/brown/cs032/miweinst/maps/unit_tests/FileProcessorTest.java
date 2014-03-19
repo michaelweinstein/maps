@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
 
 import org.junit.Test;
 
@@ -40,7 +42,6 @@ public class FileProcessorTest {
 	
 	@Test
 	public void testNodesForGUI() {
-		System.out.println("ready");
 		boolean pass = false;
 		try {
 			MapsFile nodes = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/nodes.tsv");
@@ -48,9 +49,6 @@ public class FileProcessorTest {
 			MapsFile ways = new MapsFile(System.getProperty("user.dir") + "/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/ways.tsv");
 			FileProcessor fp = new FileProcessor(nodes,index,ways);
 			MapNode[] nodes_array = fp.getNodesForGUI(new LatLng(40.3734759, -73.5618164), .009);
-			
-			System.out.println(nodes_array[0].toString());
-			System.out.println(nodes_array[nodes_array.length - 1].toString());
 			
 			if (nodes_array[0].toString().compareTo("MapNode. id: /n/4037.7355.527767971, lat: 40.3736886, long: -73.5572577") == 0 &&
 				nodes_array[nodes_array.length - 1].toString().compareTo("MapNode. id: /n/4037.7356.527767972, lat: 40.3734759, long: -73.5618164") == 0)
@@ -65,5 +63,5 @@ public class FileProcessorTest {
 		}
 		assertTrue(pass);
 	}
-
+	
 }

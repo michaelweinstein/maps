@@ -5,6 +5,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -12,7 +16,8 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class InputPanel extends JPanel {
 	
-	private  JComboBox _toField;
+	private JComboBox _toField, _fromField;
+	private JComboBox _focusedJCombo;
 	
 	public InputPanel(MainPanel mp) {
 		Dimension size = mp.getSize();
@@ -22,37 +27,68 @@ public class InputPanel extends JPanel {
 		this.setSize(w, h);
 		this.setBackground(Color.GRAY);
 		this.addToField();
+		this.addFromField();
+		
+		this.addJComboListeners();
+		
+		_focusedJCombo = null;
 	}
 
 	private void addToField() {
 		_toField = new JComboBox();
 		_toField.addItem("Starting location");
 		_toField.setEditable(true);
-		this.addActionListener(_toField);
 		this.add(_toField, BorderLayout.CENTER);
+		//basically sets the JComboBox to have a fixed width
+		_toField.setPrototypeDisplayValue("---------------");
 	}
 	
-	public String getToText() { return (String)_toField.getSelectedItem(); }
+	private void addFromField() {
+		_fromField = new JComboBox();
+		_fromField.addItem("Destination");
+		_fromField.setEditable(true);
+		this.add(_fromField, BorderLayout.SOUTH);
+		//basically sets the JComboBox to have a fixed width
+		_fromField.setPrototypeDisplayValue("---------------");
+	}
 	
-	public void setToList(String[] list) {
-		_toField.removeAllItems();
-		for (int i = 0; i < list.length; i++) {
-			_toField.addItem(list[i]);
+	public String getToText() { return (String) _toField.getEditor().getItem(); }
+	public String getFromText() { return (String) _fromField.getEditor().getItem(); }
+	
+	public void setSuggestionList(String[] list) {
+		if (_focusedJCombo != null) {
+			
+			String buffer = (String)_focusedJCombo.getEditor().getItem();
+			_focusedJCombo.removeAllItems();
+			
+			if (buffer.compareTo("Starting location") != 0 && buffer.compareTo("Destination") != 0) {
+				_focusedJCombo.addItem(buffer);
+			}
+			for (int i = 0; i < list.length; i++) {
+				if (i > 5) break;
+				_focusedJCombo.addItem(list[i]);
+			}
+			if (list.length > 0) _focusedJCombo.showPopup();
+			else _focusedJCombo.hidePopup();
 		}
-	}
+	} //end setSuggestionList()
 	
 	public JComboBox getToField() { return _toField; }
-	
-	private void addActionListener(JComboBox jcb) {
-		jcb.addActionListener (new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-            {
-				if (e.getActionCommand().compareTo("comboBoxChanged") == 0) {
-					System.out.println("combo changed");
+
+	public void addJComboListeners() {
+		JComboBox[] boxes = { _toField, _fromField };
+		for (final JComboBox box: boxes) {
+			box.getEditor().getEditorComponent().addKeyListener(new KeyListener() {
+				@Override
+				public void keyPressed(KeyEvent arg0) {}
+				@Override
+				public void keyReleased(KeyEvent arg0) {}
+				@Override
+				public void keyTyped(KeyEvent e) {
+					_focusedJCombo = box;
 				}
-				System.out.println(e.getActionCommand());
-            }
-		});
+			});
+		}
 	}
 	
 } //end class

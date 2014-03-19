@@ -2,6 +2,8 @@ package edu.brown.cs032.miweinst.maps.maps;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
 import edu.brown.cs032.miweinst.maps.binarySearch.BinarySearch;
@@ -110,10 +112,29 @@ public class FileProcessor {
 		lat = Double.parseDouble(last_line[latIndex]);
 		lng = Double.parseDouble(last_line[lngIndex]);
 		if (ll.isWithinRadius(new LatLng(lat,lng),constraint) && LatLng.isWithinLng(lng,ll,constraint)) {
-			System.out.println(new MapNode(last_line[idIndex], lat, lng, last_line[waysIndex]).toString());
 			nodes.add(new MapNode(last_line[idIndex], lat, lng, last_line[waysIndex]));
 		}
 		return nodes.toArray(new MapNode[nodes.size()]);
+	}
+	
+	public HashMap<String,String> getWays() throws IOException {
+		HashMap<String,String> ways = new HashMap<String,String>();
+		
+		int idIndex = _waysFile.getFieldIndex("id");
+		int nameIndex = _waysFile.getFieldIndex("name");
+		String[] last_line = _waysFile.readLastLine().split("\t");
+		String last_id = last_line[idIndex];
+		_waysFile.readFirstLine();
+		String[] curr = _waysFile.readNextLine().split("\t");
+		String id = curr[idIndex];
+		while (id.compareTo(last_id) != 0) {
+			String name = curr[nameIndex];
+			if (!name.isEmpty()) ways.put(name.toLowerCase().trim(), name);
+			curr = _waysFile.readNextLine().split("\t");
+			id = curr[idIndex];
+		}
+		if (!last_line[nameIndex].isEmpty()) ways.put(last_line[nameIndex].toLowerCase(), last_line[nameIndex]);
+		return ways;
 	}
 	
 }

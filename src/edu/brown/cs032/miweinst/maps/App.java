@@ -1,12 +1,14 @@
 package edu.brown.cs032.miweinst.maps;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
-import edu.brown.cs032.miweinst.maps.KDTree.KDPoint;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
 import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
@@ -19,8 +21,8 @@ import edu.brown.cs032.miweinst.maps.maps.FileProcessor;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.maps.frontend.AutocorrectConnector;
 import edu.brown.cs032.miweinst.maps.maps.frontend.GUIFrame;
-import edu.brown.cs032.miweinst.maps.maps.frontend.InputPanel;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
 import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
@@ -50,6 +52,9 @@ public class App {
 				waysPath = args[1];
 				nodesPath = args[2];
 				indexPath = args[3];
+				System.out.println(waysPath);
+				System.out.println(nodesPath);
+				System.out.println(indexPath);
 			}
 		else 
 				System.out.println("ERROR: If 4 arguments, first argument must be '--gui'");
@@ -62,19 +67,25 @@ public class App {
 			MapsFile index = new MapsFile(indexPath);
 ///////		DO WE NEED TO SET REFERENCES TO THESE FILES ANYWHERE ELSE??			
 			BinaryHelper.setFiles(ways, nodes, index);
-			new DictionaryGenerator(index);
+			new DictionaryGenerator(ways);
 ///
 			_fp = new FileProcessor(nodes, index, ways);
-		} catch (IOException e) {
-			System.out.println("ERROR: " + "File paths not valid!");
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("ERROR: File paths not valid!");
+		}
+		catch (IOException e) {
+			System.out.println("ERROR: IOException in App constructor");
 		}
 
 		//if args.length == 4 && args[0].equals("--gui")
 		if (gui) {
-			GUIFrame guiFrame = new GUIFrame();
-			String filepath = System.getProperty("user.dir") + 
-							  "/src/edu/brown/cs032/miweinst/maps/autocorrect/autocorrect_dictionary.txt";
-			_autocorrect = Autocorrect.makeAutocorrect(filepath);
+			try {
+				this.handleGUI();
+			}
+			catch (IOException e) {
+				System.out.println("ERROR: IO Exception while trying to setup GUI");
+			}
 		}
 		//if args.length == 3 (otherwise it would've been caught at top of constructor)
 		else {
@@ -192,9 +203,13 @@ public class App {
 			System.out.println("ERROR: " + "One of the node IDs cannot be found.");
 	}
 	
-	private void autocorrect(GUIFrame gui, Autocorrect autocorrect) {
-		InputPanel ip = gui.getMainPanel().getInputPanel();
-		
+	private void handleGUI() throws IOException {
+		String filepath = System.getProperty("user.dir") + 
+				  "/src/edu/brown/cs032/miweinst/maps/autocorrect/autocorrect_dictionary.txt";
+		//PUT THE FOLLOWING TWO LINES INTO SEPARATE THREADS
+		_autocorrect = Autocorrect.makeAutocorrect(filepath);
+		HashMap<String,String> valid_ways = _fp.getWays();
+		GUIFrame guiFrame = new GUIFrame(new AutocorrectConnector(_autocorrect, valid_ways));
 	}
 	
 } //end class

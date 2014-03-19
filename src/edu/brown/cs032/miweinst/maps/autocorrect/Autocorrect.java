@@ -69,7 +69,7 @@ public class Autocorrect {
 	}
 	
 	public String[] generateSuggestions(String input) {
-	    if (!input.trim().isEmpty()) {	
+	    if (!input.trim().isEmpty() && input.trim().length() > 0) {	
 	    	return _suggestion.generateSuggestions(input, _numWords, _led, _prefix, _whitespace);
 	    }
 	    return null;
