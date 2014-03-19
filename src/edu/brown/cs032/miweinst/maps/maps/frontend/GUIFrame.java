@@ -9,8 +9,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
-import edu.brown.cs032.miweinst.maps.maps.MapNode;
-import edu.brown.cs032.miweinst.maps.util.BoundingBox;
+import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 
 
 @SuppressWarnings("serial")
@@ -19,7 +18,7 @@ public class GUIFrame extends JFrame {
 	private MainPanel _mainPanel;
 	private AutocorrectConnector _acConnector;
 	
-	public GUIFrame(MapNode[] nodes, AutocorrectConnector acc) {
+	public GUIFrame(GUIInfo gui, AutocorrectConnector acc) {
 		super("Maps");
 		
 		int w = 800;
@@ -28,7 +27,7 @@ public class GUIFrame extends JFrame {
 		this.setSize(w, h);
 		this.setPreferredSize(defaultSize);
 		
-		_mainPanel = new MainPanel(nodes, defaultSize);
+		_mainPanel = new MainPanel(gui, defaultSize);
 		this.add(_mainPanel);
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

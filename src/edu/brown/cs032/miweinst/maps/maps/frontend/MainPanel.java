@@ -6,8 +6,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-import edu.brown.cs032.miweinst.maps.maps.MapNode;
-import edu.brown.cs032.miweinst.maps.util.BoundingBox;
+import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
@@ -16,10 +15,10 @@ public class MainPanel extends JPanel {
 	private InputPanel _inputPanel;
 	private DrawingPanel _dp;
 	
-	public MainPanel(MapNode[] nodes, Dimension defaultSize) {
+	public MainPanel(GUIInfo gui, Dimension defaultSize) {
 		_size = defaultSize;
 		
-		_dp = new DrawingPanel(nodes, this);
+		_dp = new DrawingPanel(gui, this);
 		_inputPanel = new InputPanel(this);
 		
 		//add panels to border layout

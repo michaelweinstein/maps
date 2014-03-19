@@ -1,22 +1,31 @@
 package edu.brown.cs032.miweinst.maps.maps.frontend;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
-import edu.brown.cs032.miweinst.maps.util.LatLng;
-import edu.brown.cs032.miweinst.maps.util.Vec2f;
+import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
 @SuppressWarnings("serial")
 public class DrawingPanel extends JPanel {
-	
-	private MapNode[] _nodes;
+	private GUIInfo _guiInfo;
 
-	public DrawingPanel(MapNode[] nodes, MainPanel mp) {		
+////
+//	private MapNode[] _nodes;
+	private Map<String, MapNode> _nodes;
+	private Way[] _ways;
+	
+	public DrawingPanel(GUIInfo info, MainPanel mp) {		
 		//Sets size, background color and border of DrawingPanel
 		Dimension size = mp.getSize();
 		int w = (int) (size.getWidth()*4/5);
@@ -26,27 +35,45 @@ public class DrawingPanel extends JPanel {
 		this.setBackground(Color.WHITE);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));		
 		
-		_nodes = nodes;
-//		System.out.println("nodes.length: " + nodes.length);
+		_guiInfo = info;
+		_nodes = info.nodesForGUI();
+		_ways = info.waysForGUI(_nodes);
+		
+////////	
+		System.out.println("nodes.length: " + _nodes.size());
+		System.out.println("ways.length: " + _ways.length);
 		
 		this.repaint();
 	}
 	
-/*	private Vec2f worldToScreen(LatLng ll) {
-		return null;
-	}*/
-	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-///
-		for (int i=0; i<_nodes.length; i++) {
-//			System.out.println(_nodes[i].loc.toString());
-			if (i == 0) {
-				// ~ lowest lat, highest lng
-			} 
-			else if (i == _nodes.length-1) {
-				// ~ highest lat, lowest lng
+		Graphics2D brush = (Graphics2D) g;
+		
+///DRAW NODES
+//		for (int i=0; i<_nodes.size(); i++) {
+/*		for (MapNode node: _nodes.values()) {
+//			Vec2d screenLoc = _guiInfo.convertToScreen(_nodes[i].loc);
+			Vec2d screenLoc = _guiInfo.convertToScreen(node.loc);
+//////			
+//			if (_guiInfo.getBoundingBox().contains(_nodes[i].loc)) {
+//				System.out.println("contains: " + screenLoc.toString());
+//			}
+			System.out.println("screenLoc: " + screenLoc.toString());
+			brush.setColor(Color.BLACK);
+			brush.fill(new Ellipse2D.Double(screenLoc.x, screenLoc.y, 3, 3));
+		}*/
+		//draw Ways between _nodes as Line2D
+		for (int i=0; i<_ways.length; i++) {
+			MapNode start = _nodes.get(_ways[i].start);
+			Vec2d screenLocStart = _guiInfo.convertToScreen(start.loc);
+			MapNode end = _nodes.get(_ways[i].end);
+			if (end != null) {
+				Vec2d screenLocEnd = _guiInfo.convertToScreen(end.loc);
+				brush.setColor(Color.BLACK);
+				brush.setStroke(new BasicStroke(3));
+				brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
 			}
 		}
 	}

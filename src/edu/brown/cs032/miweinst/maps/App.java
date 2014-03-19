@@ -48,7 +48,8 @@ public class App {
 		
 //////
 		//create default BoundingBox
-		_boundingBox = new BoundingBox(new LatLng(40.3734759, -73.5618164), new LatLng(40., -74.));
+//		_boundingBox = new BoundingBox(new LatLng(40.3734759, -73.5618164), new LatLng(40., -73.4));
+		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));
 //		_boundingBox = new BoundingBox(new LatLng(0, 0), new LatLng(1, 0));
 		
 ///		BUG; PROGRAM DOES NOT RUN WITH THIS BOUNDINGBOX!
@@ -77,10 +78,9 @@ public class App {
 			MapsFile ways = new MapsFile(waysPath);
 			MapsFile nodes = new MapsFile(nodesPath);
 			MapsFile index = new MapsFile(indexPath);
-///////		DO WE NEED TO SET REFERENCES TO THESE FILES ANYWHERE ELSE??			
+			//set all references to data files
 			BinaryHelper.setFiles(ways, nodes, index);
 			new DictionaryGenerator(ways);
-///
 			_fp = new FileProcessor(nodes, index, ways);
 		}
 		//EDGE CASE: File paths not valid; exits program
@@ -226,9 +226,12 @@ public class App {
 		_autocorrect = Autocorrect.makeAutocorrect(filepath);
 		if (_fp != null) {
 //////
-			MapNode[] nodesForGUI = GUIInfo.nodesForGUI(_fp, _boundingBox);
+			GUIInfo gui = new GUIInfo(_fp, _boundingBox);
+//			gui.updateBounds(_fp, _boundingBox);
+//			MapNode[] nodesForGUI = gui.nodesForGUI(_fp, _boundingBox);
+			
 			HashMap<String,String> valid_ways = _fp.getWays();				
-			GUIFrame guiFrame = new GUIFrame(nodesForGUI, new AutocorrectConnector(_autocorrect, valid_ways));
+			GUIFrame guiFrame = new GUIFrame(gui, new AutocorrectConnector(_autocorrect, valid_ways));
 		} else 
 			System.out.println("ERROR: " + "FileProcessor is null in App (App.handleGUI)");
 	}

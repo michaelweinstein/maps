@@ -38,6 +38,7 @@ public class BinarySearch {
 		
 		try {
 			_length = _file.length();
+
 			this.searchHelper(0,_length);
 			
 			if (_targets != null) { //reset target for next binSearch and return
@@ -68,9 +69,9 @@ public class BinarySearch {
 			if (start == end - 2) return; //reached end of file, _target will not be set
 
 			_file.seek(mid);
-			
+
 			String line = _file.readNextLine();
-			
+
 			if (line == null) return;
 
 			String[] curr_line = line.split("\t");
