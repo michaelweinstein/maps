@@ -3,6 +3,8 @@ package edu.brown.cs032.miweinst.maps.maps.frontend;
 import java.awt.Dimension;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
@@ -32,10 +34,24 @@ public class GUIFrame extends JFrame {
 		this.pack();
 		this.setVisible(true);
 		
+		this.addButtonListener();
+		
 		_acConnector = acc;
 		
 		this.manageKeyboard();
 	}
+	
+	
+	private void addButtonListener() {
+		_mainPanel.getInputPanel().getButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String[] ways = _mainPanel.getInputPanel().buttonPress();
+				_acConnector.getDirections(ways);
+			}
+		});
+	}
+	
 	
 	private void manageKeyboard() {
 		KeyboardFocusManager kbfm = KeyboardFocusManager.getCurrentKeyboardFocusManager();
@@ -44,15 +60,15 @@ public class GUIFrame extends JFrame {
 	
 	class MyKeyEventDispatcher implements KeyEventDispatcher {
 		/*
-		 * gets key events before the InputPanel
-		 * knows about it. This is somewhat of a hack,
-		 * but it is the best way I could figure out
-		 * how to use the JComboBox editor
+		 * gets the key event right after the input panel
+		 * does (the key event in inputpanel is key_pressed)
+		 * so this way it can get what the user has just typed
+		 * for suggestion generation
 		 */
 		public boolean dispatchKeyEvent(KeyEvent e) {
-			if(e.getID() == KeyEvent.KEY_TYPED) {
-				String s = _mainPanel.getInputPanel().getToText();
-				if (!s.isEmpty()) {
+			if(e.getID() == KeyEvent.KEY_RELEASED) {
+				String s = _mainPanel.getInputPanel().getInputText();
+				if (s != null && !s.isEmpty()) {
 					_mainPanel.getInputPanel().setSuggestionList(_acConnector.getSuggestions(s));
 				}
 			}

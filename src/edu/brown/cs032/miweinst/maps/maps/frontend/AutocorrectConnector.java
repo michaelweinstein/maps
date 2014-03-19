@@ -28,6 +28,11 @@ public class AutocorrectConnector {
 		return list.toArray(new String[list.size()]);
 	}
 	
+	public void getDirections(String[] ways) {
+		for (String s: ways) {
+			System.out.println(s);
+		}
+	}
 
 	
 }
