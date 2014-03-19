@@ -64,7 +64,8 @@ public class Autocorrect {
 	 * constructor with defaulted parameters (except for filepath)
 	 */
 	public static Autocorrect makeAutocorrect(String filepath) {
-		String[] argv = { "--led", "3", "--prefix", "--whitespace", filepath };
+		//String[] argv = { "--led", "1", "--prefix", "--whitespace", filepath };
+		String[] argv = { "--prefix", "--whitespace", filepath };
 		return new Autocorrect(argv);
 	}
 	

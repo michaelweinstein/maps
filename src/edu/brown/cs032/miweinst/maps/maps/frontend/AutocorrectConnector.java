@@ -21,11 +21,14 @@ public class AutocorrectConnector {
 	 */
 	public String[] getSuggestions(String s) {
 		ArrayList<String> list = new ArrayList<String>();
-		for (String suggestion: _autocorrect.generateSuggestions(s)) {
-			suggestion = suggestion.toLowerCase().trim();
-			if (_validWays.containsKey(suggestion)) list.add(_validWays.get(suggestion));
+		if (!s.isEmpty() && !"Enter a street".contains(s)) {
+			for (String suggestion: _autocorrect.generateSuggestions(s)) {
+				suggestion = suggestion.toLowerCase().trim();
+				if (_validWays.containsKey(suggestion)) list.add(_validWays.get(suggestion));
+			}
+			System.out.println("done");
 		}
-		return list.toArray(new String[list.size()]);
+			return list.toArray(new String[list.size()]);
 	}
 	
 	public void getDirections(String[] ways) {
