@@ -20,6 +20,7 @@ Create repOK() in BoundingBox to make sure corners not impossible
 
 WRITE TESTS
 BoundingBox.contains()
+BoundingBox.repOK()
 BinaryHelper.findIntersection
 App.nearestNeighbor
 REPL for lat/lon and street/cross-street (System Tests)
