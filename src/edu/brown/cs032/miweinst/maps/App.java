@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.HashMap;
-import java.util.HashSet;
 
 import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
@@ -18,6 +17,7 @@ import edu.brown.cs032.miweinst.maps.graph.Graph;
 import edu.brown.cs032.miweinst.maps.graph.GraphEdge;
 import edu.brown.cs032.miweinst.maps.graph.GraphNode;
 import edu.brown.cs032.miweinst.maps.maps.FileProcessor;
+import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 import edu.brown.cs032.miweinst.maps.maps.Way;
@@ -25,12 +25,15 @@ import edu.brown.cs032.miweinst.maps.maps.frontend.AutocorrectConnector;
 import edu.brown.cs032.miweinst.maps.maps.frontend.GUIFrame;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
 import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
+import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 
 public class App {
 
 	private static FileProcessor _fp = null;
 	private static Autocorrect _autocorrect = null;
+	
+	private BoundingBox _boundingBox;
 
 	public App(String[] args) {
 		//EDGE CASE: wrong number of args; exits
@@ -38,12 +41,20 @@ public class App {
 			System.out.println("ERROR: Expecting 3 or 4 args -- [--gui] ways nodes index");
 			System.exit(0);
 		}
-
 		//get default file paths (valid if args.length == 3)
 		String waysPath = args[0];
 		String nodesPath = args[1];
 		String indexPath = args[2];
-
+		
+//////
+		//create default BoundingBox
+		_boundingBox = new BoundingBox(new LatLng(40.3734759, -73.5618164), new LatLng(40., -74.));
+//		_boundingBox = new BoundingBox(new LatLng(0, 0), new LatLng(1, 0));
+		
+///		BUG; PROGRAM DOES NOT RUN WITH THIS BOUNDINGBOX!
+//		_boundingBox = new BoundingBox(new LatLng(40.3734759, -73.5618164), new LatLng(40.3, -73.5618164));
+	
+		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;
 		if (args.length == 4) {
@@ -52,6 +63,7 @@ public class App {
 				waysPath = args[1];
 				nodesPath = args[2];
 				indexPath = args[3];
+///// print lines
 				System.out.println(waysPath);
 				System.out.println(nodesPath);
 				System.out.println(indexPath);
@@ -71,11 +83,15 @@ public class App {
 ///
 			_fp = new FileProcessor(nodes, index, ways);
 		}
+		//EDGE CASE: File paths not valid; exits program
 		catch (FileNotFoundException e) {
 			System.out.println("ERROR: File paths not valid!");
+			System.exit(0);
 		}
+		//EDGE CASE: IOException when reading files; exits program
 		catch (IOException e) {
 			System.out.println("ERROR: IOException in App constructor");
+			System.exit(0);
 		}
 
 		//if args.length == 4 && args[0].equals("--gui")
@@ -208,8 +224,13 @@ public class App {
 				  "/src/edu/brown/cs032/miweinst/maps/autocorrect/autocorrect_dictionary.txt";
 		//PUT THE FOLLOWING TWO LINES INTO SEPARATE THREADS
 		_autocorrect = Autocorrect.makeAutocorrect(filepath);
-		HashMap<String,String> valid_ways = _fp.getWays();
-		GUIFrame guiFrame = new GUIFrame(new AutocorrectConnector(_autocorrect, valid_ways));
+		if (_fp != null) {
+//////
+			MapNode[] nodesForGUI = GUIInfo.nodesForGUI(_fp, _boundingBox);
+			HashMap<String,String> valid_ways = _fp.getWays();				
+			GUIFrame guiFrame = new GUIFrame(nodesForGUI, new AutocorrectConnector(_autocorrect, valid_ways));
+		} else 
+			System.out.println("ERROR: " + "FileProcessor is null in App (App.handleGUI)");
 	}
 	
 } //end class
