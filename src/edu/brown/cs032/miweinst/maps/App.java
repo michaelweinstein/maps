@@ -54,6 +54,7 @@ public class App {
 		//create default BoundingBox
 ////////THIS BOX WORKS
 //		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));		
+
 		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;
