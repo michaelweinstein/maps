@@ -51,9 +51,9 @@ public class GUIInfo {
 		System.out.println("xScale: " + xScale);
 		System.out.println("yScale: " + yScale);*/
 		
-//		_scale = new Vec2d(xScale, yScale);
+		_scale = new Vec2d(-1*xScale, yScale);
 /////	ONLY FOR TESTING SCALE, SO NODES SHOW UP WITH TEST TSV FILES
-		_scale = new Vec2d(xScale*-1/2, yScale/2);
+//		_scale = new Vec2d(xScale*-1/2, yScale/2);
 	}
 	
 	
@@ -121,5 +121,8 @@ public class GUIInfo {
 		float dpWidth = (float) size.getWidth()*4/5;
 		float dpHeight = (float) size.getHeight()-15;
 		_dpDim = new Vec2d(dpWidth, dpHeight);
+	}
+	public Vec2d getDimensions() {
+		return _dpDim;
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.util.Map;
 
@@ -14,6 +15,8 @@ import javax.swing.JPanel;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.util.BoundingBox;
+import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
 @SuppressWarnings("serial")
@@ -51,19 +54,24 @@ public class DrawingPanel extends JPanel {
 		super.paintComponent(g);
 		Graphics2D brush = (Graphics2D) g;
 		
+///////	 TEST CONVERSION WITH CENTER NODE
+		BoundingBox testBox = _guiInfo.getBoundingBox();
+		LatLng testBoxC = testBox.getCenter();
+		Vec2d testScreenC = _guiInfo.convertToScreen(testBoxC);
+		brush.setColor(Color.RED);
+		brush.fill(new Ellipse2D.Double(testScreenC.x, testScreenC.y, 15, 15));
+////^^^^^		
+		
 ///DRAW NODES
 //		for (int i=0; i<_nodes.size(); i++) {
 /*		for (MapNode node: _nodes.values()) {
 //			Vec2d screenLoc = _guiInfo.convertToScreen(_nodes[i].loc);
 			Vec2d screenLoc = _guiInfo.convertToScreen(node.loc);
-//////			
-//			if (_guiInfo.getBoundingBox().contains(_nodes[i].loc)) {
-//				System.out.println("contains: " + screenLoc.toString());
-//			}
 			System.out.println("screenLoc: " + screenLoc.toString());
 			brush.setColor(Color.BLACK);
 			brush.fill(new Ellipse2D.Double(screenLoc.x, screenLoc.y, 3, 3));
 		}*/
+		
 		//draw Ways between _nodes as Line2D
 		for (int i=0; i<_ways.length; i++) {
 			MapNode start = _nodes.get(_ways[i].start);

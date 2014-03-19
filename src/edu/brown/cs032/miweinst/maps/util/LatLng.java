@@ -1,6 +1,5 @@
 package edu.brown.cs032.miweinst.maps.util;
 
-import java.math.BigDecimal;
 
 public final class LatLng {
 	
@@ -66,7 +65,7 @@ public final class LatLng {
 	/* HOLY TRINITY */
 	@Override
 	public String toString() {
-		return String.format("(%1.3f,  %1.3f)", lat, lng);
+		return String.format("lat: %1.3f,  lng: %1.3f", lat, lng);
 	}
 	@Override
 	public boolean equals(Object o) {
