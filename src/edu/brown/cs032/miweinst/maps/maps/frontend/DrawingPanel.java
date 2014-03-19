@@ -58,11 +58,6 @@ public class DrawingPanel extends JPanel {
 		BoundingBox testBox = _guiInfo.getBoundingBox();
 		LatLng testBoxC = testBox.getCenter();
 		Vec2d testScreenC = _guiInfo.convertToScreen(testBoxC);
-		
-		System.out.println(testBoxC.toString());
-		System.out.println(testScreenC.toString());
-		System.out.println(_guiInfo.getDimensions().toString());
-		
 		brush.setColor(Color.RED);
 		brush.fill(new Ellipse2D.Double(testScreenC.x, testScreenC.y, 15, 15));
 ////^^^^^		
