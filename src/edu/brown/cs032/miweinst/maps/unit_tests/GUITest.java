@@ -7,6 +7,8 @@ import java.io.IOException;
 import org.junit.Test;
 
 import edu.brown.cs032.miweinst.maps.App;
+import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
+import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.maps.FileProcessor;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
@@ -34,7 +36,7 @@ public class GUITest {
 			//Create BoundingBox and try to convert center LatLng to XY
 			BoundingBox box = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));
 			LatLng c = box.getCenter();
-			GUIInfo gui = new GUIInfo(fp, box);
+			GUIInfo gui = new GUIInfo(fp, box, new KDTree(new KDComparable[0]));
 			Vec2d screenCenter = gui.convertToScreen(c);
 			Vec2d dpDim = gui.getDimensions();
 			Vec2d dpCenter = new Vec2d(dpDim.x/2, dpDim.y/2);

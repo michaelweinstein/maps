@@ -44,7 +44,7 @@ public class FileProcessor {
 			double lat = Double.parseDouble(curr[latIndex]);
 			double lng = Double.parseDouble(curr[lngIndex]);
 			String ways = null;
-			if (curr.length - 1 > waysIndex) ways = curr[waysIndex];
+			if (waysIndex < curr.length) ways = curr[waysIndex];
 			MapNode newNode = new MapNode(curr[idIndex],lat,lng,ways);
 			nodes.add(newNode);
 			curr = _nodesFile.readNextLine().split("\t");
@@ -84,8 +84,11 @@ public class FileProcessor {
 		//break when we see a node with latitude within the area we are loading
 		while (id.compareTo(last_line[idIndex]) != 0) { 
 			if (ll.isWithinRadius(new LatLng(lat,lng),constraint)) { //if latlng is within radius, make node and break
-					nodes.add(new MapNode(id, lat, lng,curr[waysIndex]));
-					break;
+				if (curr.length > waysIndex)
+					nodes.add(new MapNode(id,lat,lng,curr[waysIndex]));
+				else
+					nodes.add(new MapNode(id,lat,lng,null));
+				break;
 			}
 			curr = _nodesFile.readNextLine().split("\t");
 			id = curr[idIndex];

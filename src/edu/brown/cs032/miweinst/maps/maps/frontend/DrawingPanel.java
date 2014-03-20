@@ -44,9 +44,9 @@ public class DrawingPanel extends JPanel {
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
 		_nodes = info.nodesForGUI();
-		
+		System.out.println("START WAYS SEARCH");
 		_ways = info.waysForGUI(_nodes);
-		
+		System.out.println("FINISHED WAYS SEARCH");
 ////////	
 		System.out.println("nodes.length: " + _nodes.size());
 		System.out.println("ways.length: " + _ways.length);
@@ -86,8 +86,11 @@ public class DrawingPanel extends JPanel {
 //THREAD 2: back-end
 		//update _nodes and _ways
 		_nodes = _guiInfo.nodesForGUI();
+		System.out.println("GET NODES FOR GUI FINISHED");
 		_ways = _guiInfo.waysForGUI(_nodes);
 ////
+		System.out.println("nodes.length: " + _nodes.size());
+		System.out.println("ways.length: " + _ways.length);
 		center = _guiInfo.getBoundingBox().getCenter();
 		this.repaint();
 	}

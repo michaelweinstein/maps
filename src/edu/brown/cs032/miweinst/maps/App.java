@@ -54,13 +54,19 @@ public class App {
 
 ////TESTING boxes
 		//create default BoundingBox
-		_boundingBox = new BoundingBox(new LatLng(41.2720844,	-74.7175365), new LatLng(40.1615135, -73.6937661));	
+		//_boundingBox = new BoundingBox(new LatLng(41.2720844,	-74.7175365), new LatLng(40.1615135, -73.6937661));	
+		
+		//THESE ARE GOOD BOUNDING BOXES TO SEE A MAP:
+		//_boundingBox = new BoundingBox(new LatLng(41.25,-71.55), new LatLng(41.20, -71.50));
+		_boundingBox = new BoundingBox(new LatLng(41.58,-71.46), new LatLng(41.56, -71.44));
+		//_boundingBox = new BoundingBox(new LatLng(41.59,-71.47), new LatLng(41.55, -71.43));
+		//_boundingBox = new BoundingBox(new LatLng(41.60,-71.48), new LatLng(41.54, -71.42));
 
 //// THROWS ArrayOutOfBoundsException: 1
 		//square BoundingBox
 //		_boundingBox = new BoundingBox(new LatLng(40.3,	-73.8), new LatLng(40.0, -73.5));
 //// THROWS Java OutOfMemoryError: Java heap space
-//		_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
+		//_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
 		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;
@@ -268,7 +274,7 @@ public class App {
 	
 	private void handleGUI() throws IOException {
 		if (_fp != null) {
-			GUIInfo gui = new GUIInfo(_fp, _boundingBox);
+			GUIInfo gui = new GUIInfo(_fp, _boundingBox, _KDTree);
 //			gui.updateBounds(_fp, _boundingBox);
 //			MapNode[] nodesForGUI = gui.nodesForGUI(_fp, _boundingBox);	
 			GUIFrame guiFrame = new GUIFrame(gui, new AutocorrectConnector(_autocorrect, _validWays));
