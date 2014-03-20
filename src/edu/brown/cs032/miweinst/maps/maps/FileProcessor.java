@@ -84,8 +84,11 @@ public class FileProcessor {
 		//break when we see a node with latitude within the area we are loading
 		while (id.compareTo(last_line[idIndex]) != 0) { 
 			if (ll.isWithinRadius(new LatLng(lat,lng),constraint)) { //if latlng is within radius, make node and break
-					nodes.add(new MapNode(id, lat, lng,curr[waysIndex]));
-					break;
+				if (curr.length > waysIndex)
+					nodes.add(new MapNode(id,lat,lng,curr[waysIndex]));
+				else
+					nodes.add(new MapNode(id,lat,lng,null));
+				break;
 			}
 			curr = _nodesFile.readNextLine().split("\t");
 			id = curr[idIndex];

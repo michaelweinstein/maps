@@ -131,6 +131,11 @@ public class DrawingPanel extends JPanel {
 				Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
 				brush.setColor(Color.BLACK);
 				brush.setStroke(new BasicStroke(1));
+////////////////////
+				//brush.fill(new Ellipse2D.Double(screenLocStart.x, screenLocStart.y, 2, 2));
+				//brush.setColor(Color.RED);
+				//brush.fill(new Ellipse2D.Double(screenLocEnd.x, screenLocEnd.y, 2, 2));
+/////////////////////
 				brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
 			}
 		}

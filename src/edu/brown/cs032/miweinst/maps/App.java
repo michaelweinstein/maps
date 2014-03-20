@@ -55,12 +55,16 @@ public class App {
 ////TESTING boxes
 		//create default BoundingBox
 		//_boundingBox = new BoundingBox(new LatLng(41.2720844,	-74.7175365), new LatLng(40.1615135, -73.6937661));	
+		
+		//THIS IS A GOOD BOUNDING BOX TO SEE A MAP:
+		//_boundingBox = new BoundingBox(new LatLng(41.25,-71.55), new LatLng(41.20, -71.50));
+		_boundingBox = new BoundingBox(new LatLng(41.58,-71.46), new LatLng(41.56, -71.44));
 
 //// THROWS ArrayOutOfBoundsException: 1
 		//square BoundingBox
 //		_boundingBox = new BoundingBox(new LatLng(40.3,	-73.8), new LatLng(40.0, -73.5));
 //// THROWS Java OutOfMemoryError: Java heap space
-		_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
+		//_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
 		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;

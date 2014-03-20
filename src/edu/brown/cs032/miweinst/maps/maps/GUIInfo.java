@@ -54,9 +54,9 @@ public class GUIInfo {
 			m = -1;
 		if (nw.lat < 0) 
 			n = -1;
-//		_scale = new Vec2d(m*xScale, n*yScale);
+		_scale = new Vec2d(m*xScale, n*yScale);
 /////	ONLY FOR TESTING SCALE, CUT IN HALF SO NODES SHOW UP WITH TEST TSV FILES
-		_scale = new Vec2d(xScale*m/2, yScale*n/2);
+		//_scale = new Vec2d(xScale*m/2, yScale*n/2);
 	}
 	
 	
@@ -87,6 +87,7 @@ public class GUIInfo {
 			KDTreeNode[] nodes_arr = ns.nearestNeighbors(_KDTree.getRoot());
 			Map<String, MapNode> map = new HashMap<String, MapNode>(nodes_arr.length);
 			for (KDTreeNode n: nodes_arr) {
+			//for (MapNode n: nodes_arr) {
 ////////////
 				MapNode mn = (MapNode)n.getComparable();
 				map.put(mn.id,mn);
