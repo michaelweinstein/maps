@@ -16,7 +16,7 @@ import edu.brown.cs032.miweinst.maps.maps.Way;
 
 public class WaysCacheWrapper {
 
-	private HashMap<String, Way> _waysCache;
+	private static HashMap<String, Way> _waysCache;
 	
 	public WaysCacheWrapper() {
 		_waysCache = new HashMap<String,Way>();
@@ -26,7 +26,7 @@ public class WaysCacheWrapper {
 	 * @return boolean of if
 	 * @param String key exists in map
 	 */
-	public synchronized boolean containsKey(String key) {
+	public synchronized static boolean containsKey(String key) {
 		return _waysCache.containsKey(key);
 	}
 	
@@ -34,7 +34,7 @@ public class WaysCacheWrapper {
 	 * @return Way value at
 	 * @param String key 
 	 */
-	public synchronized Way get(String key) {
+	public synchronized static Way get(String key) {
 		return _waysCache.get(key);
 	}
 	
@@ -43,7 +43,7 @@ public class WaysCacheWrapper {
 	 * @param String key to
 	 * @param Way value
 	 */
-	public synchronized void put(String key, Way value) {
+	public synchronized static void put(String key, Way value) {
 		_waysCache.put(key, value);
 	}
 	

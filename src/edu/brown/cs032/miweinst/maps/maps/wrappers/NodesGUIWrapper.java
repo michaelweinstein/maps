@@ -16,18 +16,18 @@ import edu.brown.cs032.miweinst.maps.maps.MapNode;
 
 public class NodesGUIWrapper {
 
-	private Map<String,MapNode> _nodes;
+	private static Map<String,MapNode> _nodes;
 	
 	public NodesGUIWrapper() {
 		_nodes = new HashMap<String,MapNode>();
 	}
 	
 	
-	public synchronized Map<String,MapNode> get() {
+	public static synchronized Map<String,MapNode> get() {
 		return _nodes;
 	}
 	
-	public synchronized void set(Map<String,MapNode> nodes) {
+	public static synchronized void set(Map<String,MapNode> nodes) {
 		_nodes = nodes;
 	}
 	
@@ -35,7 +35,7 @@ public class NodesGUIWrapper {
 	 * @return boolean of if
 	 * @param String key exists in map
 	 */
-	public synchronized boolean containsKey(String key) {
+	public static synchronized boolean containsKey(String key) {
 		return _nodes.containsKey(key);
 	}
 	
@@ -43,7 +43,7 @@ public class NodesGUIWrapper {
 	 * @return MapNode value at
 	 * @param String key 
 	 */
-	public synchronized MapNode get(String key) {
+	public static synchronized MapNode get(String key) {
 		return _nodes.get(key);
 	}
 	
@@ -52,7 +52,7 @@ public class NodesGUIWrapper {
 	 * @param String key to
 	 * @param MapNode value
 	 */
-	public synchronized void put(String key, MapNode value) {
+	public static synchronized void put(String key, MapNode value) {
 		_nodes.put(key, value);
 	}
 	

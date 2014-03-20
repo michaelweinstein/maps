@@ -13,7 +13,7 @@ import edu.brown.cs032.miweinst.maps.maps.Way;
 
 public class WaysGUIWrapper {
 
-	private Way[] _ways;
+	private static Way[] _ways;
 	
 	public WaysGUIWrapper() {
 		_ways = new Way[0];
@@ -22,14 +22,14 @@ public class WaysGUIWrapper {
 	/*
 	 * @return ways array stored in wrapper
 	 */
-	public synchronized Way[] get() {
+	public static synchronized Way[] get() {
 		return _ways;
 	}
 	
 	/*
 	 * @param ways to set the wrapper to
 	 */
-	public synchronized void set(Way[] ways) {
+	public static synchronized void set(Way[] ways) {
 		_ways = ways;
 	}
 	
