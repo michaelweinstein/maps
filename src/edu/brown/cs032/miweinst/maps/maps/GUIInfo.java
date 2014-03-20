@@ -15,7 +15,7 @@ import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
-public class GUIInfo {
+public class GUIInfo extends Thread {
 	
 	private FileProcessor _fp;
 	private BoundingBox _boundingBox;

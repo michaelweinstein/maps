@@ -8,10 +8,11 @@ import edu.brown.cs032.miweinst.maps.binarySearch.BinarySearch;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysCacheWrapper;
 
 public class BinaryHelper {
 	private static BinarySearch ways, nodes, index;
-	private static HashMap<String,Way> _waysCache;
+	private static WaysCacheWrapper _waysCache;
 	private static MapsFile _waysFile;
 //////
 	private static int _count;
@@ -22,7 +23,7 @@ public class BinaryHelper {
 		ways = new BinarySearch(waysFile);
 		nodes = new BinarySearch(nodesFile);
 		index = new BinarySearch(indexFile);	
-		_waysCache = new HashMap<String,Way>();
+		_waysCache = new WaysCacheWrapper();
 		
 		_waysFile = waysFile;
 		_waysLastLineId = waysFile.readLastLine().split("/t")[0];
