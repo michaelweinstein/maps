@@ -46,15 +46,16 @@ public class App {
 		String nodesPath = args[1];
 		String indexPath = args[2];
 		
-//////
-////TESTING boxes
-////////THESE BOXES DON'T WORK (ARRAYOUTOFBOUNDS)
-//		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.0, -71.0));
-		_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
-		//create default BoundingBox
-////////THIS BOX WORKS
-//		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));		
 
+////TESTING boxes
+		//create default BoundingBox
+		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));	
+
+//// THROWS ArrayOutOfBoundsException: 1
+		//square BoundingBox
+//		_boundingBox = new BoundingBox(new LatLng(40.3,	-71.8), new LatLng(40.0, -71.5));
+//// THROWS Java OutOfMemoryError: Java heap space
+//		_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
 		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;

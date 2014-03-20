@@ -55,7 +55,6 @@ public class MapsFile extends RandomAccessFile {
 
 	  String returnStr = null;
 	  try {
-		  
 		this.findNextBreakLine();
 		
 		boolean line_end = false;
@@ -114,6 +113,9 @@ public class MapsFile extends RandomAccessFile {
 		boolean new_line = false;
 		while (!new_line) {
 			byte[] curr_bytes = new byte[10];
+///////			
+//			if (this.read(curr_bytes) == -1)  //encountered EOF
+//				return;
 			
 			this.read(curr_bytes);
 

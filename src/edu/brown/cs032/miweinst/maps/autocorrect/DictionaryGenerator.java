@@ -41,13 +41,17 @@ public class DictionaryGenerator {
 			
 			String[] curr = _waysFile.readNextLine().split("\t");
 			String id = curr[idIndex];
+
 			//while we haven't reached last line, write street names if they don't exist
 			while (id.compareTo(last_id) != 0) {
-				String name = curr[nameIndex];
+
+				String name = curr[nameIndex];				
+				
 				if (!name.isEmpty() && !seenWords.contains(name)) {
 					seenWords.add(name);
 					writer.println(name);
 				}
+
 				curr = _waysFile.readNextLine().split("\t");
 				id = curr[idIndex];
 			}

@@ -53,12 +53,12 @@ public final class LatLng {
 	/* PRIVATE METHODS */
 	private static double checkLatitude(double lat) {
 		if (lat < -90.0 || lat > 90.0) 
-			throw new IllegalArgumentException(lat + "_is_out_of_range");
+			throw new IllegalArgumentException(lat + "_latitude_is_out_of_range");
 		return lat;
 	}
 	private static double checkLongitude(double lng) {
 		if (lng < -90.0 || lng > 90.0)
-			throw new IllegalArgumentException(lng + "_is_out_of_range");
+			throw new IllegalArgumentException(lng + "_longitude_is_out_of_range");
 		return lng;
 	} 
 	

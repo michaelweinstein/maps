@@ -94,6 +94,7 @@ public class FileProcessor {
 		//while we are within our bounding lat, iterate through and add
 		//if we are also within our bounding lng
 		curr = _nodesFile.readNextLine().split("\t");
+
 		id = curr[idIndex];
 		lat = Double.parseDouble(curr[latIndex]);
 		lng = Double.parseDouble(curr[lngIndex]);
@@ -101,11 +102,21 @@ public class FileProcessor {
 		while (ll.isWithinRadius(new LatLng(lat,lng),constraint) && id.compareTo(last_line[idIndex]) != 0) {
 			lat = Double.parseDouble(curr[latIndex]);
 			lng = Double.parseDouble(curr[lngIndex]);
-
 			if (ll.isWithinRadius(new LatLng(lat,lng),constraint)) { //if lng is within constraint, create a node and add it
-				nodes.add(new MapNode(id,lat,lng,curr[waysIndex]));
+				//check for nodes without any 'ways' field; pass null string
+				if (curr.length > waysIndex)
+					nodes.add(new MapNode(id,lat,lng,curr[waysIndex]));
+				else
+					nodes.add(new MapNode(id,lat,lng,null));
 			}
+///////			
+//			String test = _nodesFile.readNextLine();
+//			curr = test.split("\t");	
+//			System.out.println("line: " + test);
+//			System.out.println("curr.length: " + curr.length);
+			
 			curr = _nodesFile.readNextLine().split("\t");
+			
 			id = curr[idIndex];
 		}
 		//handle last node separately

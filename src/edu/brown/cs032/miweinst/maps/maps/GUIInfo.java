@@ -92,6 +92,8 @@ public class GUIInfo {
 	/**
 	 * Return all Ways connecting to MapNode in nodes,
 	 * which should be return value of nodesForGUI().
+	 * If the endNode of a Way is not included in nodes(),
+	 * that Way is not included
 	 */
 	public Way[] waysForGUI(Map<String, MapNode> nodes) {
 		List<Way> waysList = new ArrayList<Way>();
@@ -106,8 +108,15 @@ public class GUIInfo {
 		return waysList.toArray(new Way[waysList.size()]);
 	}
 	
+	/* Exposes data to front-end to communicate with back-end */
 	public BoundingBox getBoundingBox() {
 		return _boundingBox;
+	}
+	public Vec2d getScale() {
+		return _scale;
+	}
+	public FileProcessor getFileProcessor() {
+		return _fp;
 	}
 
 //////////
