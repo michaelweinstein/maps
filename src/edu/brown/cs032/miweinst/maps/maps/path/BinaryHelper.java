@@ -38,8 +38,8 @@ public class BinaryHelper {
 	 */
 	public static Way[] nodeToWayArr(MapNode node) {
 		String[] cols = {"ways"};
-		String[] waysCSV = nodes.search(node.id, "id", cols);
-		if (waysCSV[0] == null)
+		String[] waysCSV = node.ways;
+		if (waysCSV.length == 0)
 			return null;
 		String[] waysIdArr = waysCSV[0].split(",");
 		Way[] waysArr = new Way[waysIdArr.length];	

@@ -21,6 +21,7 @@ public class MapNode implements KDComparable {
 		if (waysList == null) return new String[0];
 		return waysList.split(",");
 	}
+
 	
 	/*
 	 * this method is overkill since our LatLng is public,
