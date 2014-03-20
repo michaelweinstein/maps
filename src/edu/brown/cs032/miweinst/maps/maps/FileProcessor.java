@@ -44,7 +44,7 @@ public class FileProcessor {
 			double lat = Double.parseDouble(curr[latIndex]);
 			double lng = Double.parseDouble(curr[lngIndex]);
 			String ways = null;
-			if (curr.length - 1 > waysIndex) ways = curr[waysIndex];
+			if (waysIndex < curr.length) ways = curr[waysIndex];
 			MapNode newNode = new MapNode(curr[idIndex],lat,lng,ways);
 			nodes.add(newNode);
 			curr = _nodesFile.readNextLine().split("\t");

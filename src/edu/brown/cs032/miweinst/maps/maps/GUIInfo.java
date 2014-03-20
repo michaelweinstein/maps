@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
+import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
+import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
@@ -20,10 +23,12 @@ public class GUIInfo {
 	private Vec2d _translate;	
 ////
 	private Vec2d _dpDim;
+	private KDTree _KDTree;
 	
-	public GUIInfo(FileProcessor fp, BoundingBox initialBounds) {
+	public GUIInfo(FileProcessor fp, BoundingBox initialBounds, KDTree t) {
 		_fp = fp;
 		_boundingBox = initialBounds;
+		_KDTree = t;
 		setDimensions();
 		updateBounds(fp, initialBounds);
 	}
@@ -73,20 +78,26 @@ public class GUIInfo {
 	 * Return MapNodes to be rendered. Reads from file within bounds
 	 */
 	public Map<String, MapNode> nodesForGUI() {
-		try {
+		//try {
 			LatLng center = _boundingBox.getCenter();
 			double diagonal = _boundingBox.getDiagonalLength();
-			MapNode[] nodes_arr = _fp.getNodesForGUI(center, diagonal);
+			//MapNode[] nodes_arr = _fp.getNodesForGUI(center, diagonal);
+////////////////
+			NeighborSearch ns = new NeighborSearch(center, diagonal);
+			KDTreeNode[] nodes_arr = ns.nearestNeighbors(_KDTree.getRoot());
 			Map<String, MapNode> map = new HashMap<String, MapNode>(nodes_arr.length);
-			for (MapNode n: nodes_arr) {
-				map.put(n.id, n);
+			for (KDTreeNode n: nodes_arr) {
+////////////
+				MapNode mn = (MapNode)n.getComparable();
+				map.put(mn.id,mn);
+				//map.put(n.id, n);
 			}
 			return map;
-		} catch (IOException e) {
-			System.out.println("ERROR: " + "fp.getNodesForGUI throws IOException (GUIInfo.nodesForGUI)");
-			e.printStackTrace();
-			return null;
-		}
+		//} catch (IOException e) {
+		//	System.out.println("ERROR: " + "fp.getNodesForGUI throws IOException (GUIInfo.nodesForGUI)");
+		//	e.printStackTrace();
+		//	return null;
+		//}
 	}
 	
 	/**
@@ -97,8 +108,8 @@ public class GUIInfo {
 	 */
 	public Way[] waysForGUI(Map<String, MapNode> nodes) {
 		List<Way> waysList = new ArrayList<Way>();
-		for (MapNode node: nodes.values()) {		
-						
+		for (MapNode node: nodes.values()) {	
+
 			Way[] arr = BinaryHelper.nodeToWayArr(node);			
 			
 			if (arr != null) {

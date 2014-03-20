@@ -57,28 +57,5 @@ public class LatLngTest {
 		}
 		assertTrue(pass);
 	}
-	@Test
-	public void isWithinTest() throws IOException {
-		boolean pass = false;
-		MapsFile nodes = new MapsFile("/course/cs032/data/maps/nodes.tsv");
-		MapsFile ways = new MapsFile("/course/cs032/data/maps/ways.tsv");
-		MapsFile index = new MapsFile("/course/cs032/data/maps/index.tsv");
-		FileProcessor fp = new FileProcessor(nodes,index,ways);
-		LatLng nw = new LatLng(42.3734759, -73.5618164);
-		LatLng se = new LatLng(40.0,-71.4);
-		double radius = nw.dist(se);
-		double lat = (nw.lat + se.lat)/2;
-		double lng = (nw.lng + se.lng)/2;
-		LatLng center = new LatLng(lat,lng);
-		LatLng llWithin = new LatLng(42.0773374,-71.7867287);
-		BoundingBox bb = new BoundingBox(nw,se);
-		GUIInfo guiInfo = new GUIInfo(fp,bb);
-		Map<String, MapNode> guiNodes = guiInfo.nodesForGUI();
-		System.out.println(guiNodes.size());
-		if (llWithin.isWithinRadius(center, radius)) {
-			pass = true;
-		}
-		assertTrue(pass);
-	}
 	
 }

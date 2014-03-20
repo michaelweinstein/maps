@@ -86,6 +86,7 @@ public class DrawingPanel extends JPanel {
 //THREAD 2: back-end
 		//update _nodes and _ways
 		_nodes = _guiInfo.nodesForGUI();
+		System.out.println("GET NODES FOR GUI FINISHED");
 		_ways = _guiInfo.waysForGUI(_nodes);
 ////
 		center = _guiInfo.getBoundingBox().getCenter();
