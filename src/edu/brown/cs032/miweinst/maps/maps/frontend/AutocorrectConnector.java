@@ -9,6 +9,7 @@ public class AutocorrectConnector {
 
 	private Autocorrect _autocorrect;
 	private HashMap<String,String> _validWays;
+	private String _input;
 	
 	public AutocorrectConnector(Autocorrect a, HashMap<String,String> ways) {
 		_autocorrect = a;

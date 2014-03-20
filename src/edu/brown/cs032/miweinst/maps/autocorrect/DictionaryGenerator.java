@@ -8,13 +8,12 @@ import java.util.HashSet;
 
 import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 
-public class DictionaryGenerator {
+public class DictionaryGenerator extends Thread {
 
 	private static MapsFile _waysFile;
 	
 	public DictionaryGenerator(MapsFile f) {
 		_waysFile = f;
-		generateDictionary();
 	}
 
 	private static void generateDictionary() {
@@ -66,6 +65,11 @@ public class DictionaryGenerator {
 			System.out.println("IOException");
 		}
 		
+	}
+	
+	@Override
+	public void run() {
+		generateDictionary();
 	}
 	
 	
