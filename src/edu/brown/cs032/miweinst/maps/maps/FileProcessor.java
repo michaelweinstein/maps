@@ -113,11 +113,6 @@ public class FileProcessor {
 					else
 						nodes.add(new MapNode(id,lat,lng,null));
 				}
-	///////			
-	//			String test = _nodesFile.readNextLine();
-	//			curr = test.split("\t");	
-	//			System.out.println("line: " + test);
-	//			System.out.println("curr.length: " + curr.length);
 				
 				curr = _nodesFile.readNextLine().split("\t");
 				

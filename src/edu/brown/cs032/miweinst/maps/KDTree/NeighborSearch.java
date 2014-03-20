@@ -115,5 +115,4 @@ public class NeighborSearch {
 		}
 		
 	} //end insertIntoNeighbors()
-	
 } //end NeighborSearch class
