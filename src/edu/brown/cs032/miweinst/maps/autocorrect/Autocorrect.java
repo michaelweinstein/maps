@@ -6,7 +6,10 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class Autocorrect {
+import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
+import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
+
+public class Autocorrect extends Thread {
 	private Trie _trie;
 	private Scanner _scanner;
 	private Suggestions _suggestion;
@@ -14,9 +17,10 @@ public class Autocorrect {
 	private int _led;
 	private boolean _prefix, _whitespace;
 	private Vector<String> _files;
-
+	private static String _filePath;
+	private static Autocorrect _instance;
+	
 	public Autocorrect(String[] argv) {
-		
 		_trie = new Trie();
 		_suggestion = new Suggestions(_trie);
 		_numWords = 0.0;
@@ -118,4 +122,27 @@ public class Autocorrect {
 	  }//end while
 	}//end mainLineParser()
 
+	/*next four functions allow instance of Autocorrect to be created in a thread*/
+	
+	public static void setFilePath(String fp) { _filePath = fp; }
+	
+	public Autocorrect(String s) {
+		//do nothing. This is a different constructor
+		//so the Trie can be made on a thread
+		//somewhat of a hack, but I didn't consider
+		//threading in my original autocorrect deisgn
+	}
+	
+	public static Autocorrect getAutocorrect() {
+		return Autocorrect.makeAutocorrect(_filePath);
+	}
+	
+	public static Autocorrect getInstance() { return _instance; }
+	
+	@Override
+	public void run() {
+		_instance = Autocorrect.getAutocorrect();
+	}
+	
+	
 }

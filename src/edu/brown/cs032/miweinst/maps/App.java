@@ -25,13 +25,18 @@ import edu.brown.cs032.miweinst.maps.maps.frontend.AutocorrectConnector;
 import edu.brown.cs032.miweinst.maps.maps.frontend.GUIFrame;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
 import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
+import edu.brown.cs032.miweinst.maps.threading.FileProcessorThread;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 
 public class App {
 
 	private static FileProcessor _fp = null;
+	
 	private static Autocorrect _autocorrect = null;
+	private static HashMap<String,String> _validWays;
+	private static KDTree _KDTree;
+	private static MapsFile _ways , _nodes, _index, _waysForDictionary;
 	
 	private BoundingBox _boundingBox;
 
@@ -76,13 +81,14 @@ public class App {
 
 		//make MapsFile, set BinaryHelper files and create dictionary for autocorrect
 		try {
-			MapsFile ways = new MapsFile(waysPath);
-			MapsFile nodes = new MapsFile(nodesPath);
-			MapsFile index = new MapsFile(indexPath);
+			_ways = new MapsFile(waysPath);
+			_nodes = new MapsFile(nodesPath);
+			_index = new MapsFile(indexPath);
+			_waysForDictionary = new MapsFile(waysPath);
 			//set all references to data files
-			BinaryHelper.setFiles(ways, nodes, index);
-			new DictionaryGenerator(ways);
-			_fp = new FileProcessor(nodes, index, ways);
+			BinaryHelper.setFiles(_ways, _nodes, _index);
+			_fp = new FileProcessor(_nodes, _index, _ways);
+			threadedSetup(); //read files and setup data structures in individual threads
 		}
 		//EDGE CASE: File paths not valid; exits program
 		catch (FileNotFoundException e) {
@@ -168,10 +174,8 @@ public class App {
 	 */
 	public static MapNode nearestNeighbor(LatLng latlng) throws IOException {
 		if (_fp != null) {
-			MapNode[] kdnodes_arr = _fp.nodesArrayForKDTree();
-			KDTree tree = new KDTree(kdnodes_arr);
 			NeighborSearch ns = new NeighborSearch(latlng);
-			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(tree.getRoot());
+			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(_KDTree.getRoot());
 			KDComparable mapnode = neighbor_arr[0].getComparable();
 
 /////////	WE SHOULDN'T USE INSTANCEOF; NEED A NEW WAY TO GET MAPNODE
@@ -220,19 +224,55 @@ public class App {
 			System.out.println("ERROR: " + "One of the node IDs cannot be found.");
 	}
 	
-	private void handleGUI() throws IOException {
-		String filepath = System.getProperty("user.dir") + 
+	/*
+	 * reads file and sets up the following data structures:
+	 * Array of nodes for KDTree, KDTree, HashMap of ways, dictionary file, Trie
+	 * Since MapFiles are asynchronous, each thread gets its own instance
+	 * after testing, this method decreases startup time from ~29 seconds to ~13seconds
+	 */
+	private void threadedSetup() {
+		String acFilePath = System.getProperty("user.dir") + 
 				  "/src/edu/brown/cs032/miweinst/maps/autocorrect/autocorrect_dictionary.txt";
-		//PUT THE FOLLOWING TWO LINES INTO SEPARATE THREADS
-		_autocorrect = Autocorrect.makeAutocorrect(filepath);
+		Autocorrect acThread = new Autocorrect("");
+		FileProcessorThread waysThread = new FileProcessorThread(_fp, "getWays");
+		FileProcessorThread KDThread = new FileProcessorThread(_fp, "nodesArrayForKDTree");
+		DictionaryGenerator dictThread = new DictionaryGenerator(_waysForDictionary);
+		KDTree KDThread2 = new KDTree(new KDComparable[0]);
+		waysThread.start();
+		KDThread.start();
+		dictThread.start();
+		try { //wait for our threads to die
+			KDThread.join();
+			//once we get the nodes for the KDTree, start creating the
+			//KDTree in its own thread
+			MapNode[] kdnodes_arr = KDThread.getKDNodes();
+			KDTree.setArray(kdnodes_arr);
+			KDThread2.start();
+			
+			dictThread.join();
+			Autocorrect.setFilePath(acFilePath);
+			acThread.start();
+			
+			acThread.join();
+			KDThread2.join();
+			waysThread.join();
+		}
+		catch (InterruptedException e) {
+			System.out.println("ERROR: InterruptedException");
+		}
+		_KDTree = KDTree.getInstance();
+		_autocorrect = Autocorrect.getInstance();
+		_validWays = waysThread.getWays();
+		
+	}
+	
+	private void handleGUI() throws IOException {
 		if (_fp != null) {
 //////
 			GUIInfo gui = new GUIInfo(_fp, _boundingBox);
 //			gui.updateBounds(_fp, _boundingBox);
-//			MapNode[] nodesForGUI = gui.nodesForGUI(_fp, _boundingBox);
-			
-			HashMap<String,String> valid_ways = _fp.getWays();				
-			GUIFrame guiFrame = new GUIFrame(gui, new AutocorrectConnector(_autocorrect, valid_ways));
+//			MapNode[] nodesForGUI = gui.nodesForGUI(_fp, _boundingBox);	
+			GUIFrame guiFrame = new GUIFrame(gui, new AutocorrectConnector(_autocorrect, _validWays));
 		} else 
 			System.out.println("ERROR: " + "FileProcessor is null in App (App.handleGUI)");
 	}

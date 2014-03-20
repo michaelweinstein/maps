@@ -2,10 +2,11 @@ package edu.brown.cs032.miweinst.maps.KDTree;
 
 import java.util.Arrays;
 
-public class KDTree {
+public class KDTree extends Thread {
 	
 	private KDTreeNode _root;
-
+	private static KDComparable[] _array;
+	private static KDTree _instance;
 	
 	public KDTree(KDComparable[] array) {
 		_root = new KDTreeNode();
@@ -42,7 +43,7 @@ public class KDTree {
 			
 			this.split(array,dim,start,end);
 			double split = array[mid].getPoint().getCoordinateInDimension(dim);
-			
+
 			node.setSplit(split, dim);
 			
 			this.buildTree(leftChild, array, start, mid);
@@ -66,6 +67,21 @@ public class KDTree {
 	
 	public KDTreeNode getRoot() {
 		return _root;
+	}
+	
+	/*next two functions allow a KDTree to be created in a thread*/
+	
+	public static void setArray(KDComparable[] a) { _array = a; }
+	
+	public static KDTree getInstance() { return _instance; }
+	
+	public static KDTree getKDTree() {
+		return new KDTree(_array);
+	}
+	
+	@Override
+	public void run() {
+		_instance = KDTree.getKDTree();
 	}
 	
 }
