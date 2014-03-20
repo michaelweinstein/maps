@@ -41,15 +41,6 @@ public final class LatLng {
 		return (this.dist(other) <= radius);
 	}
 	
-	/*
-	 * determines if the input lng is
-	 * within diff degrees of ll.lng
-	 */
-	public static boolean isWithinLng(double lng, LatLng ll, double diff) {
-		return (Double.compare(Math.abs(lng - ll.lng), diff) <= 0);
-	}
-	
-	
 	/* PRIVATE METHODS */
 	private static double checkLatitude(double lat) {
 		if (lat < -90.0 || lat > 90.0) 
