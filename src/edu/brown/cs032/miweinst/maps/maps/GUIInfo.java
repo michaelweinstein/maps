@@ -11,11 +11,13 @@ import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
 import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
+import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
+import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
-public class GUIInfo extends Thread {
+public class GUIInfo {
 	
 	private FileProcessor _fp;
 	private BoundingBox _boundingBox;
@@ -157,4 +159,5 @@ public class GUIInfo extends Thread {
 	public Vec2d getDimensions() {
 		return _dpDim;
 	}
+	
 }
