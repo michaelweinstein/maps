@@ -2,6 +2,7 @@ package edu.brown.cs032.miweinst.maps.maps.path;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 
 import edu.brown.cs032.miweinst.maps.binarySearch.BinarySearch;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
@@ -9,15 +10,23 @@ import edu.brown.cs032.miweinst.maps.maps.MapsFile;
 import edu.brown.cs032.miweinst.maps.maps.Way;
 
 public class BinaryHelper {
-	private static BinarySearch ways;
-	private static BinarySearch nodes;
-	private static BinarySearch index;
+	private static BinarySearch ways, nodes, index;
+	private static HashMap<String,Way> _waysCache;
+	private static MapsFile _waysFile;
+//////
+	private static int _count;
+	private static String _waysLastLineId;
 	
 	public static void setFiles(MapsFile waysFile, MapsFile nodesFile, MapsFile indexFile) 
 			throws IOException, FileNotFoundException {
 		ways = new BinarySearch(waysFile);
 		nodes = new BinarySearch(nodesFile);
-		index = new BinarySearch(indexFile);		
+		index = new BinarySearch(indexFile);	
+		_waysCache = new HashMap<String,Way>();
+		
+		_waysFile = waysFile;
+		_waysLastLineId = waysFile.readLastLine().split("/t")[0];
+		_count = 0;
 	}
 	
 	/**
@@ -35,6 +44,7 @@ public class BinaryHelper {
 	 * Returns arr of all Ways that the specified
 	 * MapNode is the source of. 
 	 * Uses nodes.tsv.
+	 * @throws IOException 
 	 */
 	public static Way[] nodeToWayArr(MapNode node) {
 		String[] cols = {"ways"};
@@ -45,12 +55,62 @@ public class BinaryHelper {
 		Way[] waysArr = new Way[waysIdArr.length];	
 		for (int i=0; i<waysIdArr.length; i++) {
 			String id = waysIdArr[i];
-			String start = node.id;
-			String[] newCols = {"end"};
-			String[] end = ways.search(id, "id", newCols);			
-			waysArr[i] = new Way(id, start, end[0]);			
+///////////////
+			if (_waysCache.containsKey(id)) {
+				waysArr[i] = _waysCache.get(id);
+			}
+			else {
+				String start = node.id;
+				String[] newCols = {"end"};
+				//System.out.println(_count++);
+				String[] end = ways.search(id, "id", newCols);			
+//////////////
+				
+				
+				
+				waysArr[i] = new Way(id, start, end[0]);
+				_waysCache.put(id, waysArr[i]);
+				BinaryHelper.addWaysBlock(waysArr[i]);
+				
+/////////////SPEEDS UP WAYS FOR GUI BUT (MAYBE??) BREAKS DIJKSTRA
+				//String id_opposite = id.substring(0, id.length() - 1);
+				//if (id.endsWith("1"))
+				//	id_opposite += "2";
+				//else
+				//	id_opposite += "1";
+				//_waysCache.put(id_opposite, new Way(id_opposite,end[0], start));
+			}
 		}
 		return waysArr;
+	}
+/////////THIS WILL BREAK UNLESS *ALL* WAYS HAVE A START AND END (do they??)
+	/*
+	 * takes advantage of predictive paging. Once we find a way,
+	 * cache all ways that are within .01 degrees latitude and are
+	 * farther down the page 
+	 */
+	private static void addWaysBlock(Way way) {
+		int idIndex = _waysFile.getFieldIndex("id");
+		int startIndex = _waysFile.getFieldIndex("start");
+		int endIndex = _waysFile.getFieldIndex("end");
+		
+		String curr_id = way.id;
+			
+		while (curr_id.compareTo(_waysLastLineId) != 0 &&
+			   curr_id.substring(0,7).compareTo(way.id.substring(0,7)) == 0)
+		{
+			try {
+				String[] curr = _waysFile.readNextLine().split("\t");
+				curr_id = curr[idIndex];
+				String start = curr[startIndex];
+				String end = curr[endIndex];
+				if (_waysCache.containsKey(curr_id)) break;
+				_waysCache.put(curr_id, new Way(curr_id, start, end));
+				
+				
+			} catch (IOException e) { System.out.println("IOException in addWaysBlock()"); }	
+		}
+		
 	}
 	
 	/**

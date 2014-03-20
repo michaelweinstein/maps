@@ -44,9 +44,9 @@ public class DrawingPanel extends JPanel {
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
 		_nodes = info.nodesForGUI();
-		
+		System.out.println("START WAYS SEARCH");
 		_ways = info.waysForGUI(_nodes);
-		
+		System.out.println("FINISHED WAYS SEARCH");
 ////////	
 		System.out.println("nodes.length: " + _nodes.size());
 		System.out.println("ways.length: " + _ways.length);
@@ -89,6 +89,8 @@ public class DrawingPanel extends JPanel {
 		System.out.println("GET NODES FOR GUI FINISHED");
 		_ways = _guiInfo.waysForGUI(_nodes);
 ////
+		System.out.println("nodes.length: " + _nodes.size());
+		System.out.println("ways.length: " + _ways.length);
 		center = _guiInfo.getBoundingBox().getCenter();
 		this.repaint();
 	}
@@ -131,11 +133,6 @@ public class DrawingPanel extends JPanel {
 				Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
 				brush.setColor(Color.BLACK);
 				brush.setStroke(new BasicStroke(1));
-////////////////////
-				//brush.fill(new Ellipse2D.Double(screenLocStart.x, screenLocStart.y, 2, 2));
-				//brush.setColor(Color.RED);
-				//brush.fill(new Ellipse2D.Double(screenLocEnd.x, screenLocEnd.y, 2, 2));
-/////////////////////
 				brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
 			}
 		}
