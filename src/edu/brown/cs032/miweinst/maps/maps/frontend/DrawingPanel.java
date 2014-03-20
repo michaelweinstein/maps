@@ -40,7 +40,7 @@ public class DrawingPanel extends JPanel {
 		this.setSize(w, h);
 		this.setBackground(Color.WHITE);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));		
-		
+
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
 		_nodes = info.nodesForGUI();
