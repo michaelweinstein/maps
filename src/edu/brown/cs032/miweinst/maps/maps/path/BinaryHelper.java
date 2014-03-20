@@ -72,13 +72,7 @@ public class BinaryHelper {
 				_waysCache.put(id, waysArr[i]);
 				BinaryHelper.addWaysBlock(waysArr[i]);
 				
-/////////////SPEEDS UP WAYS FOR GUI BUT (MAYBE??) BREAKS DIJKSTRA
-				//String id_opposite = id.substring(0, id.length() - 1);
-				//if (id.endsWith("1"))
-				//	id_opposite += "2";
-				//else
-				//	id_opposite += "1";
-				//_waysCache.put(id_opposite, new Way(id_opposite,end[0], start));
+
 			}
 		}
 		return waysArr;

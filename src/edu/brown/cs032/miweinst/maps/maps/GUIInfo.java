@@ -34,15 +34,16 @@ public class GUIInfo {
 	}
 	
 	/**
-	 * 
+	 * Updates all variables necessary for converting from LatLng
+	 * to screen coordinates. 
 	 */
 	public void updateBounds(FileProcessor fp, BoundingBox box) {
 		//update vars
 		_boundingBox = box;
 		_fp = fp;
-		//translate northwest to origin, store translation
-		LatLng nw = _boundingBox.getSoutheast();
-		_translate = new Vec2d(-1*nw.lng, -1*nw.lat);
+		//translate corner to origin, store translation
+		LatLng se = _boundingBox.getSoutheast();
+		_translate = new Vec2d(-1*se.lng, -1*se.lat);
 		//scale box to DrawingPanel; divide BoundingBox dimensions into DP dimensions
 		double xScale = _dpDim.x / _boundingBox.getWidth();	//panel.width/box.width
 		double yScale = _dpDim.y / _boundingBox.getHeight(); //panel.height/box.height
@@ -50,13 +51,31 @@ public class GUIInfo {
 		int m = 1;
 		int n = 1;
 		//for maps, longitude is negative, m = -1
-		if (nw.lng < 0) 
+		if (se.lng < 0) 
 			m = -1;
-		if (nw.lat < 0) 
+		if (se.lat < 0) 
 			n = -1;
 		_scale = new Vec2d(m*xScale, n*yScale);
 /////	ONLY FOR TESTING SCALE, CUT IN HALF SO NODES SHOW UP WITH TEST TSV FILES
 		//_scale = new Vec2d(xScale*m/2, yScale*n/2);
+	}
+	
+	/**
+	 * Changes x and y scale by a constant (not fraction), but doesn't
+	 * translate Box at all, which gives the appearance of perspective
+	 * and distance from ground. Called in DrawingPanel with CTRL + scroll
+	 */
+	public void changeScaleByConstant(int dScale) {
+		_scale = new Vec2d(_scale.x + dScale, _scale.y + dScale);
+	}
+//////
+	public void changeScaleByRelative(int dScale) {
+		double x = _scale.x;
+		double y = _scale.y;
+		
+		double fraction = dScale / _scale.x;
+		
+		_scale = new Vec2d(x*fraction, y*fraction);
 	}
 	
 	

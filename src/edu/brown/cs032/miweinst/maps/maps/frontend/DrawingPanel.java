@@ -8,6 +8,8 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.util.Map;
@@ -53,6 +55,7 @@ public class DrawingPanel extends JPanel {
 		
 		this.addMouseListener(new MapMouseListener());
 		this.addMouseMotionListener(new MapMotionListener());	
+		this.addMouseWheelListener(new MapWheelListener());
 		this.repaint();
 	}
 	
@@ -82,18 +85,44 @@ public class DrawingPanel extends JPanel {
 	 * Call to back-end after panning ends, called in mouseReleased.
 	 * Updates _nodes and _ways array
 	 */
-	public void endPan(Vec2d loc) {
+	public void callBackEnd() {
 //THREAD 2: back-end
 		//update _nodes and _ways
 		_nodes = _guiInfo.nodesForGUI();
-		System.out.println("GET NODES FOR GUI FINISHED");
 		_ways = _guiInfo.waysForGUI(_nodes);
-////
-		System.out.println("nodes.length: " + _nodes.size());
-		System.out.println("ways.length: " + _ways.length);
+/////
 		center = _guiInfo.getBoundingBox().getCenter();
 		this.repaint();
 	}
+	
+	/** Zooms front-end */
+	public void zoom(int dRot) {
+		BoundingBox oldBox = _guiInfo.getBoundingBox();
+		LatLng oldCenter = oldBox.getCenter();
+		Vec2d scale = _guiInfo.getScale();
+		LatLng oldNw = oldBox.getNorthwest();
+		LatLng oldSw = oldBox.getSoutheast();
+		double rot = dRot/scale.x*10;	
+		LatLng nw = new LatLng(oldNw.lat + rot, oldNw.lng - rot);
+		LatLng se = new LatLng(oldSw.lat - rot, oldSw.lng + rot);		
+		//new box, but center remains the same
+		BoundingBox newBox = new BoundingBox(nw, se);
+		newBox.setCenter(oldCenter);	
+		_guiInfo.updateBounds(_guiInfo.getFileProcessor(), newBox);	
+		this.repaint();		
+
+		//IN A NEW THREAD
+		callBackEnd();
+	}
+	
+	/** Affects angle of bird's eye view of landscape! 
+	 * Ctrl + scroll 
+	 */
+	public void isomorphicZoom(int dRot) {
+		_guiInfo.changeScaleByConstant(dRot*200);
+		this.repaint();
+	}
+	
 	
 //////
 	//Marks center of BoundingBox at all times
@@ -140,6 +169,7 @@ public class DrawingPanel extends JPanel {
 	
 	/*INNER CLASSES*/
 	
+	private Integer prevScroll;
 	private Vec2d prev;
 	private class MapMouseListener implements MouseListener {
 		@Override
@@ -154,7 +184,7 @@ public class DrawingPanel extends JPanel {
 		}
 		@Override
 		public void mouseReleased(MouseEvent arg0) { 
-			endPan(new Vec2d(arg0.getX(), arg0.getY()));
+			callBackEnd();
 		}
 	}
 	
@@ -171,6 +201,18 @@ public class DrawingPanel extends JPanel {
 		}
 		@Override
 		public void mouseMoved(MouseEvent arg0) {
+		}
+	}
+	
+	private class MapWheelListener implements MouseWheelListener {
+		@Override
+		public void mouseWheelMoved(MouseWheelEvent arg0) {
+			//CTRL + scroll -- isomorphic zoom
+			if (arg0.isControlDown()) 
+				isomorphicZoom(arg0.getWheelRotation());
+			//scroll -- regular zoom
+			else 
+				zoom(arg0.getWheelRotation());
 		}
 	}
 }
