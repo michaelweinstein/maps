@@ -98,10 +98,14 @@ public class GUIInfo {
 	public Way[] waysForGUI(Map<String, MapNode> nodes) {
 		List<Way> waysList = new ArrayList<Way>();
 		for (MapNode node: nodes.values()) {		
+						
 			Way[] arr = BinaryHelper.nodeToWayArr(node);			
-			for (Way w: arr) {
-				if (!waysList.contains(w)) {
-					waysList.add(w);
+			
+			if (arr != null) {
+				for (Way w: arr) {										
+					if (!waysList.contains(w)) {
+						waysList.add(w);
+					}
 				}
 			}
 		}		

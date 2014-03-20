@@ -37,6 +37,4 @@ public class AutocorrectConnector {
 			System.out.println(s);
 		}
 	}
-
-	
 }

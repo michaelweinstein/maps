@@ -268,7 +268,6 @@ public class App {
 	
 	private void handleGUI() throws IOException {
 		if (_fp != null) {
-//////
 			GUIInfo gui = new GUIInfo(_fp, _boundingBox);
 //			gui.updateBounds(_fp, _boundingBox);
 //			MapNode[] nodesForGUI = gui.nodesForGUI(_fp, _boundingBox);	

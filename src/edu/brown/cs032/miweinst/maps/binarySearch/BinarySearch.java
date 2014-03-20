@@ -84,8 +84,16 @@ public class BinarySearch {
 			}
 			else {
 				_targets = new String[_inlineTargetPositions.length];
+				
+//				System.out.println("line: " + line);
+//				System.out.println("curr_line: " + curr_line.length);
+				
 				for (int i = 0; i < _inlineTargetPositions.length; i++) {
-					_targets[i] = curr_line[_inlineTargetPositions[i]]; //target found
+					//handles case where a node has zero Ways
+					if (_inlineTargetPositions[i] < curr_line.length)
+						_targets[i] = curr_line[_inlineTargetPositions[i]]; //target found
+					else
+						_targets[i] = null;
 				}
 				
 			}

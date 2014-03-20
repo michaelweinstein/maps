@@ -44,6 +44,7 @@ public class DrawingPanel extends JPanel {
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
 		_nodes = info.nodesForGUI();
+		
 		_ways = info.waysForGUI(_nodes);
 		
 ////////	

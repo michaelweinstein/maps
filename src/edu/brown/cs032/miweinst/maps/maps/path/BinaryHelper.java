@@ -39,6 +39,8 @@ public class BinaryHelper {
 	public static Way[] nodeToWayArr(MapNode node) {
 		String[] cols = {"ways"};
 		String[] waysCSV = nodes.search(node.id, "id", cols);
+		if (waysCSV[0] == null)
+			return null;
 		String[] waysIdArr = waysCSV[0].split(",");
 		Way[] waysArr = new Way[waysIdArr.length];	
 		for (int i=0; i<waysIdArr.length; i++) {
