@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
+import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
@@ -30,8 +32,10 @@ public class DrawingPanel extends JPanel {
 
 ////
 //	private MapNode[] _nodes;
-	private Map<String, MapNode> _nodes;
-	private Way[] _ways;
+	//private Map<String, MapNode> _nodes;
+	private NodesGUIWrapper _nodesWrapper;
+	private WaysGUIWrapper _waysWrapper;
+	//private Way[] _ways;
 	
 	public DrawingPanel(GUIInfo info, MainPanel mp) {		
 		//Sets size, background color and border of DrawingPanel
@@ -43,15 +47,20 @@ public class DrawingPanel extends JPanel {
 		this.setBackground(Color.WHITE);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));		
 
+		_nodesWrapper = new NodesGUIWrapper();
+		_waysWrapper = new WaysGUIWrapper();
+		
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
-		_nodes = info.nodesForGUI();
+		//_nodes = info.nodesForGUI();
+		_nodesWrapper.set(info.nodesForGUI());
 		System.out.println("START WAYS SEARCH");
-		_ways = info.waysForGUI(_nodes);
+		//_ways = info.waysForGUI(_nodes);
+		_waysWrapper.set( info.waysForGUI(_nodesWrapper.get()));
 		System.out.println("FINISHED WAYS SEARCH");
 ////////	
-		System.out.println("nodes.length: " + _nodes.size());
-		System.out.println("ways.length: " + _ways.length);
+		System.out.println("nodes.length: " + _nodesWrapper.get().size());
+		System.out.println("ways.length: " + _waysWrapper.get().length);
 		
 		this.addMouseListener(new MapMouseListener());
 		this.addMouseMotionListener(new MapMotionListener());	
@@ -88,11 +97,19 @@ public class DrawingPanel extends JPanel {
 	public void callBackEnd() {
 //THREAD 2: back-end
 		//update _nodes and _ways
-		_nodes = _guiInfo.nodesForGUI();
-		_ways = _guiInfo.waysForGUI(_nodes);
+//		_nodes = _guiInfo.nodesForGUI();
+//		_ways = _guiInfo.waysForGUI(_nodes);
 /////
+
+		_nodesWrapper.set(_guiInfo.nodesForGUI());
+		System.out.println("GET NODES FOR GUI FINISHED");
+		//_ways = _guiInfo.waysForGUI(_nodes);
+		_waysWrapper.set(_guiInfo.waysForGUI(_nodesWrapper.get()));
+////
+		System.out.println("nodes.length: " + _nodesWrapper.get().size());
+		System.out.println("ways.length: " + _waysWrapper.get().length);
 		center = _guiInfo.getBoundingBox().getCenter();
-		this.repaint();
+//		this.repaint();
 	}
 	
 	/** Zooms front-end */
@@ -154,10 +171,11 @@ public class DrawingPanel extends JPanel {
 		}*/
 ///DRAW WAYS
 		//draw Ways between _nodes as Line2D
-		for (int i=0; i<_ways.length; i++) {
-			MapNode startNode = _nodes.get(_ways[i].start);
+		Way[] ways = _waysWrapper.get();
+		for (int i=0; i<ways.length; i++) {
+			MapNode startNode = _nodesWrapper.get(ways[i].start);
 			Vec2d screenLocStart = _guiInfo.convertToScreen(startNode.loc);
-			MapNode endNode = _nodes.get(_ways[i].end);
+			MapNode endNode = _nodesWrapper.get(ways[i].end);
 			if (endNode != null) {
 				Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
 				brush.setColor(Color.BLACK);
