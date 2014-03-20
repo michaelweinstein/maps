@@ -38,22 +38,20 @@ public class GUIInfo {
 		//translate northwest to origin, store translation
 		LatLng nw = _boundingBox.getSoutheast();
 		_translate = new Vec2d(-1*nw.lng, -1*nw.lat);
-		//stretch southeast to DrawingPanel, store scale
-//		LatLng se = _boundingBox.getSoutheast();
-				
+		//scale box to DrawingPanel; divide BoundingBox dimensions into DP dimensions
 		double xScale = _dpDim.x / _boundingBox.getWidth();	//panel.width/box.width
 		double yScale = _dpDim.y / _boundingBox.getHeight(); //panel.height/box.height
-		
-//////
-/*		System.out.println("width: " + _boundingBox.getWidth());
-		System.out.println("height: " + _boundingBox.getHeight());
-		System.out.println("translate: " + _translate);
-		System.out.println("xScale: " + xScale);
-		System.out.println("yScale: " + yScale);*/
-		
-		_scale = new Vec2d(-1*xScale, yScale);
-/////	ONLY FOR TESTING SCALE, SO NODES SHOW UP WITH TEST TSV FILES
-//		_scale = new Vec2d(xScale*-1/2, yScale/2);
+		//flip scales if longitude or latitude is negative 
+		int m = 1;
+		int n = 1;
+		//for maps, longitude is negative, m = -1
+		if (nw.lng < 0) 
+			m = -1;
+		if (nw.lat < 0) 
+			n = -1;
+//		_scale = new Vec2d(m*xScale, n*yScale);
+/////	ONLY FOR TESTING SCALE, CUT IN HALF SO NODES SHOW UP WITH TEST TSV FILES
+		_scale = new Vec2d(xScale*m/2, yScale*n/2);
 	}
 	
 	

@@ -8,6 +8,22 @@ public class BoundingBox {
 	public BoundingBox(LatLng nw, LatLng se) {
 		this._northwest = nw;
 		this._southeast = se;
+		if (!repOK()) {
+			System.out.println("ERROR: " + "BoundingBox corners not valid (BoundingBox())");
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	/**
+	 * Verify that BoundingBox is valid.
+	 */
+	private boolean repOK() {
+		if (_southeast.lng > _northwest.lng) {
+			if (_southeast.lat < _northwest.lat) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public boolean contains(LatLng pt) {

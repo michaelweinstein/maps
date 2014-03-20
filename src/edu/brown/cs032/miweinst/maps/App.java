@@ -52,15 +52,14 @@ public class App {
 		String indexPath = args[2];
 		
 //////
+////TESTING boxes
+////////THESE BOXES DON'T WORK (ARRAYOUTOFBOUNDS)
+//		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.0, -71.0));
+		_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
 		//create default BoundingBox
-//		_boundingBox = new BoundingBox(new LatLng(40.3734759, -73.5618164), new LatLng(40., -73.4));
-//		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));
-		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));
-		//		_boundingBox = new BoundingBox(new LatLng(0, 0), new LatLng(1, 0));
-		
-///		BUG; PROGRAM DOES NOT RUN WITH THIS BOUNDINGBOX!
-//		_boundingBox = new BoundingBox(new LatLng(40.3734759, -73.5618164), new LatLng(40.3, -73.5618164));
-	
+////////THIS BOX WORKS
+//		_boundingBox = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));		
+
 		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;
