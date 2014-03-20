@@ -6,12 +6,11 @@ ARGS
 
 ---- TODO ----
 GUI
-	- Panning
-		-- Fix/Finish DrawingPanel.endPan() 
-		-- Need to put some bounds on how far you can pan
-	- Zooming
+	Put bounds on how far you can pan and zoom
+	Add threading 
+		- Panning
+		- Zooming
 	- GUIInfo
-		-!- MUST FIX scaling problem with _scale
 		-- Needs reference to size of DrawingPanel
 	- Clicking on map and finding nearest intersection/node
 	- Highlighting relevant street segments

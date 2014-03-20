@@ -68,16 +68,6 @@ public class GUIInfo extends Thread {
 	public void changeScaleByConstant(int dScale) {
 		_scale = new Vec2d(_scale.x + dScale, _scale.y + dScale);
 	}
-//////
-	public void changeScaleByRelative(int dScale) {
-		double x = _scale.x;
-		double y = _scale.y;
-		
-		double fraction = dScale / _scale.x;
-		
-		_scale = new Vec2d(x*fraction, y*fraction);
-	}
-	
 	
 	/**
 	 * Convert from LatLng coordinates to XY java coordinates, 

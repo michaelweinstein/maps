@@ -129,7 +129,7 @@ public class DrawingPanel extends JPanel {
 		this.repaint();		
 
 		//IN A NEW THREAD
-		callBackEnd();
+//		callBackEnd();
 	}
 	
 	/** Affects angle of bird's eye view of landscape! 

@@ -44,7 +44,6 @@ public class PathFinder {
 	 */
 	private static void buildGraph(Graph<MapNode, Way> g, ArrayDeque<GraphNode<MapNode>> path,
 			PriorityQueue<GraphNode<MapNode>> pq, MapNode srcNode, MapNode dstNode) {
-//		try {			
 			GraphNode<MapNode> currNode;
 			//(FIRST CALL ONLY) set first node's distance to 0, add to PQ
 			if (g.size() == 0)  {
@@ -63,39 +62,29 @@ public class PathFinder {
 			else {		
 				//remove lowest-distance node
 				currNode = pq.poll();
-////				
-//				System.out.println(currNode.getElement().id + " currNode.isExplored: " + currNode.isExplored());
-				
 				//get id of curr node
 				MapNode currMapNode = currNode.getElement();
 
 				/*Fully explore currNode*/
 				//find all ways starting at this node
-				Way[] ways = BinaryHelper.nodeToWayArr(currMapNode);				
+				Way[] ways = BinaryHelper.nodeToWayArr(currMapNode);		
+				
+				
+				
 				//for each film (id) actor1 stars in
 				films: 
 				for (Way way: ways) {	
-					
 					//get list of actors in film
 					MapNode[] endNodes = BinaryHelper.wayToEndNodes(way.id);	
 					
-					//for each actor in film, other than actor1
-//					for (MapNode id: endNodes) {	
 					
-					//endNodes[0] == currNode
-					//for endnode of each way
+					
+					//one directional edges: src to dst
 					MapNode nextMapNode = endNodes[1];
-					
-///////
-//					System.out.println("nextMapNode: " + nextMapNode.id);
-					
 					//explore if node is not yet created or unexplored
 					boolean explore = false;
 					//get GraphNode containing endMapNode, if one exists
 					GraphNode<MapNode> node = g.getNode(nextMapNode);
-////////					
-//					System.out.println("node: " + node);
-					
 					if (node == null) 
 						explore = true;
 					else if (!node.isExplored()) 
@@ -103,12 +92,6 @@ public class PathFinder {
 					
 					//if endMapNode != currMapNode and endMapNode not yet explored
 					if (!nextMapNode.equals(currMapNode) && explore) {	
-						
-//						String currName = BinarySearchUtil.idToActor(currMapNode);
-//						String name = BinarySearchUtil.idToActor(endMapNode);						
-						//if actor is related to actor1 (pass in names, not ids)
-//						if (isRelated(currName, name)) {		
-						
 						/*Get node or create new node */			
 						//get or create node with endMapNode
 						if (node == null)
@@ -143,12 +126,8 @@ public class PathFinder {
 							pq.clear();
 							break films;
 						}
-//						}
 					}
-//					}
 				}					
-/////
-//				System.out.println("SET EXPLORED: " + pq.size());
 				
 				/* Recursive Step */
 				currNode.setExplored(true);

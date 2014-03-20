@@ -49,10 +49,12 @@ public class BinaryHelper {
 	 */
 	public static Way[] nodeToWayArr(MapNode node) {
 		String[] cols = {"ways"};
-		String[] waysCSV = node.ways;
-		if (waysCSV.length == 0)
-			return null;
-		String[] waysIdArr = waysCSV[0].split(",");
+		String[] waysIdArr = node.ways;
+
+//		if (waysCSV.length == 0)
+//			return null;
+//		String[] waysIdArr = waysCSV[0].split(",");
+				
 		Way[] waysArr = new Way[waysIdArr.length];	
 		for (int i=0; i<waysIdArr.length; i++) {
 			String id = waysIdArr[i];
@@ -66,15 +68,11 @@ public class BinaryHelper {
 				//System.out.println(_count++);
 				String[] end = ways.search(id, "id", newCols);			
 //////////////
-				
-				
-				
+
 				waysArr[i] = new Way(id, start, end[0]);
 				_waysCache.put(id, waysArr[i]);
 				BinaryHelper.addWaysBlock(waysArr[i]);
-				
-
-			}
+			}			
 		}
 		return waysArr;
 	}
