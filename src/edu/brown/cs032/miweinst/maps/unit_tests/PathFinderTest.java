@@ -33,6 +33,8 @@ public class PathFinderTest {
 		Graph<MapNode, Way> g = new Graph<MapNode, Way>();
 		MapNode startNode = BinaryHelper.makeMapNode(startId);
 		MapNode endNode = BinaryHelper.makeMapNode(endId);	
+		System.out.println(startNode.loc.toString());
+		System.out.println(endNode.loc.toString());
 		ArrayDeque<GraphNode<MapNode>> path = PathFinder.buildGraphFromNames(g, startNode, endNode);
 
 		assertTrue(path.size() == 6);
