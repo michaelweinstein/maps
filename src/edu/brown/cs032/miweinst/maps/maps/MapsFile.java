@@ -112,7 +112,7 @@ public class MapsFile extends RandomAccessFile {
 
 		boolean new_line = false;
 		while (!new_line) {
-			byte[] curr_bytes = new byte[10];
+			byte[] curr_bytes = new byte[100];
 ///////			
 //			if (this.read(curr_bytes) == -1)  //encountered EOF
 //				return;
@@ -123,7 +123,7 @@ public class MapsFile extends RandomAccessFile {
 								
 				if (curr_bytes[i] == 10) {
 					new_line = true;
-					this.seek(this.getFilePointer() - 10 + i + 1);
+					this.seek(this.getFilePointer() - 100 + i + 1);
 					break;
 				} //end if
 //////	MICHAEL ADDED THIS TO FIX BUG WHEN READING LAST LINE

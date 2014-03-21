@@ -57,8 +57,8 @@ public class App {
 		//_boundingBox = new BoundingBox(new LatLng(41.2720844,	-74.7175365), new LatLng(40.1615135, -73.6937661));	
 		
 		//THESE ARE GOOD BOUNDING BOXES TO SEE A MAP:
-//		_boundingBox = new BoundingBox(new LatLng(41.25,-71.55), new LatLng(41.20, -71.50));
-		_boundingBox = new BoundingBox(new LatLng(41.58,-71.46), new LatLng(41.56, -71.44));
+		_boundingBox = new BoundingBox(new LatLng(41.57,-71.45), new LatLng(41.56, -71.44));
+		//_boundingBox = new BoundingBox(new LatLng(41.58,-71.46), new LatLng(41.56, -71.44));
 		//_boundingBox = new BoundingBox(new LatLng(41.59,-71.47), new LatLng(41.55, -71.43));
 		//_boundingBox = new BoundingBox(new LatLng(41.60,-71.48), new LatLng(41.54, -71.42));
 
@@ -150,20 +150,29 @@ public class App {
 								} catch (NumberFormatException e) {
 									streetNames = true;
 								}
-								//input 'street1 cross-street1 street2 cross-street2'
-								if (streetNames) {
-									String street1 = input[0];
-									String c_street1 = input[1];
-									String street2 = input[2];
-									String c_street2 = input[3];
-///////////////						PROCESS STREET NAMES INPUT
-								}
 							}
-							//EDGE CASE: wrong number of args in user input
+							//input 'street1 cross-street1 street2 cross-street2'
 							else {
-								runloop = false;
-								System.out.println("ERROR: " + "Expecting 4 args (lat1 " + 
-										"lon1 lat2 lon2 OR 'Street 1' 'C-Street 1' 'Street 2' 'C-Street 2'");
+								input = this.extractStreetNames(line);
+								String street1 = input[0];
+								String c_street1 = input[1];
+								String street2 = input[2];
+								String c_street2 = input[3];
+								MapNode srcNode = BinaryHelper.findIntersection(street1,c_street1);
+								MapNode dstNode = BinaryHelper.findIntersection(street2,c_street2);
+								if (srcNode == null) {
+									System.out.println("ERROR: " + street1 + " and " + c_street1 + " do not intersect.");
+								}
+								else if (dstNode == null) {
+									System.out.println("ERROR: " + street2 + " and " + c_street2 + " do not intersect.");
+								}
+								else {
+									//find path between the two nodes
+									Graph<MapNode, Way> g = new Graph<MapNode, Way>();
+									ArrayDeque<GraphNode<MapNode>> path = PathFinder.buildGraphFromNames(g, srcNode, dstNode);
+									//prints output
+									printPath(g, path, srcNode.id, dstNode.id);
+								}
 							}
 						}
 					} catch (IOException e) {
@@ -174,6 +183,23 @@ public class App {
 		}
 	}
 
+	/*
+	 * extracts names from input formatted in the following way:
+	 * "street1" "c_street1" "street2" "c_street2" 
+	 */
+	private String[] extractStreetNames(String input) {
+		String[] names = input.split("\" \"");
+		if (names.length != 4) {
+			System.out.println("ERROR: " + "incorrect input format");
+			System.exit(0);
+		}
+		else {
+			names[0] = names[0].substring(1,names[0].length());
+			names[3] = names[3].substring(0,names[3].length() - 1);
+		}
+		return names;
+	}
+	
 	/**
 	 * Wrapper method for getting the nearest neighbor to a LatLng. 
 	 * Used to find nearest nodes to LatLng inputted by user.

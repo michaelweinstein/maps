@@ -6,11 +6,12 @@ ARGS
 
 ---- TODO ----
 GUI
-	Put bounds on how far you can pan and zoom
-	Add threading 
-		- Panning
-		- Zooming
+	- Panning
+		-- Fix/Finish DrawingPanel.endPan() 
+		-- Need to put some bounds on how far you can pan
+	- Zooming
 	- GUIInfo
+		-!- MUST FIX scaling problem with _scale
 		-- Needs reference to size of DrawingPanel
 	- Clicking on map and finding nearest intersection/node
 	- Highlighting relevant street segments
@@ -42,3 +43,10 @@ BinaryHelper.findIntersection
 App.nearestNeighbor
 REPL for lat/lon and street/cross-street (System Tests)
 Holy Trinity in LatLng, Vec2d, Way, MapNode
+
+
+---------AUTOCORRECT----------
+Autocorrect gets the user's input, and displays up to 5 *valid* suggestions from the Trie.
+A valid suggestion is one that is in the Trie and is also a valid way from the ways file. The
+
+

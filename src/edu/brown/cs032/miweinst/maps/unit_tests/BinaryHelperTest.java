@@ -67,6 +67,31 @@ public class BinaryHelperTest {
 		assertTrue(endnodes[1].id.equals("/n/4016.7374.527767852"));
 	}
 	
+	@Test
+	public void findIntersectionTest() {
+		boolean pass = false;
+		try {
+			MapsFile ways = new MapsFile("/course/cs032/data/maps/ways.tsv");
+			MapsFile nodes = new MapsFile("/course/cs032/data/maps/nodes.tsv");
+			MapsFile index = new MapsFile("/course/cs032/data/maps/index.tsv");
+			BinaryHelper.setFiles(ways, nodes, index);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		MapNode intersection = BinaryHelper.findIntersection("Carney Road", "Strawberry Field Road");
+		if (intersection.toString().compareTo("MapNode. id: /n/4171.7143.201199496," +
+											  " lat: 41.713584, long: -71.430641") == 0)
+		{
+			pass = true;
+		}
+		assertTrue(pass);
+	}
+	
 	//Helper method
 	private void setBinaryHelperFiles() {
 		try {
@@ -80,4 +105,6 @@ public class BinaryHelperTest {
 			System.out.println("BinaryHelperTest.setBinaryHelperFiles IOException");
 		}
 	}
+	
+
 }

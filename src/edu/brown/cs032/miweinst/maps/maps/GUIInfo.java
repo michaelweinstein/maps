@@ -61,6 +61,7 @@ public class GUIInfo {
 		_scale = new Vec2d(m*xScale, n*yScale);
 /////	ONLY FOR TESTING SCALE, CUT IN HALF SO NODES SHOW UP WITH TEST TSV FILES
 		//_scale = new Vec2d(xScale*m/2, yScale*n/2);
+		
 	}
 	
 	/**
@@ -105,10 +106,13 @@ public class GUIInfo {
 			LatLng center = _boundingBox.getCenter();
 			double diagonal = _boundingBox.getDiagonalLength();
 			//MapNode[] nodes_arr = _fp.getNodesForGUI(center, diagonal);
+			System.out.println("centers: " + center);
+			System.out.println("diagonal: " + diagonal);
 ////////////////
 			NeighborSearch ns = new NeighborSearch(center, diagonal);
 			KDTreeNode[] nodes_arr = ns.nearestNeighborsByRadius(_kdTree.getRoot());
 			Map<String, MapNode> map = new HashMap<String, MapNode>(nodes_arr.length);
+			System.out.println("NEIGHBORS DONE");
 			for (KDTreeNode n: nodes_arr) {
 			//for (MapNode n: nodes_arr) {
 ////////////

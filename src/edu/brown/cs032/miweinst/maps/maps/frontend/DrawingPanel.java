@@ -31,6 +31,7 @@ import edu.brown.cs032.miweinst.maps.util.Vec2d;
 public class DrawingPanel extends JPanel {
 	
 	private GUIInfo _guiInfo;
+	private int _zoomCounter;
 ////
 	//PathFinding vars
 	private Vec2d _startLoc;
@@ -46,7 +47,7 @@ public class DrawingPanel extends JPanel {
 		this.setSize(w, h);
 		this.setBackground(Color.WHITE);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));		
-		
+		_zoomCounter = 0;
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
 		//_nodes = info.nodesForGUI();
@@ -129,7 +130,10 @@ public class DrawingPanel extends JPanel {
 		this.repaint();		
 
 		//Opens thread
-		callBackEnd();
+		if (_zoomCounter == 25) {
+			System.out.println("ZOOM CALL BACKEND");
+			callBackEnd();
+		}
 	}
 	
 	/** Affects angle of bird's eye view of landscape! 
@@ -255,7 +259,12 @@ public class DrawingPanel extends JPanel {
 				isomorphicZoom(arg0.getWheelRotation());
 			//scroll -- regular zoom
 			else 
+				_zoomCounter++;
 				zoom(arg0.getWheelRotation());
+				if (_zoomCounter == 25) {
+					_zoomCounter = 0;
+				}
+				
 		}
 	}
 }
