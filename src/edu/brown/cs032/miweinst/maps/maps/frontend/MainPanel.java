@@ -32,6 +32,14 @@ public class MainPanel extends JPanel {
 	}
 	
 	/**
+	 * Passes street names from text input in
+	 * GUIFrame to DrawingPanel
+	 */
+	public void setStreetNames(String[] names) {
+		_dp.setStreetNames(names);
+	}
+	
+	/**
 	 * Accessor for size of MainPanel. 
 	 * Size of other panels defined 
 	 * relative to this reference, so

@@ -50,23 +50,12 @@ public class App {
 		String waysPath = args[0];
 		String nodesPath = args[1];
 		String indexPath = args[2];
-		
-
-////TESTING boxes
-		//create default BoundingBox
-		//_boundingBox = new BoundingBox(new LatLng(41.2720844,	-74.7175365), new LatLng(40.1615135, -73.6937661));	
-		
+				
 		//THESE ARE GOOD BOUNDING BOXES TO SEE A MAP:
 		_boundingBox = new BoundingBox(new LatLng(41.57,-71.45), new LatLng(41.56, -71.44));
 		//_boundingBox = new BoundingBox(new LatLng(41.58,-71.46), new LatLng(41.56, -71.44));
 		//_boundingBox = new BoundingBox(new LatLng(41.59,-71.47), new LatLng(41.55, -71.43));
 		//_boundingBox = new BoundingBox(new LatLng(41.60,-71.48), new LatLng(41.54, -71.42));
-
-//// THROWS ArrayOutOfBoundsException: 1
-		//square BoundingBox
-//		_boundingBox = new BoundingBox(new LatLng(40.3,	-73.8), new LatLng(40.0, -73.5));
-//// THROWS Java OutOfMemoryError: Java heap space
-		//_boundingBox = new BoundingBox(new LatLng(42.3734759, -73.5618164), new LatLng(40.0, -71.4));
 		
 		//if gui, set boolean and get different file paths
 		boolean gui = false;
@@ -76,13 +65,9 @@ public class App {
 				waysPath = args[1];
 				nodesPath = args[2];
 				indexPath = args[3];
-///// print lines
-				System.out.println(waysPath);
-				System.out.println(nodesPath);
-				System.out.println(indexPath);
 			}
 		else 
-				System.out.println("ERROR: If 4 arguments, first argument must be '--gui'");
+			System.out.println("ERROR: If 4 arguments, first argument must be '--gui'");
 		}
 
 		//make MapsFile, set BinaryHelper files and create dictionary for autocorrect
@@ -207,9 +192,6 @@ public class App {
 	public static MapNode nearestNeighbor(LatLng latlng) {
 		if (_fp != null) {
 			NeighborSearch ns = new NeighborSearch(latlng);
-/////
-			System.out.println("before ns.nearestNeighbors");
-			
 			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(_KDTree.getRoot());			
 			KDComparable mapnode = neighbor_arr[0].getComparable();
 			if (mapnode instanceof MapNode) {

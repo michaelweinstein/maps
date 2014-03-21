@@ -36,13 +36,13 @@ public class GUIFrame extends JFrame {
 		_acConnector = acc;
 	}
 	
-	
 	private void addButtonListener() {
 		_mainPanel.getInputPanel().getButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String[] ways = _mainPanel.getInputPanel().buttonPress();
 				_acConnector.getDirections(ways);
+				_mainPanel.setStreetNames(ways);
 			}
 		});
 	}

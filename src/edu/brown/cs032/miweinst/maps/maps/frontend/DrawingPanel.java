@@ -23,6 +23,7 @@ import edu.brown.cs032.miweinst.maps.graph.GraphNode;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
 import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
@@ -33,16 +34,15 @@ import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
 @SuppressWarnings("serial")
 public class DrawingPanel extends JPanel {
-	
 	private GUIInfo _guiInfo;
+	//we only want to send call to backend every 25 clicks
 	private int _zoomCounter;
-////
+
 	//PathFinding vars
 	private MapNode _startNode = null;
 	private MapNode _endNode = null;
 	private ArrayDeque<GraphNode<MapNode>> _path = null;
 	private Graph<MapNode, Way> _graph = new Graph<MapNode, Way>();
-//	private List<Way> _waysInPath = new ArrayList<Way>();
 	
 	public DrawingPanel(GUIInfo info, MainPanel mp) {		
 		//Sets size, background color and border of DrawingPanel
@@ -58,15 +58,8 @@ public class DrawingPanel extends JPanel {
 		_guiInfo = info;
 		//_nodes = info.nodesForGUI();
 		NodesGUIWrapper.set(info.nodesForGUI());
-////		
-		System.out.println("START WAYS SEARCH");
 		//_ways = info.waysForGUI(_nodes);
 		WaysGUIWrapper.set( info.waysForGUI(NodesGUIWrapper.get()));
-////////	
-		System.out.println("FINISHED WAYS SEARCH");
-		System.out.println("nodes.length: " + NodesGUIWrapper.get().size());
-		System.out.println("ways.length: " + WaysGUIWrapper.get().length);
-		
 		this.addMouseListener(new MapMouseListener());
 		this.addMouseMotionListener(new MapMotionListener());	
 		this.addMouseWheelListener(new MapWheelListener());
@@ -89,55 +82,51 @@ public class DrawingPanel extends JPanel {
 		double dy = dxy.y / scalexy.y;
 		//create new box and translate to new center (based on dx and dy)
 		BoundingBox newBox = new BoundingBox(oldBox.getNorthwest(), oldBox.getSoutheast());
-		newBox.setCenter(new LatLng(oldCenter.lat + dy, oldCenter.lng + dx));
-		//updates _translate var, convertToScreen method
-		_guiInfo.updateBounds(_guiInfo.getFileProcessor(), newBox);
-		//convertToScreen is called in paintComponent, so automatically updates
-		this.repaint();
+		try {
+			newBox.setCenter(new LatLng(oldCenter.lat + dy, oldCenter.lng + dx));
+			//updates _translate var, convertToScreen method
+			_guiInfo.updateBounds(_guiInfo.getFileProcessor(), newBox);
+			//convertToScreen is called in paintComponent, so automatically updates
+			this.repaint();
+		} catch (IllegalArgumentException e) {
+			System.out.println("ERROR: " + "You cannot zoom that far, outside of quandrant.");
+		}
 	}
 	/**
 	 * Call to back-end after panning ends, called in mouseReleased.
-	 * Updates _nodes and _ways array
+	 * Updates _nodes and _ways array.
+	 * Runs in new thread, to separate front end action
+	 * with back end updates
 	 */
 	public void callBackEnd() {
-//THREAD 2: back-end
-		//update _nodes and _ways
-//		_nodes = _guiInfo.nodesForGUI();
-//		_ways = _guiInfo.waysForGUI(_nodes);
-/////
 		GUIInfoThread.setGUIInfo(_guiInfo, this);
 		GUIInfoThread.newThread();
-
-		//NodesGUIWrapper.set(_guiInfo.nodesForGUI());
-		//System.out.println("GET NODES FOR GUI FINISHED");
-		//_ways = _guiInfo.waysForGUI(_nodes);
-		//WaysGUIWrapper.set(_guiInfo.waysForGUI(NodesGUIWrapper.get()));
-////
-		System.out.println("nodes.length: " + NodesGUIWrapper.get().size());
-		System.out.println("ways.length: " + WaysGUIWrapper.get().length);
 		this.repaint();
 	}
 	
 	/** Zooms front-end */
 	public void zoom(int dRot) {
-		BoundingBox oldBox = _guiInfo.getBoundingBox();
-		LatLng oldCenter = oldBox.getCenter();
-		Vec2d scale = _guiInfo.getScale();
-		LatLng oldNw = oldBox.getNorthwest();
-		LatLng oldSw = oldBox.getSoutheast();
-		double rot = dRot/scale.x*10;	
-		LatLng nw = new LatLng(oldNw.lat + rot, oldNw.lng - rot);
-		LatLng se = new LatLng(oldSw.lat - rot, oldSw.lng + rot);		
-		//new box, but center remains the same
-		BoundingBox newBox = new BoundingBox(nw, se);
-		newBox.setCenter(oldCenter);	
-		_guiInfo.updateBounds(_guiInfo.getFileProcessor(), newBox);	
-		this.repaint();		
-
-		//Opens thread
-		if (_zoomCounter == 25) {
-			System.out.println("ZOOM CALL BACKEND");
-			callBackEnd();
+		try {
+			BoundingBox oldBox = _guiInfo.getBoundingBox();
+			LatLng oldCenter = oldBox.getCenter();
+			Vec2d scale = _guiInfo.getScale();
+			LatLng oldNw = oldBox.getNorthwest();
+			LatLng oldSw = oldBox.getSoutheast();
+			double rot = dRot/scale.x*10;	
+			LatLng nw = new LatLng(oldNw.lat + rot, oldNw.lng - rot);
+			LatLng se = new LatLng(oldSw.lat - rot, oldSw.lng + rot);		
+			//new box, but center remains the same
+			BoundingBox newBox = new BoundingBox(nw, se);
+			newBox.setCenter(oldCenter);	
+			_guiInfo.updateBounds(_guiInfo.getFileProcessor(), newBox);	
+			this.repaint();		
+	
+			//Opens thread every 25 calls (clicks of scroll wheel)
+			if (_zoomCounter == 25) {
+				callBackEnd();
+			}
+		} catch (IllegalArgumentException e) {
+			System.out.println("ERROR: " + "You zoomed too far out, outside of this quandrant.");
 		}
 	}
 	
@@ -176,12 +165,17 @@ public class DrawingPanel extends JPanel {
 			repaint();
 		}
 	}
+	
 	/**
-	 * Can still paint path from streets in Autocorrect.
+	 * Gets street names from text input in GUIFrame,
+	 * and finds path between them. 
 	 */
-	public void setStartAndEndNodes(MapNode start, MapNode end) {
-		_startNode = start;
-		_endNode = end;
+	public void setStreetNames(String[] names) {
+		if (names.length == 4) {
+			_startNode = BinaryHelper.findIntersection(names[0], names[1]);
+			_endNode = BinaryHelper.findIntersection(names[2], names[3]);
+			pathfinding();
+		}
 	}
 
 	@Override
@@ -237,22 +231,22 @@ public class DrawingPanel extends JPanel {
 		}//end for
 		
 /////DRAW START, END NODE MARKERS
-	//draw starting and ending nodes
-	if (_startNode != null) {
-		Color startColor = new Color(47, 222, 52);
-		Color endColor = new Color(207, 33, 33);
-		double radius = 10;
-		//startNode should be green			
-		Vec2d startLoc = _guiInfo.convertToScreen(_startNode.loc);
-		brush.setColor(startColor);	//green		
-		brush.fill(new Ellipse2D.Double(startLoc.x-radius/2, startLoc.y-radius/2, radius, radius));
-		if (_endNode != null) {
-			//endNode should be red
-			Vec2d endLoc = _guiInfo.convertToScreen(_endNode.loc);
-			brush.setColor(endColor); //red
-			brush.fill(new Ellipse2D.Double(endLoc.x-radius/2, endLoc.y-radius/2, radius, radius));
-		}
-	}		
+		//draw starting and ending nodes
+		if (_startNode != null) {
+			Color startColor = new Color(47, 222, 52);
+			Color endColor = new Color(207, 33, 33);
+			double radius = 10;
+			//startNode should be green			
+			Vec2d startLoc = _guiInfo.convertToScreen(_startNode.loc);
+			brush.setColor(startColor);	//green		
+			brush.fill(new Ellipse2D.Double(startLoc.x-radius/2, startLoc.y-radius/2, radius, radius));
+			if (_endNode != null) {
+				//endNode should be red
+				Vec2d endLoc = _guiInfo.convertToScreen(_endNode.loc);
+				brush.setColor(endColor); //red
+				brush.fill(new Ellipse2D.Double(endLoc.x-radius/2, endLoc.y-radius/2, radius, radius));
+			}
+		}		
 	}
 	
 	/*INNER CLASSES*/
