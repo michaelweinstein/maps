@@ -1143,4 +1143,4423 @@ Marriott Avenue
 Pond Street
 Westerly
 Walnut Street
-River S
+River Street
+Columbus Park
+Industrial Drive
+Annanias Avenue
+Geranium Lane
+Pierce
+Saint Michael Cemetery
+Pennsylvania Avenue
+Walcott Avenue
+Sakonnet Boulevard
+Baltimore Ave
+Clarke Rd
+Bellevue Court
+Fox Dr
+Charlestown Boulevard
+Greene Lane
+Newport Lane
+Ashton Lane
+Ashley Court
+Burnside Avenue
+Lincoln Way
+Lindsley Drive
+Bristol Road
+Glendale Road
+Davisville Lane
+Milkay Way
+Kingston Lane
+Foster Lane
+Martin Rd
+Bishop Rd
+Exeter Blvd
+Defelice Rd
+Hope Ln
+Burnside Rd
+Glocester Rd
+Sylvan Road
+Summit Road
+Melville Lane
+Jamestown Blvd
+Collins Street
+Meadow Road
+Jamestown Boulevard
+Durham Drive
+Robertson Road
+Kathy Street
+Indian Rock Farm Road
+Margaret Street
+Ed A Lane
+Pond View Road
+Amey Street
+Martin Court
+Durkin Drive
+Irving Path
+Carver Ln
+James Rd
+Oyster Road
+Barnacle Road
+Wild Goose Lane
+Franks Neck Rd
+E Pond Rd
+Scallop Rd
+Rye Point Road
+Goose Island Rd
+Harbor Road
+Sand Piper Road
+Dolphin Rd
+Penquin Dr
+Fire Lane
+Fire Lane 1
+Fire Lane 6
+Dumphy Road
+S Jerry Cv
+Emily Lane
+Windward Road
+Hill Road
+Port Avenue
+Clipper Circle
+Westcote Drive
+Amancio Street
+Kettle Pond Drive
+Davids Way
+Windswept Drive
+Victoria Lane
+Tara Way
+St Pierre
+Bow Street
+Shannon Road
+Silva Street
+Starflower Ct
+Mittendorf Rd
+Partridge Ln
+Steeplebush Drive
+Wild Rose Court
+Westside Road
+Leeward Ln
+Westcote Close
+US 1,Commodore Perry Highway
+RI 1A,Post Road
+Kardway Street
+Heather Hollow Drive
+RI 110,Ministerial Road
+Metaterraine Avenue
+Watson Lane
+Hummingbird Hollow
+Thoreau Lane
+Wendy Ln
+Lab Hill Drive
+East Abalone Drive
+Lee Road
+Iacuele Drive
+Old Shannock Road
+East Calypso Drive
+East Lorelei Drive
+Lily Pond Road
+East Albatross Drive
+Windwood Valley Road
+Calypso Dr
+Lorelei Drive West
+Sheperd Drive
+Albatross Drive
+Abalone Drive West
+Shannock Rd
+North Castle Way
+Castlerock Drive
+Castle Rock Drive
+West Castle Way
+Kingsland Court
+Lab Hill Road
+Pawnee Lane
+Mohawk Trail
+Cherokee Bend
+Lady Slipper Drive
+Blackfoot Circle
+Kickapoo Run
+Knudsen Drive
+Old Coach Rd
+Woodland Dr
+Ennis Lane
+Dogwood Drive
+Jacob Perry Drive
+King Phillip Trail
+Catalpa Court
+Greenwood Way
+Tunoopa Trail
+Cool Spring Road
+Breton Drive
+Stillwater Rd
+Riidam Way
+Old Indian Trl
+Shetland Drive
+Angus Terrace
+Gurnsey Avenue
+Laudone Drive
+Wayland Street
+Canterbury Drive
+Oxford Drive
+Margaret
+Canton Street
+Canterbury Circle
+North Woody Hill Road
+Alexander Street
+Sterling Drive
+Weathervane Way
+Fields View Road
+RI 91,RI 216,Riverside Drive
+S Main St
+Penny Ct
+Red Barn Dr
+East Capalbo Drive
+West Capalbo Drive
+North Capalbo Drive
+Bowling Lane
+Narragansett Way
+Boy Scout Drive
+Chase Hill Road
+Schilke Drive
+RI 3,Main St
+RI 3,Ashaway Road
+Hiscox Road
+Old Hopkinton Cemetery Road
+Danielle Avenue
+Sandra Drive
+Forrestal Drive
+Midway Avenue
+Langley Street
+Milrose Avenue
+Kent Avenue
+Saratoga Avenue
+Michaels Way
+Bridgette Lane
+Pine Terrace
+Laurel Hill Drive
+Branberry Drive
+Nichols Lane
+Sunny Drive
+Sesame Street
+Hickory Lane
+Nutmeg Drive
+Quartz Drive
+Surrey Drive
+Hillview Drive
+Ledgewood Drive
+Horne Drive
+Horizon Terrace
+Holly Drive
+Center Street
+Byron Drive
+Sleepy Hollow Drive
+Abruzzese Lane
+Brookside Road
+Niles Street
+Joseph Street
+Ashell Street
+Lorraine Road
+Beatrice Street
+Acorn Drive
+Doreen Drive
+Benjamin Street
+Judi Lane
+Family Lane
+Henry Street
+High
+Miner Street
+James Street
+South Joseph Street
+Saundra Drive
+Lewis Lane
+Pauline Street
+Ella Street
+Elizabeth Street
+Taylor Court
+May Drive
+Joan Road
+Brandywine Drive
+Ann Street
+Meadowview Terrace
+Wilgis Drive
+Ichabod Lane
+Netherwood Street
+Albert Street
+Yankee Drive
+Richard Circle
+White Rock Road
+Linnate Street
+Walton Street
+Knight Street
+Netherwood Avenue
+Cottage Street
+Davenport Street
+Spencer Drive
+Voltage Street
+Bridge Road
+Ashview Drive
+Babcock
+Terry Circle
+78,Westerly Bypass
+Elmata Avenue
+Windermere Road
+Wildfield Farm Road
+Seagate Drive
+Gunning Rock Dr
+Bass Rock Road
+Fairway Drive
+Rhode Island Avenue
+Fairway Ct
+Newport Row
+Alexander Drive
+Riviera Drive
+Lakeworth Avenue
+Glendaway Dr
+Manning Dr
+Palm Beach Avenue
+Melbourne Drive
+Orlando Drive
+Hollywood Avenue
+Dania Dr
+Daytona Ave
+Lauderdale Dr
+Country Side Rd
+Delray Drive
+Sarasota Avenue
+Flintstone Road
+Foddering Farm Road
+Harbour Island Road
+Isle Point Road
+Kenyon Farm Road
+Cedar Island Road
+Brush Hill Road
+Champlin Cove Road
+Arrowhead Road
+Clearwater Dr
+Turner Cove Way
+Jerry Brown Farm Road
+Day Lily Circle
+Fire Lane 2
+Fire Lane 3
+Fire Lane 4
+Fire Lane 5
+Fire Lane 7
+Camp Fuller Road
+Wilderness Trail
+Bayfield Drive
+Galleon Court
+Larson Lane
+Mast Court
+Schooner Drive
+Browning Circle
+Columbine Court
+Paul Street
+Sleepy Hollow Lane
+Little Comfort Way
+Red Oak Way
+Pine Knoll Lane
+Red House Road
+Gravelly Hill Road
+Apple Tree Lane
+Kenyon Woods Way
+Estampes Court
+Laurel Ridge Road
+Whippoorwill Drive
+Crestwood Lane
+Cedar Swamp Path
+Sand Hill Rd
+Wintergreen Way
+Arbutus Trail
+Old Road
+Charter Ct
+Black Pond Road
+Auburn Drive
+Acorn Valley Way
+Lewis Trail
+Honey Locust Drive
+Potter Hoxie Trail
+Camp Davis Road
+Indian Church Rd
+Shumankanuc Hill Rd
+Country Road
+Village Road
+North Main Street
+River Lane
+RI 91,RI 216,Alton Bradford Road
+Main St
+Grills Ln
+Knowles St
+Vars Lane
+RI 91,RI 216,Main St
+RI 91,RI 216,Riverside Dr
+Dorr Street
+Oak Street
+Crandall Lane
+Jacobson Tr
+1870
+River Road
+Lima Drive
+Ranger Road
+Potter Hill Road
+Laurel Avenue
+Berry Drive
+Cleo Court
+Boombridge Road
+Moriah Drive
+Autumn Lane
+Springbrook Road
+Hardwood Lane
+Brookview Court
+Anna Olivo Court
+Noble Street
+Earles Court
+Hazard Ave
+Arciero Ct
+King St
+Seaside Avenue
+Field Terrace
+Clubhouse Drive
+Lawrence Drive
+Gibson Avenue
+Woodward Street
+Kendall Ct
+Kinney Avenue
+Martingale Lane
+Whitney Court
+Blindbrook Drive
+Long Cove Road
+Baldwin Court
+Polo Club Road
+Westchester Way
+Polo Club Drive
+Pendleton Place
+Meadowbrook Way
+Wayne St
+Maplehurst Drive
+Brandywine Lane
+Hitchcock Drive
+Old Point Judith Road
+Stevenson Way
+Vanderbilt Dr
+Midway Rd
+Island View Rd
+Ilex Ln
+Narrows Road
+Beach Plum Road
+Oak Hill Road
+Wood Hill Road
+Winchester Drive
+Shadbush Road
+Sandy Beach Road
+Springcove Road
+North View Road
+Wheatfield Cove Road
+Betty Hill Road
+Viburnam Rd
+Pine Tree Point Road
+Wood Hollow Road
+Red Fox Way
+White Pond Road
+Broad Hill Way
+L'Ahinch Road
+Sand Plain Trail
+Leisure Drive
+White Oak Court
+Narragansett Tr
+Moraine Court
+Pasquiset Trail
+Jonathan Drive
+Perry Plot Rd
+Crying Rocks Road
+Indian School House Road
+Noka Lane
+Indian Cedar Dr
+Burdickville Rd
+Driftwood Drive
+Unkuri Drive
+Pigeon Hill Cove
+RI 91,Alton Bradford Rd
+Panciera Ln
+Hindle Dr
+Ashaway Road
+RI 216,Ashaway Rd
+Vuono Place
+Diamond Hill Road
+Howard Street
+Tomaquag Road
+Kugler Ln
+Edwards Avenue
+Church Street
+Amelia Street
+Hillside Ave
+Elm St
+Spruce Way
+Ridgewood Ave
+Williams St
+Pequot Lane
+Christian Hill Road
+Maxson Street
+Clay Street
+Brookdale Drive
+Post Office Ln
+Laurel Street
+Ashaway Elementary School
+Havens Road
+Boom Bridge Road
+Continental Road
+Mathewson Street
+Prospect Court
+Massasoit Court
+Congdon Street
+South Pier Road
+Rose Court
+Boon Street
+Taylor Street
+Continental Street
+Cedar Street
+Rodman St
+Narragansett Court
+Westmoreland St
+Narragansett Pier Railroad
+Caswell Street
+Mariner Drive
+Caswell Court
+Blossom Way
+Deborah Street
+Watson Avenue
+Rockland Street
+Kentara Green
+Robinson Street
+Garden Court Dr
+Douglas Dr
+Miss Kane Lane
+Caswell
+Frank Low St
+Lakewood Drive
+Bill Sweet Drive
+Westmoreland Street East
+Cantone Road
+Walts Way
+Seaport Drive
+Upper Pond Road
+Spinnaker Court
+Snipe Road
+Woodward Avenue
+Wandsworth St
+Ospray Road
+Tern Road
+Sunnybrook Farm Road
+RI 108,Old Point Judith Road
+Super Stop and Shop
+Goose Road
+Quagnut Drive
+Rin Rd
+US 1,Commodore Perry Hwy
+US 1,Post Road Fwy
+Marten Avenue
+Salt Pond Road
+Town Farm Road
+Karen Ann Dr
+Dobson Rd
+Salt Pond Rd
+Midget Street
+Pinehurst Street
+Billington Avenue
+Wood Lane
+Saugatucket
+Donna Court
+Edgewood Farm Road
+Stoneway Road
+Brown Bear Road
+Congdon Drive
+Alexander Court
+Tuckertown Road
+Otter Acres Way
+Wordens Pond Road
+Tuckertown Pk Drive
+Brookwood Road
+Pine Tree Lane
+Sand Trail Road
+Little Pond Road
+Carol Ann Avenue
+Blue Spruce Lane
+Comfort Lane
+Quiet Way
+Cranberry Run
+Sunset View Boulevard
+Swampfire Drive
+Pitch Pine Place
+Holiday Court
+Healey Brook Court
+East Pasquiset Tr
+Hanna's Road
+E Passquisett Trl
+Pietila Road
+Pioneer Tr
+Lauri Drive
+Wiitala Dr
+RI 112
+RI 112,Carolina Back Rd
+Police Rd
+RI 2,S County Trl
+RI 2,RI 112,S County Trl
+Deep Woods Drive
+Timber Ridge Road
+Pond Meadow Road
+Gooseberry Hill
+Toadstool Knls
+Foxtrot Dr
+Turtle Trl
+Narragansett Trail
+Wood River Substation
+Gardner Road
+Burlingame Drive
+Wood River
+Quiet Oak Dr
+Tomaquag Valley Road
+Andre Court
+Egypt Street
+Cherry Drive
+Raintree Lane
+Juniper Drive
+Bayberry Drive
+RI 216,High Street
+Cemetery Lane
+Maxson Hill Road
+Turnbull Lane
+Palmer Street
+Lynch Ln
+RI 3,RI 216,Main St
+Anthony Road
+Lynn Lane
+Park Place
+Maple Court
+Lake Court
+Beach St
+The Coast Guard House
+Kingstown Road
+Anne Hoxsie Lane
+Oceanside Place
+Strathmore Road
+Pier Market Place
+Beach Street
+RI 1A,Narragansett Ave
+Wanda St
+Courtway Street
+Exchange St
+RI 1A,Boston Neck Rd
+RI 1A,Beach St
+Mansion Avenue
+Brown Street
+Othmar Street
+Riverside Drive
+Prospect Ave
+Sydney Ln
+RI 1A,Kingstown Rd
+Narragansett Elementary School
+William C. O'Neill Bike Path
+Inez Street
+Mumford Road
+Therese Street
+Schoolhouse Road
+Pleasant Avenue
+Border Drive
+Narragansett Ave East
+Lambert Street
+Jean Street
+Avice St
+Homeland Avenue
+River Heights Drive
+Kimberly Dr
+Woodruff Avenue
+US 1,Tower Hill Rd
+Woodruff Ave
+Patton Avenue
+Pershing Avenue
+Charles Street
+Shadow Farm Way
+Cherry Lane
+Dillon Rotary
+Eisenhower Place
+Macarthur Blvd
+Audubon Dr
+Fiore Drive
+RI 1A,RI 108,Old Point Judith Road
+Rite Aid
+Citizens Bank
+RI 1A,RI 108,Point Judith Rd
+RI 108,Kingstown Rd
+RI 1A,RI 108,Kingstown Rd
+RI 108,Dillon Rotary
+RI 1A,Dillon Rotary
+Hillcrest Road
+Warner Avenue
+Orchard Avenue
+Silver Lake Avenue
+Blanchard Place
+Broadmoor Road
+Mechanic Street
+Lake Street
+Tarleton Rd
+Pine St
+Eldred Court
+Old Garden Way
+Christopher Street
+Normandy Rd
+Wakefield Elementary School
+Spencer Court
+Perry Avenue
+Edgewater Road
+Wright Avenue
+Windsor Road
+Kenwood Avenue
+Belmont Avenue
+Willard Avenue
+Johnson Place
+South Road
+Pine Hill Road
+Woodbine Road
+Dockray Street
+Benefit Road
+Thewlis Woods Way
+Woodmans Trail
+Stewart Way
+Obrien Road
+Bittersweet Farm Way
+Brook Farm Road North
+Brook Farm Road South
+Woodsia Trail
+Sabbatia Trail
+Biscuit City Road
+Country Drive
+North Pine Tree Lane
+Maple Lake Farm Rd
+Kenyon Substation
+Passquisett Path
+Botka Drive
+Whipple Drive
+Ashley Ln
+Sand Plains Rd
+Muratore Lane
+Scapa Flow Road
+Tarpon Lane
+Tautog Lane
+Bass Lane
+Skagerrak Rd
+RI 91,Church Street
+Switch Road
+New Kings Factory Road
+Wood River Branch
+New Kings Factory Rd
+Kings Factory Rd
+Poplar Avenue
+Fawn Dr
+Bucknam Rd
+River St
+Riverview Dr
+Alton Pond
+Malo Drive
+Collins Road
+Woodville Alton Rd
+Cayer Tr
+Beech Hill Road
+Esta's Way
+Colonial Village Road
+Tanner Lane
+Deer Trail
+Arrowhead Lane
+Settlers Crossing
+Old Tavern Drive
+Valley View Road
+Wellstown Road
+Gray Ln
+Robin Road
+North Dr
+CT 216,Clarks Falls Rd
+Beavertail Road
+Cormorant Point Road
+Hinkley Ln
+Whale Rock Point Rd
+Thule Cove Rd
+Bridge Point Drive
+Old Boston Neck Road
+Harvey Lane
+Starr Drive West
+Starr Drive
+Dunes Court
+Castle Road
+Wood Avenue
+Ledge Drive
+Marble Road
+South Trl
+US 1,Tower Hill Road
+Summit Avenue
+Seaview Avenue
+Applewood Lane
+Hillside Road
+Crest Avenue
+Peckham Ave
+Deerfield Ct
+Old Tower Hill Road
+Holland Drive
+Kelley Way
+Old Tower Hill Rd
+Indian Run Reservoir
+Holley Street
+RI 108,Kingstown Road
+Narragansett Ave West
+Dale Carlia Street
+Albro Lane
+Old Mountain Road
+Broad Rock Road
+Jessica Lane
+Blooming Place
+Hazard Street
+Rose Circle
+Cleveland Street
+Hope Court
+Steven Circle
+Oakwoods Drive
+Railroad Street
+Kimball Street
+Amos Street
+Columbia St
+Hendrick Street
+Chappell Street
+Indian Run Road
+Oakdell Street
+Bethany Drive
+Ide
+Northup Street
+Hunt Avenue
+Stedman Court
+Easy Street
+Glenwood Circle
+School Lane
+Rockland Drive
+Tucker Avenue
+Liberty Street
+Highview Avenue
+Uncle Sams Lane
+Gregory Street
+Allen Avenue
+Schaeffer Street
+Fagan Court
+Pike Street
+Winter Street
+Victory Street
+Whitford Street
+Middle Street
+Independence Lane
+Rodman Street
+Karee Court
+Austin Street
+Smith Street
+Jennifer Drive
+Morning Dove Lane
+Gould Street
+Peaked Rock Road
+Weathervane Road
+Hurley Circle
+Sweet Allen Farm Road
+Secluded Drive
+Sentinal Drive
+Deer Trail Road
+Mulberry Drive
+Foster Sheldon Road
+Upper Terrace Circle
+Starboard Lane
+Gentian Drive
+Fox Ridge Circle
+Millstone Road
+East Hill Way
+Rockwood Lane
+Stoney Farm Way
+Cedar Hollow Road
+Wild Flower Trail
+Rocky Road
+Curtis Corner Road
+Kogoli Way
+Zackery Bend
+New Biscuit City Road
+Maize Dr
+RI 2,South County Trail
+Lewiston Avenue
+Kenyon School Road
+RI 2,County Trail
+Hawksbill Way
+Sherman Ave
+Columbia Heights Oval
+North Road
+Shannock Road
+Shannock Village Rd
+Columbia Heights Road
+West Shannock Road
+Sagamore Drive
+Carmichael Lane
+Gardenia Drive
+Edwards Ln
+RI 91,Alton Carolina Rd
+O'Rieley Court
+O'Keefe Drive
+O'Shay Ln
+O'Sullivan Dr
+Courtney Lane
+Dormar Road
+Rhodes Lane
+Frontier Rd
+I 95
+RI 3,Main Street
+Wich Way
+Ct Hwy 184 Extended
+New London Turnpike
+Providence-New London Turnpike
+Washington Road
+Lakeview Avenue
+Rovensky Avenue
+Coggeshall Avenue
+Ledge Road
+Yznaga Avenue
+Wheatland Court
+Maher Court
+Flemish Down
+Cliff Walk
+Almy Pond
+Jeffrey Road
+Carroll Avenue
+Hazard Road
+Brenton Road
+Prices Neck Road
+Prices Nck
+Goose Neck Cove Lane
+Price's Neck Road
+Janet Terrace
+Winans Avenue
+Mary Jane Lane
+Commonwealth Avenue
+Doris Terrace
+Chartier Circle
+Castle Hill Avenue
+Beavertail State Park
+Cliff Drive
+Anawan Drive
+President Drive
+Peaked Rock Lane
+South Cliff Drive
+Whale Rock Rd
+Congress Rd
+Middlebridge Rd
+Ridge Drive
+Dove Terrace
+Cornell Road
+Bedford Circle
+Temple Lane
+Haven St
+Secluded Dr
+Morgan Drive
+Middlebridge Road
+Lafayette Avenue
+Maple Street
+Grant Avenue
+Ash St
+Applebee's Neighborhood Grill and Bar
+South Kingstown Cinema 8
+Preservation Way
+Seagrass Dr
+Grande Brook Dr
+Oakwoods Dr
+Greybirch Court
+Penny Lane
+Arbor Way
+St Dominic Rd
+Dendron Rd
+Beech Tree Place
+Spruce Court
+Ice House Rd
+Hazard Memorial Garden
+Eagle Nest Terrace
+Green Street
+Emmett Lane
+Larkin Street
+Paddy Hill Road
+Roy's Rd
+Kersey Road
+North Rd
+Fagan Park
+Peace Dale Elementary School
+Serenity Way
+George Schaeffer Street
+Dixon
+Sandy Bottom Shores Drive
+Tri-Pond Court
+Hopkins Lane
+Mallory Lane
+Samuel Rodman Street
+Dinonsie Way
+Nye Street
+Hathaway Lane
+Wyndham Way
+Sweet Fern Lane
+Celestial Heights Drive
+Dam Street
+Tri-Pond Nature Center
+S. Kingstown Dog Pound
+Galway Court
+Asa Pond Road
+Mellbridge Drive
+Sentinel Drive
+Acorn Court
+Noel Court
+Asa Pond
+Winterberry Lane
+Boxwood Court
+Farrells Way
+Bittersweet Lane
+Curtis Circle
+Lupine Court
+Redberry Drive
+Henry Case Way
+Elderberry Lane
+Dewberry Lane
+Inkberry Drive
+Genesee Way
+Shannock Hill Road
+Old Carolina Back Road
+Pawcatuck View Road
+Rocky Acres Drive
+Old Depot Road
+Richard Road
+RI 112,Carolina Main Street
+Hawley
+Carolina Mill Lane
+Hill Top Drive
+Butter Lane
+Hilltop Drive
+Tall Pines Dr
+Woodville Road
+Crowthers Pl
+Kenyon Lane
+Nathaniel Lewis Rd
+Townhouse Road
+Woodville Rd
+Clarks Falls Rd
+East Clarks Falls Road
+Atlantic Drive
+Long Pond Lane
+Warren Point Road
+Grinnell Road
+Michigan Road
+Round Pond Road
+Kempton Place
+Nevada Road
+California Road
+Oregon Road
+Wyoming Road
+Kansas Road
+Goodrich Lane
+RI 77,Sakonnet Point Road
+Pennsylvania Road
+Connecticut Road
+Rhode Island Road
+Point Street
+Bluff Head Avenue
+Montana Road
+RI 77,Town Landing Road
+Maryland Road
+Minnesota Road
+Ohio Road
+Bluff Head Ave
+Victoria Avenue
+Ochre Point Avenue
+Ruggles Avenue
+Bateman Avenue
+Gordon Street
+Shepard Avenue
+Murray Place
+Spouting Rock Drive
+Lawrence Avenue
+Almy Court
+Wetmore Avenue
+Key Court
+Casey Court
+Marine Avenue
+Bancroft Avenue
+Lily Pond
+Alpond Dr
+Weatherly Avenue
+Vanderbilt Avenue
+Damon Street
+Binney Street
+Ernest Street
+McCormick Road
+Florence Avenue
+Old Fort Road
+Kerins Terrace
+Shields
+Shields Street
+Rose Street
+Harold Street
+Norman Street
+Stacy Street
+Alpond Drive
+Andrew Street
+Stephenson Place
+Cherry Creek Road
+Highland Place
+Khaki Terrace
+Pen Craig Pc
+Wickham Road
+Hammersmith Road
+Fort Adams Drive
+Harrison Ave
+Coast Guard Station Road
+Ella Terrace
+Hull Cove Farm Road
+Hope
+Walton
+Hull Cove Street
+Seabonnet Drive
+South Meadow Drive
+Golden Road
+North Cliff Drive
+Raymond Drive
+West Bay Drive
+Hillview Dr
+S Hillview Dr
+Sandra Ct
+North Hillview Drive
+Tower View Court
+South Bay Drive
+Jenks Court
+Wakefield Avenue
+Crane Terrace
+Harcourt Avenue
+Jennifer Court
+Denison Drive
+Piping Plover Dr
+River Avenue
+Kingston Avenue
+Leeann Dr
+Eagles Nest Ter
+Mitchell Avenue
+Sherman Court
+Cook Avenue
+Faraway Road
+Pollock Ave
+Berglund Ave
+Torry Rd
+Hahn Avenue
+Pine Court
+Kymbolde Way
+Ledge Rd
+Castlerea Way
+Saugatucket Road
+Woodland Trail
+Dry Creek Way
+Rose Hill Road
+Fiore Industrial Drive
+Straw Lane
+Palisades Boulevard
+Evergreen Court
+Dawn Court
+Arora Court
+Petal Lane
+Misty Court
+Zinns Drive
+Molson Court
+Rolens Drive
+Alcide's Drive
+Paul Avenue
+Allison S Avenue
+Greenwood Drive
+Andre Avenue
+Overhill Road
+Kensington Court North
+Kensington Court South
+Wingate Road
+North Pasture Lane
+Heritage Drive
+Kensington Court
+Chestnut Hill Road
+Enterprise Terrace
+Homestead Circle
+Bramblewood Lane
+Windmill Drive
+Wishing Well Drive
+High Meadow Lane
+Stonehenge Road
+Deer Ridge Way
+Ventura Circle
+White Horn Drive
+Tefft Ridge Lane
+Paddock Court
+South Glen Court
+Lookout Lane
+Watch Hill Way
+Kings Ridge Road
+Ridge Crest Lane
+Francis Horn Drive
+Spring Hill Road
+Dovetail Lane
+Longview Court
+Caitlin Court
+Woodmark Way
+Larkin Pond Road
+Fox Court
+Berry Hill Lane
+Larkin Pond Road South
+Great Neck Road
+Great Swamp Monument Road
+Knowles Lane
+Gooden Trail
+Clarke Trail
+Link Lane
+Beaver River Rd
+Marvel Trl
+Rose Ln
+Pinehurst Drive
+Denise Drive
+Downs Court
+Jon St
+Soneric Lane
+Crestmont Drive
+Pinecrest Road
+Debra Dr
+School House Lane
+RI 112,Richmond Townhouse Road
+Mill Lane
+Old Carolina Road
+Mill Street
+Meadowbrook Trail
+Dawn Lane
+Richmond Country Club
+Bader Rd
+Sandy Pond Road
+Friel Farm Way
+Coons Road
+Clarke Falls Road
+Carlton Ln
+Kuehn Road
+Pine Woods Road
+Point Meadows Road
+Needs Name
+Grange Avenue
+Quaker Hill Farm Road
+Quoquonset Lane
+RI 77,West Main Road
+Baileys Ledge Road
+Sachuest Point Road
+Leroy Avenue
+Cliff Avenue
+Webster Street
+Gammell Road
+Berkeley Terrace
+Annandale Road
+Stewart Court
+Howe Avenue
+Weld Court
+Middleton Avenue
+Slocum Street
+Sylvan Street
+Freebody Street
+Horseman Terrace
+Perry Street
+Laura Place
+Parker Avenue
+Annandale Terrace
+Sylvan Terrace
+Hazard Avenue
+Dixon Way
+Berkeley Avenue
+Holland Street
+Mc Allister Street
+Conrad Court
+Roseneath Avenue
+Simmons Street
+Byrnes Street
+Waites Wharf
+Boss Court
+Kirwins 5th Ward Lane
+Underwood Court
+Marchant Street
+South Baptist Street
+Wellington Avenue
+Morton Avenue
+Earl Avenue
+Hammond Street
+Gilroy Street
+Clinton Street
+Eastnor Road
+Connection Street
+Morgan Street
+Harbor View Drive
+Potter Street
+Dean Avenue
+Bacheller Street
+Carey Street
+Grafton Street
+Harrington Street
+Grant Court
+Lee Avenue
+Dearborn Street
+Coddington Wharf
+West Narragansett Avenue
+Eastnor Court
+Vaughan Avenue
+Palmer
+Meikle Avenue
+Gillies Court
+Stockholm Street
+Goodwin Street
+Sharon Court
+Thames St
+Sullivan Street
+Pen Craig Place
+Halidon Avenue
+Halidon Terrace
+Cowsill Lane
+Chastellux Avenue
+Ft Adams Moat
+Fort Adams State Park
+Monroe Road
+Lincoln Drive
+Jackson Road
+Van Buren Road
+Jefferson Road
+Fort Adams Dr
+Battery Greene and Edgerton
+Fort Adams Outter Work
+Fort Adams
+Fort Adams Parade
+Southwest Bastion
+Polk Road
+Buchanan Court
+Pierce Road
+Polk Court
+Advanced Redoubt Fort Adams
+Newport
+Fort Wetherill Road
+Fort Wetherill State Park
+Highland Drive
+Dumpling Drive
+Bonnet View Drive
+Whale Rock Road
+Conanicut Battery
+Fairport Avenue
+Leonard Bodwell Road
+Nassau Road
+Bonnet Point Road
+Namcook Road
+Withington Road
+Parkman Road
+Colonel John Gardner Rd
+Stratford Ave
+Richard Smith Road
+Burbank Ave
+Lake Road
+Allagash Trail
+Ottawa Trail
+Branch Road
+Col John Gardner Road
+Pawnee Trail
+Camden Road
+Dunes Road
+Bonnet Point Rd; Ottawa Trl
+Treasure Road
+Bonnet Rd
+Bayberry Rd
+Harwich Rd
+Old Pine Rd
+Aroostook Trail
+Diane Road
+Betty Drive
+Jenckes Court
+Conanicut Road
+Hogan Avenue
+Mettatuxet Road
+McMillen Way
+Algonquin Trail
+Marian Avenue
+Conanicus Road
+Sassafras Trail
+Yellowbirch Road
+Old Town Trail
+Juniper Trail
+Algonquin Road
+Wesquage Drive
+Johnson Avenue
+Linden Road
+Sebago Trail
+Arnold Avenue
+Emery St
+Oswego Tr
+Old Pine Road
+Azalea Rd
+Gardiner St
+Josephs Ramble
+Leatherleaf Rd
+Thornapple Rd
+Inkberry Trail
+Sumac Trail
+North River Drive
+Radial Drive
+Saybrook Avenue
+Cowesett Avenue
+Shadbush Trail
+Wayland Trail
+Checkerberry Trail
+Fernleaf Trail
+Spice Bush Trail
+Tupelo Trl
+Shagbark Rd
+Circuit Drive
+South River Drive
+Woodridge Rd
+Treaty Rock Court
+High Ridge Dr
+Indian Run Trail
+Tomahawk Trail North
+Tomahawk Trail South
+Arrow Head Trail
+Johnny Cake Trail North
+Johnny Cake Trail South
+Bow and Arrow Trail South
+Peace Pipe Trail North
+Peace Pipe Trail South
+Red Feather Trl N
+Red Feather Trl S
+Rolling Rock Trl
+Indian Trail North
+Indian Trail South
+Wampum Trail North
+Wampum Trail South
+Bow and Arrow N Trl
+Indian Head Trl
+White Birch Trl
+Table Rock Road
+Big Water Road
+Angela Lane
+Erin Drive
+Ridgewood Lane
+Woodstock Lane
+Pearl's Way
+South Woods Dr
+Omer Drive
+East Park Lane
+Farm Road
+Westwind Road
+South Park Lane
+Wayside Court
+Conant Lane
+Linden Drive
+West Park Lane
+Potter Lane
+Parkwood Drive
+Roberts Court
+Clark Lane
+Locust Drive
+Cherry Road
+Greenbriar Lane
+Mark Glen Court
+Browns Farm Drive
+Barber Lane
+Thistledown Lane
+Beverly Lane
+Marion Road
+Little Rest Road
+RI 138,Kingstown Road
+Old North Road
+Nichols Road
+Grad Circle
+Crestwood Drive
+Ledgewood Road
+Higgins Drive
+Peckham Farm Road
+Helme Road
+Springdale Road
+Larkin Pond Road North
+Liberty Lane
+West Kingston Substation
+Holly Ridge Road
+Heaton Orchard Road
+Beaver Riv School Hse Road
+Pinehill Road
+Meadowbrook Road
+Essex Trl
+Pine Circle
+Cedarwood Ln
+Fiddler Ln
+Wicasta Farm Road
+Evans Lane
+Brook Drive
+Oak Circle
+Ashwood Lane
+Forest Glen Drive
+Birchwood Ln
+Cedar Drive
+Heather Lane
+Woodlawn Circle
+Pond View Drive
+Red Fox Lane
+Palmer Cir
+Dream Way
+Lawton Foster Road South
+Boulder Road
+Stacey Lane
+Bass Terrace
+Indian Road
+Rogers Lane
+Little Pond Cove Road
+Side Road
+Old Barn Road
+Ocean Drive
+Butts Rock Road
+Shaw Road
+Moorings Way
+Long Pasture Road
+Rita Way
+Desouza Lane
+Swamp Road
+Reservation Road
+Londonderry Lane
+Third Beach Road
+Gardiner Pond
+Hanging Rock Road
+Paradise Avenue
+Tuckerman Avenue
+Purgatory Rd
+Abe Meyer Lane
+Renfrew Park
+O Donnell Way
+Kane Avenue
+South Crest
+Center Avenue
+Easton Avenue
+Kent Road
+Allston Avenue
+Easton Terrace
+Wolcott Avenue
+White Terrace
+Windemere Terrace
+Ashurst Avenue
+Stimpson Street
+Esplanade
+O Donnell Road
+Sunset Hill Street
+Easton Way
+Tuckerman Terrace
+Crest Street
+Renfrew Pk
+South Crest Street
+Hoover Road
+RI 138A,Memorial Boulevard
+Crescent Road
+RI 138A,Purgatory Road
+Ellery Avenue
+RI 138A,Aquidneck Avenue
+Wave Avenue
+RI 138A,Memorial Blvd
+Easton Pond
+Merton Road
+Cliff Terrace
+Dresser Street
+Barclay Square
+Gibbs Avenue
+Eustis Avenue
+Old Beach Road
+Easton Road
+Catherine Street
+Downing Street
+Hayden Court
+Kay Street
+Weaver Avenue
+Tomkins Court
+Oakwood Terrace
+Gunn Court
+William Street
+Edgar Court
+Pelham Street
+Jones Avenue
+Tews Court
+Fir Street
+South Rhode Island Avenue
+Red Cross Avenue
+Red Cross Terrace
+Bushy Park Terrace
+Bowery Street
+East Bowery Street
+Deblois
+Bull Street
+Lowndes Street
+Brinley Street
+Sherman Street
+Bowler Lane
+Touro Street
+Redwood Street
+Whitfield Place
+Casino Terrace
+Greenough Place
+Ayrault Street
+Prospect Hill Street
+Fillmore Street
+Sunnyside Place
+Zion Place
+Faxon Green
+Mill St
+Christies Landing
+Bowery Court
+Gidley Street
+Green Place
+W Street
+Scott Wharf
+Birckhead Place
+Perry Mill Wharf
+Mount Vernon Street
+Spring Wharf
+Corne Street
+Lees Wharf
+Commercial Wharf
+Touro Court
+Clarke Street
+Brewer Street
+RI 238,America's Cup Avenue
+Young Street
+Cotton Court
+Long Wharf Mall
+Barney Court
+Brown and Howard Wharf
+Golden Hill Street
+West Pelham Street
+Thomas
+Bannister's Wharf
+Howard Wharf
+Thames Street
+Franklin Street
+Extension Street
+Long Wharf
+Anthony Street
+Fountain Street
+Court House Street
+Division Street
+Millburn Court
+Touro Park Street West
+Lee's Wharf
+Hunt Court
+Martin Street
+Barney Street
+Thomas Street
+Dennison Street
+Market Square
+Mary Street
+Frank Street
+Highway 138A
+Osborne Court
+Bowens Wharf
+Pope Street
+Fair St
+Washington Park
+RI 238,America's Cup Ave
+Goat Island Road
+Goat Island
+Clingstone
+Racquet Road
+Hamilton Avenue
+Stanton Road
+Newport Street
+Juniper Circle
+Southwest Avenue
+Cole Street
+Howland Avenue
+Mackeral Cove Beach
+Fort Getty Road
+Battery Lane
+South Battery Lane
+Fox Hill Pond
+Fort Getty Park
+Anchorage Road
+Huron Avenue
+Canopus Avenue
+Roxbury Rd
+What Cheer Road
+Channing Road
+Bonnet Shores Road
+Brooklyn Road
+Cavalier Road
+Greenwich Road
+Maywood Road
+King Phillip Road
+Wolfe Road
+Anawan Avenue
+Spring Brook Road
+Merriweather Avenue
+Dean Knauss Dr
+Alan Ave
+Onondega Rd
+Webster Ave
+CVS
+Centreville Bank
+Mount View Rd
+Nardilillo Funeral Home
+Gardenia Lane
+Salem Trail
+Lilly Lane
+Carol Lane
+Tom Walsh Lane
+Iroquois Road
+Clara Lane
+Sachem Rd
+Joy Ln
+Mitchell Rd
+Wampum Road
+Penobscot Trail
+Presque Isle Trail
+Ninigret Road
+Choctaw Trail
+Ray Trainor Dr
+Osceola Ave
+Fayerweather Dr
+Bridgetown Rd
+Pontiac Road
+Isabelle Drive
+Marsh Lane
+Courtland Drive
+Walmsley Lane
+Overlook Road
+Mount View Road
+Wilson Drive
+Lakeview Drive
+Riverside Court
+Bridgetown Road
+Tiny Ln
+Beach Ave
+Nay Ln
+What Cheer Court
+Pettaquamscutt Avenue
+Nepaug Road
+John Brown Lane
+Laneway Court
+Lacy Ln
+Pomfret Rd
+Wintman Drive
+Half Moon Trail
+Ridge Ridge Road
+Legend Rock Rd
+Fresh Meadow Road
+Wayside Meadow Rd
+Sundance Trl
+White Falls Trail
+Little Woods Path
+Lawnacre Drive
+RI 138,Mooresfield Road
+John Briggs Way
+Whitewood Dr
+RI 138,Mooresfield Rd
+Old Rose Hill Rd
+Flagg Road
+Diane Drive
+Berth Avenue
+Altin Avenue
+Carriage Lane
+Bean Farm Drive
+Elephant Walk
+Roosevelt Hall
+The Quadrangle
+Carothers Library
+Fogarty
+Presidents' House
+Rodman
+Parking Services
+Baird Hill
+Ranger Rd
+Lippitt Road
+Lower College Road
+East Alumni Avenue
+Taft Road
+French Road
+Tyler Road
+Upper College Road
+Power House Road
+Cedar Circle
+Briar Lane
+Farmhouse Road
+Bills Road
+Faculty Circle
+Kingston Hill Court
+Fortin Road
+Greenhouse Road
+Woodward Road
+Campus Avenue
+University Commuter Parking
+Kingston Emporium Employee Parking
+University Employee Parking
+Kingston Emporium Customer Parking
+Chapel Way
+Chaffee Lot Road
+Taft Hall
+Gilbreth Hall
+Wales Hall
+Kirk Applied Engineering Laboratory
+Memorial Union
+Green Hall
+Edwards Auditorium
+East Hall
+Bliss Hall
+Ballentine Hall
+Swan Hall
+Washburn Hall
+Quinn Hall
+Ranger Hall
+Davis Hall
+Crawford Hall
+Observatory
+Lippitt Hall
+Kingston Fire Department
+Coastal Institute Kingston
+West Alumni Avenue
+Kelley Hall
+Kelley Annex
+Pastore Chemical Laboratory
+Morrill Hall
+University Police
+Fine Arts Center
+URI Foundation
+Alumni Center
+IEP House
+Texas Instruments House
+Woodward Hall
+Chafee Social Science Center
+Center for Biotechnology and Life Sciences
+Tyler Hall
+Kirk Center for Advanced Technology
+Adams
+Aldrich
+Hutchenson
+Browning
+Burnside
+Peck
+Coddington
+Dorr
+Eddy
+Ellery
+Fayerweather
+Gorham
+Heathman
+Merrow
+Potter
+Tucker
+White
+Hope Commons
+Barlow
+Bressler
+Butterfield
+Weldin
+Wiley
+Keaney Gymnasium
+Meade Stadium
+Tootell Aquatic Center
+Plains Road
+Heathman Road
+Garage Road
+Keaney Road
+Fraternity Circle
+Tootell Road
+West Independence Way
+Butterfield Road
+Complex Road
+Hillside
+Hopkins Hall
+Ryan Center
+Institute for International Sport
+Thirty Acre Pond Road
+Kingston Tower
+Fairgrounds Road
+Waites Corner Road
+Frank Avenue
+Watson Road
+Taber Avenue
+Sherman Avenue
+RI 138,Kingsotwn Road
+Waites Corner Road East
+Shickasheen Way
+Blackbird Road
+Kingston Station and Museum
+American Power Conversion
+Laurel Lane
+Anthony Dr
+Woodmansee Court
+Ellen Brady Dr
+Del Bonis Dr
+Forest Lane
+Susan Drive
+Ox Pull Road
+Kenyon Hill Trail
+Cedar Hills Drive
+Meadowlark Terrace
+Bobwhite Terrace
+Old Switch Road
+Grantville Extended
+Highland Trl
+Fenner Hill Road
+Townsend Road
+Fairway Circle
+Reynolds Ct
+Canonchet Road
+Lawton Foster Road North
+Lawton Foster Rd
+Brightman Hills Rd
+Pine Drive
+South Shore Road
+Milton Road
+Tuniper Lane
+John Sisson Road
+Pleasant View Drive
+Clover Meadows Road
+Tuniper Lane North
+Tuniper Lane South
+Wild Cherry Drive
+East View Drive
+Osprey Way
+Brownell Road
+South of Commons Road
+Tupelo Road North
+Congress Street
+Taylors Lane
+Old Bull Lane
+Fairfields Drive
+Parsons Lane
+Old West Main Road
+Taylors Lane South
+Hall Road
+Taylors Lane North
+Indian Avenue
+Nelson Pond
+Reservoir Road
+Paradise Court
+Gray Craig Road
+Toni Lynn Terrace
+Newport Avenue
+Briarwood Avenue
+Gunning Road
+Prospect Avenue
+Maloney Lane
+Harold Lane
+Draper Avenue
+Beachview Terrace
+Seascape Avenue
+Loring Street
+Wayside Avenue
+RI 138A,Aquidneck Ave
+Green End Pond
+Silva Lane
+John Clarke Road
+Jacome Way
+RI 214,Valley Road
+Warren Avenue
+Renfrew Avenue
+RI 214,Aquidneck Ave
+RI 214,Valley Rd
+Bliss Mine Road
+Kay Boulevard
+Daniel Street
+Guthries Street
+Leonard Terrace
+Holten Avenue
+Acacia Drive South
+Toppa Boulevard
+Aborn Street
+Friendship Drive
+Greenlaugh Boulevard
+Champlin Street
+Barbara Street
+Kempsen Street
+Loyola Terrace
+Xavier Terrace
+Manning Terrace
+Keeher Avenue
+Ellery Road
+Fowler Avenue
+Brightman Street
+Calvert Street
+Griswold Place
+Tyler Street
+Equality Park West
+Pond Avenue
+Bartlett Court
+Champlin Place
+Champlin Place North
+Everett Court
+Wilbur Avenue
+Ashurst Place
+Warner Street
+Lincoln Street
+Dr Marcus Wheatland Boulevard
+Hope Street
+Eadie Street
+Channing Street
+Watson Street
+Michael Terrace
+Brooks Avenue
+Prairie Avenue
+Hunter Avenue
+Mann Avenue
+Bush Street
+Whitwell Place
+Pell Street
+Bradford Avenue
+Marin Street
+Gardiner Street
+Clinton Avenue
+Record Street
+Wesley Street
+Broadway
+Dartmouth Street
+Nicol Terrace
+Park Street
+Hoffman Place
+Powell Avenue
+Cranston Avenue
+Dana Street
+Caleb Earl Street
+Everett Street
+Equality Park Place
+Channing Place
+Friendship Place
+Kay Terrace
+Malbone Road
+Gray Terrace
+Bayview Avenue
+Taber Street
+Haskell Avenue
+Francis Street
+Kilburn Court
+Ellwood Place
+Whitwell Avenue
+Findlay Place
+Feke Street
+West Marlborough Street
+Butler Street
+Coddington Street
+RI 238,Americas Cup Avenue
+Goat Island Conn
+Callendar Avenue
+Prescott Place
+Marlborough Street
+Chase Street
+Dodge Court
+Covell Street
+Homer Street
+RI 238
+Marsh Street
+Farewell Street
+Sunshine Court
+Oak
+Duke Street
+Evarts Street
+North Baptist Street
+Poplar Street
+Johnson Court
+Dyres Gate Street
+Davis Court
+Heath Street
+Mayberry Court
+Colonial Street
+Cherry Street
+Brandt Street
+Halsey Street
+Poplar
+Battery Street
+Sycamore Street
+Congdon Avenue
+Moffitt Place
+Willow Street
+Braman Street
+Vicksburg Place
+Katzman Place
+Warner Place
+Tilley Avenue
+Tilden Avenue
+Stewart Street
+Van Zandt Avenue
+Pine Street
+Hozier Street
+Albro Street
+Edward Street
+Allan Court
+Lasalle Place
+Guerney Court
+Meeting Street
+Bridge Street
+Maitland Court
+Stone Street
+Shiloh Court
+Washington Square
+Prescott Hall Road
+Gladding Court
+Hall Avenue
+Appleby Street
+RI 238,Farewell St
+Farewell St
+Braman Cemetery
+Van Zandt Ave
+Common Ground Cemetery
+Island Cemetery
+St Mary's Cemetery
+Elm
+RI 138
+RI 138,Newport Bridge
+Bayside Avenue
+Willow
+Pine
+Marsh
+Priscilla Road
+Emerson Road
+Hawthorne Road
+Longfellow Road
+Pardon Tucker Place
+Standish Road
+Union Street
+Old Walcott Avenue
+Prudence Road
+Alden Road
+Green Lane
+Brook Street
+Knowles Court
+Canonicus Avenue
+Grinnell Street
+Luther Street
+Plymouth Road
+Windsor Street
+Douglas Street
+Pemberton Avenue
+Anthem Street
+Swinburne Street
+Valley Street
+Coronado Street
+Fowler Street
+Lawn Avenue
+Harriet Street
+Columbia Avenue
+Hammett Court
+Pierce Avenue
+Westwood Road
+West Bay View Drive
+Avenue B
+Melrose Avenue
+Rhode Island Nuclear Science Center
+Crosswynds Drive
+Narragansett Road
+Horizon Drive
+South Ferry Road
+Sea Ridge Drive
+Wyndcliff Dr
+National Oceanic Atmo Lab
+Rite-Aid
+Birchwood Drive
+Sextant Lane
+Twin Leaf Trail
+Lopine Trail
+Winter Berry Road
+Buttonbush Trail
+Sweet Birch Trail
+Huckleberry Trail
+Pettaquamscutt Lake Rd
+Betony Rd
+Black Alder Trail
+Wildwood Rd
+Celestial Dr
+Meadowrue Trl
+Meadow Sweet Trail
+Oxeye Trail
+Johnson Street
+Wood Sorrel Trail
+Columbia Road
+Sweet Fern Trail
+Wake Robin Trail
+Riverdell Drive
+Pepper Bush Trl
+Tanglewood Trl
+Locust Ct
+Woodsia Road
+Baneberry Trail
+Mobil
+Karison Street
+Bridge View Ct
+US 1,RI 138,Tower Hill Rd
+Meadow Tree Farm Road
+Stony Fort Road
+Driftway Lane
+Greene Gardner Farm Way
+Congden Gardner Way
+Roxanna Ln
+Lutheran Church of the Good Shephard
+Garrahey
+Hundred Acre Pond Road East
+Hundred Acre Pond Road
+Barbers Pond
+Barbers Pond Road
+RI 138,Usquepaugh Road
+Sand Turn Road
+Fairview Drive
+Carrs Lane
+Usquepaugh Rd Rd
+Green's End Ln
+Usquepaugh Road
+Clearview Drive
+Kingstown Rd
+Smallpox Ter
+Small Pox Trail
+Thorpe Ln
+Whitetrail Tr
+Whitetail Trail
+Sternberg Road
+Small Pond Road
+Boulder Drive
+Deer Run Rd
+Wilbur Hill Road
+Blue Ribbon Rd
+Wildwood Court
+Whispering Pines Road
+Foster Farm Drive
+Chelsea Farms Drive
+Switch Rd
+Wheeler Lane
+Garnet Lane
+North Switch Road
+Canonchet Driftway
+Smith Lane
+Marshall Driftway
+Marshal Driftway
+Stubtown Road
+Long and Ell Pond Trail
+Ashville Pond
+Gun Club Pa
+Widgeon Lane
+Pequaw Honk Drive
+Long Highway
+William Sisson Road
+Jude's Lane
+John T Martin Road
+Theresa Way
+Meetinghouse Lane
+Commons
+Commons Street
+Wordell Lane
+Treaty Rock Road
+Blockhouse Lane
+Buena Vista Avenue
+Green End Avenue
+Vaucluse Avenue
+Cordeiro Terrace
+Bayberry Lane
+Sachuest Way
+Trout Drive
+Bailey Avenue
+Cross Country Lane
+Indian Hill Road
+Miller Street
+Paradise Brook Farm Road
+Spruce Avenue
+Cedar Avenue
+Turner Road
+Morrison Avenue
+View Avenue
+Compton View Drive
+Corey Lane
+Ward Street
+Harvey Road
+Berkley Court
+River Run
+Maidford River Road
+Winthrop Drive
+Honeyman Avenue
+Goldenrod Drive
+Longmeadow Avenue
+Plymouth Avenue
+Hammerland Way
+Concord Drive
+Continental Drive
+Johnny Cake Hill
+Boulevard E
+Farnum Terrace
+Miantonomi Avenue
+Acacia Drive
+Bailey Terrace
+Gibson Park Place
+South Dudley Avenue
+Boulevard
+Livingston Place
+Sherri Lane
+Caswell Avenue
+Beechland Place
+Phelps Road
+Adelaide Avenue
+Clayton Street
+North Fenner Avenue
+Restmere Terrace
+Seaboard Court
+Sherwood Road
+Vernon Avenue
+Gibson Road
+Simmons Terrace
+North Dudley Avenue
+Granada Terrace
+Fenner Avenue
+Boulevard Terrace
+Collins Terrace
+Shangri-la Lane
+Nicholson Crescent
+Burdick Avenue
+Harvard Street
+Forbes Street
+Apthrop Avenue
+Dudley Avenue
+Curry Avenue
+Kyle Terrace
+Garfield Street
+Almy Street
+Freeborn Street
+Stockton Drive
+Rowland Road
+Dexter Street
+Bedlow Place
+Mumford Avenue
+Elliot Place
+RI 114,RI 138,West Main Road
+Cummings Road
+Peckham Avenue
+Princeton Street
+Sheffield Avenue
+Thurston Avenue
+Peckham Court
+Hoppin Road
+Truman Street
+Boughton Road
+Madeline Drive
+Smith Avenue
+Pennacook Street
+Roosevelt Road
+Ledyard Street
+Yale Street
+Union
+Porter Avenue
+Dexter Court
+King Philip Road
+Blackwell Place
+Rosedale Court
+Bedlow Avenue
+Sagamore Street
+Eisenhower Street
+Russell Avenue
+County Street
+Hillside Avenue
+RI 138,Admiral Kalbfus Rd
+Utility Road
+Dyers Gate Road
+Longwood Place
+Rolling Green Road
+Connell Highway
+Columbus Way
+Southmayo Street
+Admiral Kalbfus Road
+Cypress Street
+Girard Avenue
+Armstrong Place
+Admiral Kalbfus Rd
+Connell Hwy
+Resolute Row
+Hopkins Avenue
+Enterprise Court
+Riggs Road
+Rossiter Road
+Bambridge Road
+Smith Road
+Cloyne Court
+Munger Road
+Perry Road
+Resolute Road
+Training Station Road
+Dorsey Road
+Biello Road
+Naval Station Newport
+Bayview Drive North
+Bay View Drive
+Davis Street
+Bryer Avenue
+Priscilla Lane
+Mount Hope Avenue
+Buloid Avenue
+Whittier Road
+RI 138,Eldred Avenue
+Calvert Place
+Prudence Lane
+Harbour Street
+RI 138,Eldred Ave
+Westwind Drive
+West Passage Drive
+Cavanaugh Court
+Ferry Road
+Stillman Road
+Gould Way
+Waterway Road
+Waterway Extended
+Carroll Road
+Church Way
+Carpenter Lane
+Saunders Road
+Willett Road
+Willet Rd
+Kelley Rd
+Miner Rd
+Flint Drive
+Ginger Lane
+Parsley Ln
+Cinnamon Ln
+Misty River Terrace
+Arrow Dr
+Oyster Shell Ter
+Coral Shell Ter
+Bow Run
+Vineyard Road
+Westmoreland Lane
+Westmoreland Ln
+Jasmine Circle
+Fieldstone Lane
+Sugarbush Tr
+Shermantown Road
+Macintosh Ln
+Thomas Anthony Road
+Southwick Cir
+Slocum Road
+Preservation Drive
+Plantation Drive
+Colony Ct
+Plains Rd
+Stony Fort Rd
+Tupelo Drive
+Top Hill Dr
+Wolf Rocks Rd
+Wolf Rock Rd
+Brown Place
+Wolf Rocks Road
+Mauran Place
+Estelle Drive
+Richardson Road
+Erica Court
+Sir Michael Court
+Pleasant View Dr
+Yawgoo Pond Road
+Jingle Valley Rd
+Dugway Bridge Road
+Queens River Drive
+Glen Rock Road
+Old Usquepaugh Road
+Old Usquepaug Road
+Punchbowl Trail
+Kenyon Point
+Glen Rock Reservoir
+Miranda Drive
+Gristmill Lane
+Hillsdale Road
+Carolina Nooseneck Road
+Deerfield Drive
+Pinehaven Drive
+Austin Lane
+Corey Trail
+Locustville Pond
+Sidehill Road
+Loop Street
+RI 138,Spring Street
+Soap House Lane
+Locustville Road
+Pleasant
+RI 3,RI 138,Main Street
+Gorskoski Drive
+Ridley Lane
+Blue Pond Tr
+Blue Pond
+Berrie Lane
+Unmarked Trail to Parking Lot
+Long Pond
+Ell Pond Side Trail
+Long Pond Side Trail
+Yawgoog Scout Reservation
+Ell Pond
+Rockbridge Drive
+Whistler Point Road
+Haffenreffer Lane
+Winslow Road
+Rockbridge Road
+Holly Lane
+Snell Road
+Quicksand Pond Road
+East Main Road
+Simmons Road
+Old Farm Road
+Marsh Peeper Lane
+Hollyberry Hill Ll
+Blue Flag Lane
+Marsh Peeper Road
+Sherer Cove
+Brown Point Lane
+Bay Farm Lane
+Sea Stones Drive
+Mohawk Drive
+James Court
+Cornelius Drive
+Indian Terrace
+Silveira Drive
+Wapping Road
+Bartlett Road
+Pippin Road
+Russett Avenue
+Little Creek Lane
+Baldwin Road
+Peckham Lane
+Sakonnet Terrace
+Mitchell Lane
+Beagle Drive
+Hickory Avenue
+Hunt Lane
+Wyndham Hill Road
+Tally Ho Court
+Indian Hill Circle
+Hemlock Street
+Homestead Place
+Ellen Road
+Reardon Dr
+Griffin Road
+Jude Street
+Jib Court
+Reardon Drive
+Wabasso Terrace
+RI 138,East Main Road
+Middle School
+William Drive
+Sail Court
+Vierra Terrace
+Park Drive
+Wedgewood Drive
+Trimble Road
+Aquidneck Drive
+Gae Street
+Haymaker Road
+Balsam Street
+Rockwood Road
+Enterprise Center
+Evergreen Avenue
+Shaw Court
+Maplewood Road
+Smithfield Drive
+Wood Road
+Commercial Street
+Brookdale Road
+Rego Road
+RI 114,W Main Rd
+Mahan Street
+North Beacon Terrace
+Paquin Place
+Lake Erie Street
+Maffit Street
+Lexington Street
+Peace Street
+Hart Street
+Sunset Long Road
+Coddington Highway
+Harborview Court
+Bayview Park
+Yarnell Avenue
+Rosedale Avenue
+Caperton Street
+Rosedale Terrace
+Race Street
+Admiral Court
+Beacon Terrace
+Beacon Court
+Vincent Street
+Evans Street
+Kennedy Street
+Chadwick Street
+Rosa Road
+Halsey Avenue
+Niagara Street
+Maple Terrace
+Mixter Street
+Sherman Lane
+Sims Street
+Smythe Street
+Hobbs
+King Road
+Jones Street
+Underwood Lane
+Hobbs Street
+Massachusetts Avenue
+Cowie Street
+Rosa Terrace
+Gate II Substation
+Peary Street
+Reliance Row
+Fahey Street
+York Street
+Meyer Kord Avenue
+Leal Terrace
+Whipple Street
+Easton Street
+Peary
+Avenue J
+John H Chafee Blvd
+Peary St
+Copodanno Drive
+Weenachasett
+Whipple
+Rochambeau
+Elliot Avenue
+Barschow
+Donovan Avenue
+Vaughan
+Preece Road
+Mercy Weeden Court
+Weeden Lane
+Mercy Weeden Lane
+Griffith Road
+Cottrell Road
+Lloyd Rd
+Fernwood Lane
+Meadow Terrace
+Charlotte Avenue
+Kings Grant Road
+Snuff Mill Road
+Gilbert Stuart Road
+Hammond Hill
+Winsome Drive
+Polo Drive
+Mallet Ln
+Deer Ridge Drive
+Congdon Hill Road
+Mourning Dove Drive
+Candy Apple Lane
+Pamela Court
+Glen Hill Drive
+Antelope Circle
+Prides Crossing Ln
+Delta Drive
+Wentworth Drive
+Hunters Court
+Old Yawgoo School Rd
+Glen Mill Drive
+Old Yawgoo School Road
+Yawgoo Valley Road
+Sylvan Court
+Gladys Kenyon Rd
+Yawgoo Valley Rd
+Jeannette Ct
+Raymond Potter Road
+Miskiana Trail
+Kingston Road
+Dug Way Ridge Bridge
+Monahan Manor Way
+Queens River
+James Trail
+Peter Pots Pottery
+Gardiner Road
+Punch Bowl Trail
+Stilson Road
+1st Avenue
+C Drive
+River Meadow Drive
+Card's Farm Road
+RI 138,Main Street
+Canob Lane
+Central Avenue
+Spring Green Drive
+Chariho Drive
+RI 3,Nooseneck Hill Road
+Bank Street
+Thompson Tr
+Grancera Drive
+Arcadia Road
+Prospect Square
+Aldrich Street
+Thelma Drive
+Bank
+Gilman Road
+Thurston Drive
+Kreyssig Drive
+Harringtons Crossing
+Circle Drive
+Willow Drive
+Stony Lane
+Carol Drive
+Big Rock Drive
+Newberry Lane
+Wincheck Pond Road
+Yeles Lane
+Wincheck Pond
+Marvel Road
+Camp Yawgoog Road
+Yawgoog Pond
+Phillips Island
+Schooner Island
+Ant Island
+Old Harbor Road
+Mullin Hill Road
+Amesbury Lane
+John Dyer Road
+Pottersville Road
+Case Drive
+Peanuts Lane
+Helger Lane
+Magan Way
+Peckham Road
+Steeple View Road
+Dons Lane
+Holly Meadow Lane
+Patten Drive
+Black Point Lane
+Reposa Square
+Lock Lane
+Pequoit Street
+Cottontail Drive
+Prince Henry Avenue
+Sakonnet Greenway
+Fayall Lane
+Cardoza Terrace
+Wyatt Road
+Middletown Soccer Fields
+Newport State Airport
+Johnson Terrace
+Sundown Lane
+Buck Road
+Francisco Drive
+Lawton Court
+Oakview Terrace
+Old Airport Road
+Forest Avenue
+Blue Grass Drive
+Winfield Court
+Lockwood Lane
+Bloom Court
+Airport Access Road
+Enterprise Drive
+Ludlow Road
+Commerce Drive
+Lake Erie
+East Bay Village
+Chases Lane
+Wilson Road
+Commodore Perry Boulevard
+Wood Terrace
+Woolsey Road
+Corporate Place
+Access Road
+Harbor Village Drive
+Champlin Terrace
+John F. Kennedy Elementary School
+Navy 1 Substation
+63
+Kennon Street
+Read
+Semmes Street
+Donald Drive
+Murphy Circle
+Admiral Luce Street
+Read Street
+Gate 17
+Casey Drive
+Niagara
+Orville Drive
+Admiralty Drive
+Constellation Avenue
+Constitution Avenue
+80
+NUWC Security
+Naval Undersea Warfare Center
+Burma Road
+Burma Rd
+Koll Meyer Street
+Severance Lane
+Eldred Avenue
+Bay Terrace
+Penny Road
+Dewey Lane
+Reise Road
+Marcello Drive
+Coulter Drive
+Decatur Avenue
+Tasshtassuc Road
+North Main Road
+Cedar Lane
+Cedar Hill Drive
+Spindrift Street
+Steamboat Street
+Deck Street
+Mast Street
+Sail Street
+Hull Street
+Tashtassuck Road
+Helm Street
+Beacon Avenue
+Galley Street
+Keel Avenue
+Seaside Drive
+Nautilus Street
+Stern Street
+Jib Street
+Rub Street
+Neptune Street
+Boom Street
+Riptide Street
+RI 138,Jamestown Verrazzano Bridge
+Net Street
+Plum Beach Road
+Fleetwood Drive
+Blair Avenue
+Curtis Road
+Harbor View Avenue
+South Street
+Tefft St
+Periwinkle Drive
+RI 1A,Boston Neck Road
+Nautilus Drive
+Top Hill Road
+Plum Point Rd
+Barbers Heights Avenue
+Hillside Street
+Skating Pond Ln
+Pendar Road
+Pheasant Run
+Finch Lane
+Ilex Court
+Haggarty Hill Road
+Wildwood Ct
+Beauchamp Dr
+Jacalyn Rd
+Holly Hills Lane
+Thornfield Way
+Woodridge Drive
+Dale Hill Dr
+Balsam Court
+Yorker Mill Pond
+Liberty Rd
+Liberty Road
+Dorset Mill Rd
+Yorker Mill Pond Dam
+Briarwood Hill Rd
+Dorset Mill Road
+Everett Salisbury Lane
+Woodbine Lane
+Eric John Ct
+Beechwood Hill Trail
+Azalea Avenue
+Kimberly Hope Lane
+Eneri Knits
+Oakland Road
+Boxwood Drive
+Red Oak Drive
+Buttonwoods Road
+Hunters Lane
+K G Ranch Road
+Wood River Drive
+Valley Lodge Drive
+Cemetery Street
+Tall Timbers Drive
+Skunk Hill Road
+Woods River Drive
+Cul de Sac Drive
+Katie Penny Drive
+Cul-de-Sac Drive
+Beverly Ann Drive
+Francis Barber Drive
+Karen Drive
+Michael Lane
+Dutch Island Road
+Lisa Lane
+Anna Drive
+Elizabeth Court
+Clarke Avenue
+Camp Street
+Charnley Avenue
+Pond Road
+Moscow Brook Trail
+Sawmill Road
+Dye Hill Road
+Gunther Lane
+News Street
+White Trail
+Green Fall Road
+West Branch
+Simmons Pond
+Chretien Drive
+Colebrook Road
+Watson Reservoir
+Burchard Avenue
+Old Main Road
+Carey Lane
+Madden Lane
+Oliver Lane
+Farmlands Road
+Greenvale Lane
+Greenvale Road
+Bramans Lane
+Dianne Avenue
+Briarwood Lane
+Carter Drive
+Cheryl Avenue
+Harvest Drive
+Malee Terrace
+Bleu Lane
+Bleau Lane
+Flamingo Lane
+Island Drive
+Paddock Lane
+Mitchells Lane
+Goularte Lane
+Pilgrim Lane
+Albro Woods
+Coggeshall Circle
+Coggeshall Way
+Jepson Lane
+Oliphant Lane
+Oak Forest Drive
+Barton Lane
+James Francis Terrace
+Susan Court
+Aspinet Road
+Vanicek Avenue
+Namquid Drive
+Weetamoe Road
+Brown Lane
+1320
+1176
+1258
+1259
+1319
+Carr Lane
+Bailey Lane
+Reservoir Circle
+Felucca Avenue
+Top O' the Mark Drive
+Davit Avenue
+Sampan Avenue
+Frigate Street
+Ship Street
+Atlantic Circle
+Buoy Street
+Gondola Avenue
+Schooner Avenue
+Spar Street
+Backstay Street
+Nun Avenue
+Starboard Avenue
+Ferry Street
+Garboard Street
+Spanker Street
+Bark Avenue
+Spirketing Street
+Norman Road
+Dolphin Street
+Stanchion Street
+Mizzen Avenue
+Lorelei Drive
+Bridge Rd
+Riptide Dr
+Plantation Lane
+Crowfield
+Triton Drive
+Spindrift Drive
+Crowfield Drive
+Gilbrt Stuart Road
+Silver Spring Lake
+Silver Spring Road
+Village Hill Lane
+Col Rodman Highway
+Country Hill Lane
+Shady Lea Road
+RI 4,Col Rodman Hwy
+Country Hill Ln
+Butternut Drive
+Azalea Ct
+Orchards Woods
+Orchard Woods Drive
+Ebony Ct
+Indian Corner Rd
+West Allenton Road
+Tomahawk Circle
+Exeter Rd
+Hidden Lake Dr
+Slocum Reservoir
+Mail Road
+School Landwoods Rd
+King Arthur Drive
+Roundtable Court
+Knight Court
+Hog House Hill Road
+Lancelot Court
+Box Turtle Tr
+Fox Ridge Drive
+White Oak Drive
+Oak Hill Drive
+Wolf Court
+Baker Pine Road
+Tulip Drive
+Ledoux Drive
+Pine Shadows Drive
+Meunier Drive
+Leroy Drive
+Old Kenyon Road
+Watson Drive
+Old Blitzkrieg Trail
+Gobeille Drive
+Foley Drive
+Brodin Drive
+Blitzkrieg Terrace
+Reise Drive
+Wood River Circle
+Blitzkrieg Trail
+Theroux Drive
+Bitgood Road
+Teaberry Lane
+Belforest Lane
+Ryan Circle
+Kenny Hill Road
+Grassy Pond Road
+Adamsville Public Landing
+Big Drum Road
+West Branch Road
+Amy Hart Path
+Goulart Way
+Shuttle Drive
+High Meadow Road
+Tompkins Lane
+Queen Awashunk Trail
+Watson Way
+Austen Lane
+Pachet Brook Road
+Town Way
+Anthony Way
+Donovan Lane
+RI 77,Main Road
+Faria Way
+Preston Lane
+Seaspray Way
+Bernard Lane
+Pecham Lane
+Francis Lane
+Edmond Lane
+Windmill Hill Road
+Fay Lane
+Patsy Street
+Shirley Street
+Tony Street
+Philip Avenue
+Ronnie Street
+Lenny Street
+High Hill Road
+Eastover Road
+Adams Drive
+Taylor Road
+Fischer Circle
+Copper Beech Drive
+Sandy Point Farm Road
+Glen Meade Drive
+Selina Lane
+Kubla Court
+Woodland Drive
+Meade Street
+Baseball Field
+Paquins Lane
+Moitoza Lane
+Silvania Road
+Randall Lane
+61
+Jepson Substation
+62
+Amesbury Circle
+Laura Road
+Busher Drive
+Christine Road
+Pasture Farm Drive
+Debbie Court
+Olives Way
+Squantum Court
+Cows Path
+Roy Avenue
+Roseart Terrace
+Judith Court
+West View Road
+High Meadow Court
+Nakomis Road
+Rooster's Way
+Gossets Turn Drive
+Burton Place
+Marshall Lane
+Jean Terrace
+Phillips Avenue
+Cows Path Road
+J H Dwyer Drive
+Arruda Terrace
+Unity Drive
+Squantum Drive
+Colony Drive
+Samson Lane
+Old Farm Way
+Thelma Lane
+Ruth Street
+Saint Columbas Cemetery
+Brown's Lane
+Pocahontas Drive
+Algonquin Drive
+Osage Drive
+Aquidneck Court
+Wright Lane
+Intrepid Lane
+Bridgeview Drive
+West Reach Drive
+Seafarer Court
+American Way
+Capstan Street
+Weatherly Court
+Sloop Street
+Champlin Way
+Dory Street
+Topmast Court
+Lugger Street
+Catamaran Street
+Fore Royal Court
+Cutter Street
+Umiak Avenue
+Bissel Island
+Cecil Avenue
+Oceanwoods Drive
+Salisbury Avenue
+Hamilton Harbor Avenue
+Web Avenue
+Bates Avenue
+Shady Cove Rd
+Rustic Way
+Terre Mar Dr
+Martha Rd
+Featherbed Lane
+Hamilton Gate Ct
+Hamilton Allenton Rd
+Weaver Rd
+Bedford Lane
+Elm Grove Cemetery
+Tower Hill Substation
+Tower Hill Tap
+Sweet Meadow Drive
+Pinecrest Drive
+Pond Hollow Road
+Ricci Lane
+Lawnwood Road
+Hickory Drive
+Hickory Drive East
+Hemlock Drive
+Hollywood Drive
+Woodmont Drive
+Girard Ln
+Beachwood Drive
+Cardinal Drive
+Woodhaven Road
+White Birch Ct
+Greenwood Rd
+Fawn's Run
+Dawn Marie Court
+Field Court
+Woodmist Way
+Whisper Ln
+Mockingbird Drive
+Lafayette Road
+Dry Bridge Road
+Dry Bridge Rd
+Exeter Road
+Rhode Island State Veteran Cemetery
+Veterans Place
+Ladd Drive
+Liberty Church Road
+Tripps Corner Road
+Hoxsie Road
+Twilight Lane
+Morning Road
+Yellow
+Acorn Trail
+Oak Leaf Trail
+East Acorn Trail
+Tefft Hill Road
+Arcadia Man Area
+RI 138,Beach Pond Road
+RI 81,Crandall Road
+Adamsville Road
+Westport Harbor Road
+RI 179,Main Street
+Old Stone Church Road
+RI 179,Stone Church Road
+Bramblewood Cross Road
+Brookside Lane
+Cedar Valley Way
+Tambourine Lane
+Stony Brook Drive
+Three Rod Way
+Southlake Road
+Sakonnet Trail
+Eight Rod Way
+Nonquit Pond
+Pond Bridge Road
+Fogland Road
+Neck Road
+Wilcox Street
+Point View Drive
+Sandy Point Avenue
+Col Christopher Greene Road
+Sigourney Road
+General Sullivan Circle
+Heidi Drive
+Glen Farm Road
+Colonel Barton Drive
+Barker Lane
+Evergreen Drive
+Carriage Drive
+Cornell Drive
+Columbia Terrace
+Acorn Lane
+Gibbs Lane
+Bancroft Drive
+Sisson Pond Road
+Dubois
+Stage Coach Road
+Pioneer Lane
+Mail Coach Road
+Almy Knoll Terrace
+Perrault Street
+Dubois Street
+Redwood Road
+Vigilant Street
+Columbia Court
+Puritan Drive
+Mayflower Drive
+Columbia Lane
+Ranger Court
+Court Street
+Clinton
+Courageous Court
+Mount Vernon
+Constellation Court
+Fly Jib Court
+Skysail Court
+Fox Island
+Fones Avenue
+Buena Vista Drive
+Waldron Avenue
+Stevens Avenue
+Winsor Ave
+Duck Cove Road
+Worsley Avenue
+Island Street
+Clinton Drive
+Sanford Avenue
+Earle Dr
+Lowell Avenue
+Russell Dr
+Duck Cove
+Duck Cove Lane
+Swan View Lane
+Annaquatucket Road
+Greenway Drive
+Glendale Cir
+Woodward Rd
+North Kingstown High School Stadium
+Daniel Drive
+Lantern Lane East
+Ashton Avenue
+Baker Way
+Lantern Lane
+Cydot Drive
+Amy St
+Veil Ct
+Virginia Avenue
+Clover Court
+Kettle Court
+Georgia Avenue
+Flagg Lane
+Pine Tree Circle
+Barolay Drive
+Esker Ln
+Thelma Irene Dr
+Sweet Lane
+Beatrice Drive
+Charlene Ct
+Boyer Street
+Jamaica Way
+Pineland Street
+Hideaway Lane
+Inez Road
+Vista Circle
+Hallene Place
+Schartner Pl
+Huckleberry Road
+James Place
+Helmsley Place
+Quonset Drive
+Narganst Dr
+Queens River Road
+Sheffield Hill Road
+Levitt Lane
+Metcalf Wildlife Marsh
+Locust Circle
+Linden Circle
+Pine Ridge Drive
+Wawaloam Campground
+Job Drive
+Bell Schoolhouse Road
+William Reynolds Farm Road
+Rocky Pine Road
+Tug Hollow Road
+Dawley Park Road
+Teft Hill Trail
+Browning Mill Pond
+Mount Tom Road
+138,Rockville Road
+Magnolia Way
+Stony Hollow Road
+Simmons Lane
+Field Stone Lane
+Sylvia Road
+Wildrose Drive
+West Demello Drive
+RI 179,East Road
+Roseland Drive
+Christina Drive
+Roseland Terrace
+Joann Drive
+Morning Dove Drive
+Bettencourt Lane
+Chelsea Way
+Peaceful Way
+Bonniefield Drive
+Glen Road
+Vanderbilt Lane
+Gilbert Barker Road
+Harris Avenue
+Harrington Avenue
+August Lane
+Eyler Drive
+Benedict Avenue
+Glen Terrace
+Kaitlin Place
+Kenneth Avenue
+William Avenue
+Beaupre Road
+Clearview Avenue
+Jo Anne Avenue
+Benjamin Drive
+Mintwater Brook Lane
+Jo Ann Avenue
+Locust Avenue
+Schaefer Drive
+Rolling Hill Road
+Lawton Brook Lane
+Almeida Terrace
+Slate Lane
+Harbor View Road
+Galley Lane
+Broad Street
+Nobayview Drive
+Bell Lane
+Franklin Place
+Easterly Way
+Fairview Street
+Waverly
+Wickford Avenue
+Duck Cove Farm
+Washington County
+Gregory Avenue
+Howard's Right of Way
+Boston Neck Road
+Matteson Street
+Elm Drive
+Madison Avenue
+Lexington Avenue
+Lindley Avenue
+Edgar Nock Road
+Cold Spring Lane
+Concord Avenue
+Lawton Ave
+Reynolds St
+Elgin Ave
+Duck Cv
+Steamboat Avenue
+Guzeika Road
+Ramblewood Drive
+Wampanaog Cir
+Wickford Branch
+North Kingstown Town Hall
+Wickford Harbor
+Elam St
+Wickford Elementary School
+Updike Avenue
+Spink Street
+Waite Court
+Jenkins Court
+Stuart Drive
+Loop Drive
+RI 1A,Brown Street
+RI 102,Phillips Street
+Oakland Avenue
+Cranston Cir
+Boone St
+Atherton Avenue
+Rome Street
+Cedar Glen
+North Kingstown Free Public Library
+Academy Cove
+Haverhill Avenue
+Preston Drive
+Chatworth Road
+Collation Circle
+Dodge St
+RI 102,Ten Rod Rd
+Angel Avenue
+Gardiner Avenue
+Dillon Avenue
+Warburton Avenue
+Corey Ave
+Himes St
+Howard Rd
+Oak Hill Rd
+Bellewood Court
+Morgan Court
+Audubon Road
+Bridal Ct
+Cambridge Ct
+Eden Ct
+Hatchery Rd Byp
+Hatchery Rd
+Route Route
+West Hill Court
+Stamp Farms
+Arnold Place
+Bay Farm Drive
+Long Lane
+Hemsley Place
+Sugar Hill Court
+Pinoak Dr
+Tarbox Drive
+Pheasant Drive
+Hummingbird Boulevard
+Robin Drive
+Evergreen Dr
+Partridge Rd
+Rose Dr
+Minkema Road
+William Reynolds Road
+Partridge Drive
+Cedar Grove Dr
+Purgatory Road
+Pheasant Road
+Sodom Trail
+Hallville Road
+Lodge Road
+Dolly Pond Road
+Nooseneck Hill Road
+Teft Hill Road
+Bates School House Road
+White River Drive
+Noah Ark Road
+Pools Lane
+Pool Lane
+Sandra Lee Lane
+Old Crandall Road
+East Demello Drive
+Orange Trail
+Yellow Trail
+Meadow Trail
+Gas Line
+Long Pasture Way
+Gadsby Lane
+Seapowet Avenue
+Little Harbour Road
+Silver Bay Road
+Little Harbor Road
+Cindy Lane
+Stewart Drive
+Windstone Drive
+McCorrie Lane
+Karen Street
+East Terrace
+Annette Drive
+Linda Terrace
+Kerr Road
+Julia Court
+Sherwood Terrace
+Weetamoe Lane
+Petonanowet Lane
+Rachael Drive
+Wamsutta Lane
+Crestview Place
+Pleasant View Avenue
+Athena Terrace
+Giblin Way
+Wampanoag Drive
+Sherwood Drive
+Ferreira Street
+Mary Lane
+Schoolhouse Lane
+Martens Road
+Garden Street
+Hathaway Drive
+Warrens Way
+Marvel Street
+Early Street
+Luther Lane
+Vesper Lane
+Madison Way
+Gildas Lane
+McIntosh Drive
+Joshua Terrace
+Stonegate Drive
+De Arruda Terrace
+Mariel Rose Drive
+Russet Road
+Dorothy Avenue
+Flint Corn Road
+Prudence View Drive
+Maize Corn Road
+Wilkey Avenue
+Leander Avenue
+Fieldstone Drive
+Chelsea Drive
+Pear Street
+Buckwheat Avenue
+Elaine Avenue
+Cathy Circle
+Scotty Drive
+Debra Drive
+Worden Street
+Warley Street
+Stringham Road
+Cimarron Drive
+Grain Terrace
+Stevens Road
+Donna Drive
+Dupont Street
+Beacon Place
+North Bay View Drive
+Sauga Ave
+Shore Acres Ave
+Washington County;Wickford Harbor
+Eldred Lane
+Armington Avenue
+Friend Street
+Pleasant St
+Church Ln
+Bruce Terrace
+Cornelius Island
+Mill Cove
+Roosevelt Avenue
+Newtown Avenue
+Gold Street
+RI 1A,West Main Street
+Flat Fish Alley
+Roger Williams Drive
+Intrepid Drive
+Esmond Avenue
+Lenox Court
+Enfield Avenue
+Dayton Court
+Hopedale Dr
+Newtown Ave
+Rabbit Island
+Wilson Park
+Tennis
+Soccer
+Softball
+Breakwater Lane
+Stone Gate Drive
+Sassafras Drive
+Stand Pipe Lane
+Summit View Lane
+RI 1A,W Main St
+Dave's Marketplace
+North Kingstown Police Department
+Cocumscussoc State Park
+Elna Street
+Ponte Lane
+Worden Avenue
+Indian Street
+Kent Street
+Dickson Street
+Queen Street
+Hatfield Street
+Rodman Lane
+Thornton Way
+Hendrick Avenue
+Lafayette Place
+Advent St
+RI 4
+Highbush Terrace
+Stone Hill Court
+Collins Court
+Tamarack Circle
+Laurel Ridge Lane
+Leatherleaf Trail
+Aspen Court
+Hawthorne Court
+Rollingwood Dr
+Autumn Dr
+Beacon Drive
+Ten Rod Rd
+RI 2,RI 102,Ten Rod Rd
+Lang Dr
+Sleepy's Matress Store
+RI 102,Ten Rod Road
+Mancini Pl
+Carrie Ln
+Plain Road
+Princess Pine Ct
+RI 2
+Stamp Pl
+Enwright Court
+Bayview
+Eban Slocum Road
+New Rd
+Locust Valley Road
+Quail Hollow Drive
+Locust Valley Ct
+Widow Sweets Road
+Reuben Brown Ln
+Sara Drive
+Estate Dr
+Rolling Hill Drive
+Forest Hills Drive
+Gentry Circle
+Town Hall Road
+RI 102,Victory Highway
+Ten Rod Road
+Black Plain Road
+Short Road
+RI 165,Ten Rod Road
+Boone Lake
+West Shore Drive
+East Shore Drive
+Bliven Trail
+Frosty Hollow Road
+Bald Hill Trail
+Old Ten Rod Road
+Escoheag Hill Road
+Beach Pond
+165,Beach Pond Road
+Dion Avenue
+East Dion Avenue
+Michaels Lane
+Saxony Avenue
+Sleepy Hollow Road
+Red Trail
+Ledoux Lane
+Green Trail
+Blue Trail
+Town Farm
+Town Farm Complex Parking
+Nonquit Lane
+Wampanog Lane
+Bradley Lane
+Holman Street
+Molleur Road
+Kirduglyn Road
+Peleg Road
+Nina Road
+Oliver Hazard Perry Road
+Lepes Road
+Fairview Lane
+Roger Williams Court
+Lambie Circle
+Friends Street
+Sea Meadow Drive
+Ethel Drive
+Ann Hutchinson Court
+Pine Tree Road
+Silva Avenue
+Stub Toe Lane
+Ash Street
+Caiger Lane
+Crossing Court
+Ladiera Avenue
+Orchard View Road
+Center View Drive
+Rainbow Hts
+Centerview Drive
+Sweet Farm Road
+Full Circle
+McBride Drive
+Craven Street
+Lagoon Road
+Alexander Road
+Alden Way
+Cliff Road
+Soprudence Bay Island Park
+Zarbo Avenue
+Eccleston Avenue
+McNaught St
+Quonset Rd
+John Thomas
+Burlingham Avenue
+Casey Avenue
+Rhodes Place
+Rogers Street
+Fishing Cove Road
+Landing Lane
+Country Lane
+6th Street
+Rogers Avenue
+Middle St
+Windward Walk
+Kingsley Ave
+Camp Avenue
+Seabreeze Drive
+Anchor Way
+Forrestal Avenue
+Lands End Drive
+Wickford Point Road
+Grist Mill Road
+Gateway Rd
+Fishing Cove Elementary School
+Pine River
+Richard Smith Dr
+Huling Road
+Cocumcussoc Way
+Chestnut Road
+Big Oak Dr
+Walnut Rd
+Oakdale Rd
+Trowbridge Rd
+Cocumcussoc Brook
+North Kingstown Post Office
+Tire Pros
+Colonial Liquors
+Stony Ln
+Gray Drive
+Red Maple Terrace
+Burnt Cedar Dr
+Sedgefield Rd
+Hidden Mere Lane
+Abby Lane
+Wickford Junction
+Grant Drive
+Old Baptist Road
+Shelley Court
+Cole Drive
+Byron Court
+Barrett Drive
+RI 2,Quaker Lane
+Brenton Ct
+Lydia Rd
+Chaucer Dr
+Scrabbletown Rd
+Walmart
+Staples
+Super Stop & Shop
+RI 2,Quaker Ln
+BankNewport
+Dunkin' Donuts
+Gregg's
+Starbucks
+Linden Court
+Naushon Ct
+Eastwick Rd
+Ridgefield Ct
+Bromley Ct
+Westridge Court
+Wickham Rd
+The Home Depot
+Cassandra Lane
+Mary Ann Dr
+Queens Fort Ln
+Hiawatha Dr
+Sweet Laurel Lane
+Brookridge Dr
+Windrose Circle
+Sunderland Rd
+Pardon Joslin Road
+Old Widow Sweets Road
+Cobblestone Hill Road
+Chappel Place Ln
+Millbrook Pond
+Maguire Place
+Shelter Trail
+Midway Rail
+Midway Railroad
+Brookie Trail
+Old Voluntown Road
+North Shore Road
+Narrow Avenue
+Rhododendron Drive
+Crest Road
+Five Rod Way
+Norman Drive
+Brayton Road
+Wildcat Trail
+Nannaquaket Road
+Indian Point Road
+Hamilton Circle
+Penny Pond Road
+Winnisimet Drive
+Arrowhead Drive
+Inlet Drive
+Sachem Road
+Hargraves Drive
+Edwards Drive
+Immokolee Drive
+Prospect Lane
+Gideon Lawton Lane
+Homestead Lane
+Peggy Lane
+April Lane
+Lambie Court
+Prospect Farm Road
+Petticoat Lane
+Long Meadow Road
+Cul de Sac Way
+Henry Danis Court
+Lawrence Terrace
+Hedly Street
+North Street
+Quaker Lane
+High Point Avenue
+RI 114,West Main Road
+Corys Lane
+Highpoint Avenue
+King Charles Drive
+RI 114
+RI 24
+Amando Drive
+Thayer Drive
+Cromwell Drive
+Thayer Court
+Souza Way
+Westwood Drive
+Roberta Avenue
+Merrill Avenue
+Alden Avenue
+Longview Avenue
+Hornbine Avenue
+Airport St
+Belver Ave
+Conway Ave
+Thornton
+Conway Avenue
+Dillabur Avenue
+Belver Avenue
+Mainsail Drive
+Aldrich Avenue
+Mooring Drive
+Circuit Rd
+Northrup Rd
+Cripe Avenue
+Callahan Road
+Seaview Railroad
+Lt James Brown Rd
+Toray Education and Wellness Center
+North Kingstown Golf Course
+G185S,L190
+84,Davisville Substation
+Commerce Park Road
+Ripple Ln
+Helsman Rd
+Cattail Ln
+Mill Creek Dr
+Koster Rd
+Waterwheel Lane
+Military Drive
+Asqah Drive
+Sea Grass Way
+Horsepound Rd
+RI 403
+Dana Road
+Pequot Street
+Maxwell Dr
+Verdant Cir
+Misty Meadows Lane
+Pebble Road
+Iron Horse Terrace
+Regent Drive
+Meadowland Drive
+Caddy Rock Rd
+Mayflower Court
+Pleasant Valley Road
+Viking Ct
+Janna Court
+John Scott Lane
+Queens Fort Way
+Abraham's Way
+Sophia Cir
+Country Court
+Lindsay Lane
+Hopkins Hill Rd
+Nelson Drive
+Hillside Drive
+Falcon Ridge Drive
+Money Swamp
+Money Swamp Pond
+RI 102
+RI 3,RI 102,Nooseneck Hill Road
+S.C.A.R. Paintball Parking
+Main Path
+Trail To Camp Sway
+Austin Farm Road
+Breakheart Pond
+Breakheart Hill Road
+Hicks Trail
+Camp E-Hun-Tee Place
+Camp E-Hun-Tee Pl; Matteson Plain Rd
+Shetucket Turnpike
+East King Road
+Deer Run Road
+Isabella Drive
+Lawrence Court
+Fairfield Avenue
+Delano Island Street
+Marlynn Drive
+Riverscape Lane
+North Court
+River Scape Drive
+South Court
+Leonard Drive
+Broadview Drive
+Sunset View Drive
+Island View Drive
+Power Street
+Independence Court
+Carol Terrace
+Turnpike Avenue
+Berroth Court
+Michael Drive
+Kristen Court
+Seneca Road
+Patriots Way
+Johnnycake Lane
+Macomber Lane
+Church Lane
+Duffy Terrace
+Emmanuel Drive
+Faulkner Circle
+Canonchet Drive
+Power
+Mark Lane
+Long Shore Road
+Lisa Terrace
+Bradley Terrace
+East Power Street
+Correia Drive
+Potomac Road
+Leeward Shores
+Dexter Substation
+Jesse Drive
+Brown Terrace
+Ferreira Terrace
+Gorton Street
+Eric Court
+Statue Way
+Memorial Drive
+West Dexter Street
+Franklin Terrace
+Patriots Park
+Governor Paine Road
+John Oldham Road
+Bay Avenue
+Bay Road
+Ray Avenue
+Park Road
+Providence Avenue
+Thompson Rd
+Bailey Rd
+Smith St
+Moscrip Street
+12th Street
+Jones Rd
+Davol Pond
+Romano Vineyard Way
+Mark Dr
+Powers Rd
+Newcomb Road
+Cynthia Drive
+Eileen Drive
+Place Rd
+Job Lot Way
+Davisville Rd
+Quonset Bike Path
+Ocean State Drive
+Pine River Drive
+Linwood Dr
+Gate Rd
+Ocean State Dr
+Ocean State Oil
+Lowes (Closed)
+Seabee Museum
+Devils Foot Road
+West Knollwood Circle
+Walter Drive
+Fischer Drive
+Knollwood Circle
+Devils Foot Rd
+Seven Moons
+Lukoil
+Burger King
+Drive Thru
+Tarbox Toyota
+Kohl's
+Compass Road
+Compass Circle
+Navy Drive
+Yorktown Road
+Saratoga Road
+Hornet Rd
+Union Drive
+Bonneau Rd
+46,Old Baptist Road Substation
+International Drive
+Foliage Drive
+Surrey Lane
+All American Way
+Independence Dr
+West Davisville Road
+Edgewood Drive
+Midway Drive
+Love Lane
+South Rd
+Tillinghast Road
+Brier Court
+Shady Hill Drive
+Taggart Court
+Princess Pine Drive
+Shippee Road
+Larkspur Road
+Tipping Rock Drive
+Hopkins Hill Road
+Henry Brown Road
+Toasters
+Cooler Trail
+Congdon Mill Road
+Congdon River
+St Joeseph Cemetery
+Wills Swamp Road
+Barnett Lane
+Arnold Farm Road
+Catherine Wright Court
+Parkside Drive
+Newman Trail
+Penny Hill Cutoff
+St Park Road
+Wood River Lane
+Falls River Road
+Adelard Avenue
+Woodland Circle
+Bolducs Lane
+Bucks Way
+Sawdy Pond Avenue
+Cynthia Avenue
+Cross Road
+Ferreira Drive
+Furey Avenue
+Lazywood Lane
+Four Seasons Trail
+Pelham Road
+Dadson Mobile Estates
+Cedar Field Road
+RI 177,Bulgarmarsh Road
+Old Bulgarmarsh Road
+Bud Way
+Lucy Avenue
+Susan Lane
+Bridgeport Road
+Honeysuckle Lane
+Child Street
+Tallman Avenue
+Alan Avenue
+Dyer Street
+Butts Street
+Morningside Lane
+Hammel Court
+Sunset Lane
+Reise Terrace
+President Street
+Oliveira Way
+Valley Lane
+Education Lane
+Candy Court
+Sequoia Lane
+Village Way
+Sprague Street
+Douglas Avenue
+Tucker Court
+Lowell Drive
+Corys Court
+Sprague Court
+RI 114,Bristol Ferry Road
+Maggie Lane
+Davey Lane
+Lehigh Terrace
+Willow Lane
+Anselmo Drive
+Carver Street
+Brownell Lane
+Chardon Drive
+Willow Court
+Strawberry Lane
+Depot Street
+West Shore Road
+Elliot Street
+Well Lane
+Pier Road
+Pear Tree Lane
+Sunset Hill Avenue
+Daniel Avenue
+Herreshoff Lane
+R William Lane
+East Lane
+Homestead Avenue
+Patrol Rd
+Inboard Street
+Keel
+Allen Harbor
+Tidal Drive
+Thorpe Rd
+Allen Harbor Rd
+Bruce Boyer St
+Allen Harbor Road
+Sanford Road
+Westcott Rd
+Pear Rd
+Battalion Boulevard
+Thompson Road
+Seabee Ave
+Adeline Drive
+Lea Drive
+Nised Drive
+Bea Drive
+Sage Trail
+Nesta Drive
+Fletcher Road
+Midio Dr
+Jay Drive
+Edmond Drive
+Cross Park Ave
+Heritage Road
+Lynn Drive
+Dahlia Drive
+Gladys Drive
+Pine Glen Road
+Scenic Dr
+Jerry Lane
+Casperson Avenue
+Mitola Drive
+Forest Park Drive
+Catharine Drive
+Dupont Circle
+East Knollwood Circle
+Chadsey Road
+Krzak Road
+Sandhill Drive
+Evergreen Road
+Wasp Road
+Paula Drive
+Maple Cir
+King Phillip Dr
+Harrington Road
+Belle Aire Drive
+Pilgrim Drive
+Oak Tree Drive
+Lake Drive
+Rosemary Drive
+Ewing Road
+East Court
+Ann Lane
+Parkside Way
+Maplewood Dr
+New Lexington Rd
+Belle Air Dr
+King Phillip Circle
+School St
+Pat Circle
+West Court
+Firwood Drive
+Davisville Road
+Hunts River Drive
+Elmwood Dr
+Grove Ave
+Dyer Ave
+New Ln
+Greenmeadow Cir
+Cononchet Trail
+Canonicus Trail
+King Philip Trail
+Pequot Trail
+Pardon's Wood Lane
+Mallard Way
+Hunters Crossing
+Wood Duck Court
+Canterbury Lane
+David Court
+Foster Way
+Whispering Pines Terrace
+Squirrels Run
+Bates Trail
+Alan's Ave
+Cardi Sandpit
+I See Dead People
+Sawmill Trail
+Fisher Cat
+New London Tpke
+Tea Pot
+Sweet Sawmill Road
+Finlandia Boulevard
+Robin Hollow Road
+Stark Drive
+Blueberry Heights
+John Potter Road
+Raccoon Hill Road
+White Brook Court
+Matteson Plain Road
+Sprague Road
+Hudson Pond Road
+Arthur Richmond Road
+Restful Valley Road
+Restview Avenue
+SR 177,Bulgarmarsh Road
+Fernandes Avenue
+Cala Avenue
+Otockin Lane
+Campion Avenue
+Karen Avenue
+RI 81,Stafford Road
+Quintal Drive
+Presidential Drive
+Coral Lane
+Emma James Way
+Knotty Pine Road
+Banner Lane
+Tower Hill Road
+North Brayton Road
+Mayflower Way
+Leger Lane
+Poinsetta Way
+Fern Way
+Myrtle Way
+Floral Way
+Redberry Lane
+Ridgeside Lane
+Mulberry Lane
+Holly Circle
+Fish Road
+Jiley Hill Drive
+Whiffle Tree Lane
+Palmer Avenue
+West Avenue
+Highland Court
+Middle Avenue
+Reed Street
+Farnsworth Avenue
+Stone Bridge
+Point Road
+Sakonnet East
+Main Road
+Seaconnet Avenue
+Island Avenue
+Edith Avenue
+Island Park Avenue
+Thorpe Avenue
+Coral Street
+Gould Avenue
+Stafford
+Fountain Avenue
+Riverside Street
+Blue Bill Way
+Cove Street
+Seaconnet Boulevard
+Ruth Avenue
+Gormley Avenue
+Cottage Avenue
+Boyds Lane
+Mason Avenue
+Ormerod Avenue
+Leedham Street
+Lauren Drive
+Old Boyd S Lane
+Basin Street
+Bourbon Street
+Hunter Road
+Anson Drive
+Chase Road
+Founders Avenue
+Viking Drive
+Cherokee Drive
+Robert Avenue
+Settlers Street
+RI 138,East Main
+Valhalla Drive
+Echo Lane
+Norseman Drive
+Soares Drive
+Ann Avenue
+Lafayette Street
+Town Pond
+RI 138,Boyds Lane
+Linda Avenue
+Marie Drive
+Dawn Marie Drive
+Botelho Drive
+Hicks Lane
+Mare Terrace
+Miller Road
+Weyerhaeser Road
+Quail Road
+Mello Terrace
+Dove Street
+Camara Drive
+Mitchell Road
+Therien Road
+Terminal Road
+Baker Road
+Harriet Avenue
+Ross Street
+Alice Avenue
+Edda Avenue
+Chase Avenue
+Holbrook Avenue
+Deer Lane
+Dexter Road
+Raphael Avenue
+Neck Farm Road
+Wilbert Way
+Bruce Boyer
+Crestfield Lane
+Candlewood Drive
+Quail Drive
+Arcadia Drive
+Signal Rock Road
+Coriander Lane
+Mesa Drive
+Spring Road
+Chimney Rock Dr
+Glacier Drive
+Yellowstone Drive
+Ginger Ct
+North Quidnessett Road
+Essex Road
+Suffolk Drive
+Cherokee Lane
+Arrow Lane
+Briarbrook Drive
+Green Farm Lane
+Sunnybrook Drive
+Fairfield Dr
+Quidnessett Cemetery
+Potowomut Road
+Brookhaven Road
+Colonial Road
+Bruster Drive
+Silverwood Road
+Kingswood Road
+Silverwood Drive
+Hanson Drive
+Salem Drive
+Beverly Rd
+Hancock Drive
+Woodlawn Drive
+Peachtree Rd
+Carriage Hill Rd
+Ellis Rd
+Eldridge Ave
+Olde Mill Lane
+RI 402,Frenchtown Rd
+Wildwood Trail
+Ayrault Road
+Valley Road
+Park & Ride
+Ezechiel Carre Road
+Jodie Beth Drive
+Huling Lane
+Frenchtown Rd
+Huguenot Drive
+Adirondack Drive
+Kirker Drive
+Monroe Drive
+Graham Way
+Frenchtown Park
+East Greenwich Parks & Recreation Department
+Playground
+Frenchtown School
+Softball Field
+Squirrel Lane
+High Hawk Road
+Robin Circle
+Sonnet Drive
+Eagle Lane
+Bear Swamp Road
+Falcon Circle
+Osprey Drive
+Woodbridge Drive
+Sheep Farm Drive
+Summit Farm Drive
+Waterford Drive
+Empress Drive
+Diplomat Drive
+Carrs Pond Road
+Flipper
+Pinto Trail
+BR Expressway
+Sweet Sawmill Rd
+Mud Bottom Creek
+Sweet Pond
+Steeple Chase
+Ken
+Barbie
+Coaster
+Burnt Sawmill Road
+Raincoat Men
+Lower Pine
+Big River
+Nooseneck River
+Gardner Matteson Lane
+Grdnr Matteson Lane
+Fry Pond Road
+Regina Drive
+Heather Hollow Road
+Tanglewood Drive
+Old Raccoon Hill Road
+Browns Corner Road
+Barnes Lane
+Liberty Hill Road
+Voluntown Turnpike
+South Watuppa Pond
+Captains Circle
+Fairwood Drive
+Elk Drive
+Devon Way
+Antelope Way
+Glendale
+East Frazier Lane
+Old Stafford Road
+White Tail Lane
+Carole Drive
+Caribou Way
+Kevin Drive
+Kenny Drive
+Windwood Drive
+Mark Drive
+Fish Rd
+West Ridge Drive
+Sakonnet Ridge Drive
+RI 24,Sakonnet Bridge
+Quaker Avenue
+Prospect Hill
+Daniel T Church Road
+Jennifer Lane
+Nicholson Place
+Evans Avenue
+Bobbin Hill Road
+Mallard Lane
+Brightman
+Church Pond Drive
+RI 24,RI 138
+RI 138,Main Road
+Hummocks Avenue
+Narragansett Boulevard
+Riverside Avenue
+Bowen Avenue
+Short Avenue

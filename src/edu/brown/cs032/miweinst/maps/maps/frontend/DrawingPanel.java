@@ -13,15 +13,12 @@ import java.awt.event.MouseWheelListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import edu.brown.cs032.miweinst.maps.App;
 import edu.brown.cs032.miweinst.maps.graph.Graph;
-import edu.brown.cs032.miweinst.maps.graph.GraphEdge;
 import edu.brown.cs032.miweinst.maps.graph.GraphNode;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
@@ -38,6 +35,7 @@ import edu.brown.cs032.miweinst.maps.util.Vec2d;
 public class DrawingPanel extends JPanel {
 	
 	private GUIInfo _guiInfo;
+	private int _zoomCounter;
 ////
 	//PathFinding vars
 	private MapNode _startNode = null;
@@ -55,7 +53,7 @@ public class DrawingPanel extends JPanel {
 		this.setSize(w, h);
 		this.setBackground(Color.WHITE);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));		
-		
+		_zoomCounter = 0;
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
 		//_nodes = info.nodesForGUI();
@@ -137,7 +135,10 @@ public class DrawingPanel extends JPanel {
 		this.repaint();		
 
 		//Opens thread
-		callBackEnd();
+		if (_zoomCounter == 25) {
+			System.out.println("ZOOM CALL BACKEND");
+			callBackEnd();
+		}
 	}
 	
 	/** Affects angle of bird's eye view of landscape! 
@@ -174,6 +175,13 @@ public class DrawingPanel extends JPanel {
 			}
 			repaint();
 		}
+	}
+	/**
+	 * Can still paint path from streets in Autocorrect.
+	 */
+	public void setStartAndEndNodes(MapNode start, MapNode end) {
+		_startNode = start;
+		_endNode = end;
 	}
 
 	@Override
@@ -312,7 +320,12 @@ public class DrawingPanel extends JPanel {
 				isomorphicZoom(arg0.getWheelRotation());
 			//scroll -- regular zoom
 			else 
+				_zoomCounter++;
 				zoom(arg0.getWheelRotation());
+				if (_zoomCounter == 25) {
+					_zoomCounter = 0;
+				}
+				
 		}
 	}
 }

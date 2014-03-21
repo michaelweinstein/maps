@@ -3,6 +3,7 @@ package edu.brown.cs032.miweinst.maps.maps.path;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import edu.brown.cs032.miweinst.maps.binarySearch.BinarySearch;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
@@ -100,6 +101,24 @@ public class BinaryHelper {
 		
 	}
 	
+	/*
+	 * returns intersection node given two street names
+	 * returns null if such a node DNE 
+	 */
+	public static MapNode findIntersection(String name1, String name2) {
+		String[] cols = { "nodes" };
+		String[] way1_nodes = index.search(name1,"name", cols)[0].split(",");
+		String[] way2_nodes = index.search(name2,"name", cols)[0].split(",");
+		HashSet<String> way1_set = new HashSet<String>();
+		for (String id: way1_nodes) {
+			way1_set.add(id);
+		}
+		for (String id: way2_nodes) {
+			if (way1_set.contains(id)) return makeMapNode(id);
+		}
+		return null;
+	}
+	
 	/**
 	 * Returns the start and end MapNode of the
 	 * specified Way, as an array of length 2, where
@@ -115,12 +134,4 @@ public class BinaryHelper {
 		return endnodes;
 	}
 	
-/////// 	MICHAEL WILL FILL THIS IN
-	/**
-	 * Returns MapNode at intersection of two streets, if one exists.
-	 * Else returns null.
-	 */
-	public static MapNode findIntersection(String street1, String street2) {
-		return null;
-	}
 }
