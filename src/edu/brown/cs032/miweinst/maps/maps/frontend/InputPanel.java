@@ -22,8 +22,9 @@ public class InputPanel extends JPanel {
 	private JComboBox _toStreet1, _toStreet2, _fromStreet1, _fromStreet2;
 	private JComboBox _focusedJCombo;
 	private JButton _btn;
+	private AutocorrectConnector _acConnector;
 	
-	public InputPanel(MainPanel mp) {
+	public InputPanel(MainPanel mp, AutocorrectConnector acc) {
 		Dimension size = mp.getSize();
 		int w = (int) (size.getWidth()*1/5);
 		int h = (int) (size.getHeight()-15);
@@ -36,6 +37,7 @@ public class InputPanel extends JPanel {
 		
 		this.addListeners();
 		
+		_acConnector = acc;
 		_focusedJCombo = _fromStreet1;
 		
 	}
@@ -98,6 +100,7 @@ public class InputPanel extends JPanel {
 				@Override
 				public void keyPressed(KeyEvent e) {
 					_focusedJCombo = box;
+					setSuggestionList(_acConnector.getSuggestions((String)box.getSelectedItem()));
 				}
 				@Override
 				public void keyReleased(KeyEvent e) {}

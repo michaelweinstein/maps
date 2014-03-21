@@ -70,18 +70,18 @@ public class NeighborSearch {
 			int c = comparator.compare(_point, n.getPoint());
 			
 			if (c < 0) {
-				this.nearestNeighbors(n.getLeftChild());
+				this.nearestNeighborsByRadius(n.getLeftChild());
 			} 
 			else if (c >= 0) {
-				this.nearestNeighbors(n.getRightChild());
+				this.nearestNeighborsByRadius(n.getRightChild());
 			} 
 			
 			if ((_point.getCoordinateInDimension(dim) - n.getPoint().getCoordinateInDimension(dim)) < _radius) {
 				if (!n.getRightChild().hasBeenSearched()) {
-					this.nearestNeighbors(n.getRightChild());
+					this.nearestNeighborsByRadius(n.getRightChild());
 				} 
 				else if (!n.getLeftChild().hasBeenSearched()){
-					this.nearestNeighbors(n.getLeftChild());
+					this.nearestNeighborsByRadius(n.getLeftChild());
 				}
 			}
 			//reset searched fields for the next call to search
@@ -154,6 +154,8 @@ public class NeighborSearch {
 		
 		int index = 0;
 		boolean breakOut = false;
+////		
+		System.out.println(_neighbors);
 		
 		while (index < _neighbors.length && !breakOut) {
 			

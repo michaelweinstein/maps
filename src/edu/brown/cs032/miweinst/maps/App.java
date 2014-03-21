@@ -57,7 +57,7 @@ public class App {
 		//_boundingBox = new BoundingBox(new LatLng(41.2720844,	-74.7175365), new LatLng(40.1615135, -73.6937661));	
 		
 		//THESE ARE GOOD BOUNDING BOXES TO SEE A MAP:
-		//_boundingBox = new BoundingBox(new LatLng(41.25,-71.55), new LatLng(41.20, -71.50));
+//		_boundingBox = new BoundingBox(new LatLng(41.25,-71.55), new LatLng(41.20, -71.50));
 		_boundingBox = new BoundingBox(new LatLng(41.58,-71.46), new LatLng(41.56, -71.44));
 		//_boundingBox = new BoundingBox(new LatLng(41.59,-71.47), new LatLng(41.55, -71.43));
 		//_boundingBox = new BoundingBox(new LatLng(41.60,-71.48), new LatLng(41.54, -71.42));

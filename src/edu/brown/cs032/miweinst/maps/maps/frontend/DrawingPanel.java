@@ -18,11 +18,11 @@ import javax.swing.JPanel;
 
 import edu.brown.cs032.miweinst.maps.App;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
-import edu.brown.cs032.miweinst.maps.maps.GUIInfoThread;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.Way;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
+import edu.brown.cs032.miweinst.maps.threading.GUIInfoThread;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
@@ -31,7 +31,11 @@ import edu.brown.cs032.miweinst.maps.util.Vec2d;
 public class DrawingPanel extends JPanel {
 	
 	private GUIInfo _guiInfo;
-	
+////
+	//PathFinding vars
+	private Vec2d _startLoc;
+	private Vec2d _endLoc;
+
 	
 	public DrawingPanel(GUIInfo info, MainPanel mp) {		
 		//Sets size, background color and border of DrawingPanel
@@ -47,11 +51,12 @@ public class DrawingPanel extends JPanel {
 		_guiInfo = info;
 		//_nodes = info.nodesForGUI();
 		NodesGUIWrapper.set(info.nodesForGUI());
+////		
 		System.out.println("START WAYS SEARCH");
 		//_ways = info.waysForGUI(_nodes);
 		WaysGUIWrapper.set( info.waysForGUI(NodesGUIWrapper.get()));
-		System.out.println("FINISHED WAYS SEARCH");
 ////////	
+		System.out.println("FINISHED WAYS SEARCH");
 		System.out.println("nodes.length: " + NodesGUIWrapper.get().size());
 		System.out.println("ways.length: " + WaysGUIWrapper.get().length);
 		
@@ -93,8 +98,9 @@ public class DrawingPanel extends JPanel {
 //		_nodes = _guiInfo.nodesForGUI();
 //		_ways = _guiInfo.waysForGUI(_nodes);
 /////
-		GUIInfoThread thread = new GUIInfoThread(_guiInfo);
-		thread.start();
+		GUIInfoThread.setGUIInfo(_guiInfo, this);
+		GUIInfoThread.newThread();
+
 		//NodesGUIWrapper.set(_guiInfo.nodesForGUI());
 		//System.out.println("GET NODES FOR GUI FINISHED");
 		//_ways = _guiInfo.waysForGUI(_nodes);
@@ -122,8 +128,8 @@ public class DrawingPanel extends JPanel {
 		_guiInfo.updateBounds(_guiInfo.getFileProcessor(), newBox);	
 		this.repaint();		
 
-		//IN A NEW THREAD
-//		callBackEnd();
+		//Opens thread
+		callBackEnd();
 	}
 	
 	/** Affects angle of bird's eye view of landscape! 
@@ -168,15 +174,17 @@ public class DrawingPanel extends JPanel {
 		Way[] ways = WaysGUIWrapper.get();
 		for (int i=0; i<ways.length; i++) {
 			MapNode startNode = NodesGUIWrapper.get(ways[i].start);
-			Vec2d screenLocStart = _guiInfo.convertToScreen(startNode.loc);
-			MapNode endNode = NodesGUIWrapper.get(ways[i].end);
-			if (endNode != null) {
-				Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
-				brush.setColor(Color.BLACK);
-				brush.setStroke(new BasicStroke(1));
-				brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
+			if (startNode != null) {
+				Vec2d screenLocStart = _guiInfo.convertToScreen(startNode.loc);
+				MapNode endNode = NodesGUIWrapper.get(ways[i].end);
+				if (endNode != null) {
+					Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
+					brush.setColor(Color.BLACK);
+					brush.setStroke(new BasicStroke(1));
+					brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
+				}
 			}
-		}
+		}//end for
 	}
 	
 	/*INNER CLASSES*/
@@ -197,13 +205,15 @@ public class DrawingPanel extends JPanel {
 ////				
 				System.out.println("isControlDown");
 				
+				Vec2d mouseLoc = new Vec2d(arg0.getX(), arg0.getY());
+				
 				LatLng ll = _guiInfo.convertToLatLng(new Vec2d(arg0.getX(), arg0.getY()));
 				MapNode node = App.nearestNeighbor(ll);
 				if (isStart) {
-					
+//					_startNode = node;
 				} 
 				else {
-					
+//					_endLoc = node.loc;
 				}
 								
 				center = node.loc;
@@ -234,8 +244,7 @@ public class DrawingPanel extends JPanel {
 			prev = new Vec2d(arg0.getX(), arg0.getY());
 		}
 		@Override
-		public void mouseMoved(MouseEvent arg0) {
-		}
+		public void mouseMoved(MouseEvent arg0) { }
 	}
 	
 	private class MapWheelListener implements MouseWheelListener {

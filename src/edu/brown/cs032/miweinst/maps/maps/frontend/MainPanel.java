@@ -15,11 +15,11 @@ public class MainPanel extends JPanel {
 	private InputPanel _inputPanel;
 	private DrawingPanel _dp;
 	
-	public MainPanel(GUIInfo gui, Dimension defaultSize) {
+	public MainPanel(GUIInfo gui, Dimension defaultSize, AutocorrectConnector acc) {
 		_size = defaultSize;
 		
 		_dp = new DrawingPanel(gui, this);
-		_inputPanel = new InputPanel(this);
+		_inputPanel = new InputPanel(this, acc);
 		
 		//add panels to border layout
 		this.setLayout(new BorderLayout());

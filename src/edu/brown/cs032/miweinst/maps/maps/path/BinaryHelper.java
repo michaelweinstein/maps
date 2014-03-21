@@ -48,19 +48,13 @@ public class BinaryHelper {
 	 * @throws IOException 
 	 */
 	public static Way[] nodeToWayArr(MapNode node) {
-		String[] cols = {"ways"};
 		String[] waysIdArr = node.ways;
-
-//		if (waysCSV.length == 0)
-//			return null;
-//		String[] waysIdArr = waysCSV[0].split(",");
-				
 		Way[] waysArr = new Way[waysIdArr.length];	
 		for (int i=0; i<waysIdArr.length; i++) {
 			String id = waysIdArr[i];
 ///////////////
-			if (_waysCache.containsKey(id)) {
-				waysArr[i] = _waysCache.get(id);
+			if (WaysCacheWrapper.containsKey(id)) {
+				waysArr[i] = WaysCacheWrapper.get(id);
 			}
 			else {
 				String start = node.id;
@@ -70,7 +64,7 @@ public class BinaryHelper {
 //////////////
 
 				waysArr[i] = new Way(id, start, end[0]);
-				_waysCache.put(id, waysArr[i]);
+				WaysCacheWrapper.put(id, waysArr[i]);
 				BinaryHelper.addWaysBlock(waysArr[i]);
 			}			
 		}
@@ -94,13 +88,13 @@ public class BinaryHelper {
 		{
 			try {
 				String[] curr = _waysFile.readNextLine().split("\t");
-				curr_id = curr[idIndex];
-				String start = curr[startIndex];
-				String end = curr[endIndex];
-				if (_waysCache.containsKey(curr_id)) break;
-				_waysCache.put(curr_id, new Way(curr_id, start, end));
-				
-				
+				if (idIndex < curr.length && startIndex < curr.length && endIndex < curr.length) {
+					curr_id = curr[idIndex];
+					String start = curr[startIndex];
+					String end = curr[endIndex];
+					if (WaysCacheWrapper.containsKey(curr_id)) break;
+					WaysCacheWrapper.put(curr_id, new Way(curr_id, start, end));
+				}
 			} catch (IOException e) { System.out.println("IOException in addWaysBlock()"); }	
 		}
 		
