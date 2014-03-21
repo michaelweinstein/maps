@@ -100,11 +100,10 @@ public class BinarySearch {
 		}
 		catch (IOException e) {
 			System.out.println("ERROR: I/O error in BinarySearch searchHelper().");
-			System.exit(0);
 		}
 		catch (StackOverflowError e) { //indicates that we have not found _toFind
-			System.out.println("ERROR: " + _toFind + " not found in " + _file.getFilePath());
-			System.exit(0);
+			//System.out.println("ERROR: " + _toFind + " not found in " + _file.getFilePath());
+			return;
 		}
 	} //end searchHelper
 	

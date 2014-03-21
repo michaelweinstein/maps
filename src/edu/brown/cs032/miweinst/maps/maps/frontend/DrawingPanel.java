@@ -18,11 +18,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
-import edu.brown.cs032.miweinst.maps.maps.GUIInfoThread;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.Way;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
+import edu.brown.cs032.miweinst.maps.threading.GUIInfoThread;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
@@ -101,8 +101,9 @@ public class DrawingPanel extends JPanel {
 //		_nodes = _guiInfo.nodesForGUI();
 //		_ways = _guiInfo.waysForGUI(_nodes);
 /////
-		GUIInfoThread thread = new GUIInfoThread(_guiInfo);
-		thread.start();
+		GUIInfoThread.setGUIInfo(_guiInfo, this);
+		GUIInfoThread.newThread();
+
 		//NodesGUIWrapper.set(_guiInfo.nodesForGUI());
 		//System.out.println("GET NODES FOR GUI FINISHED");
 		//_ways = _guiInfo.waysForGUI(_nodes);
@@ -176,22 +177,27 @@ public class DrawingPanel extends JPanel {
 		Way[] ways = WaysGUIWrapper.get();
 		for (int i=0; i<ways.length; i++) {
 			MapNode startNode = NodesGUIWrapper.get(ways[i].start);
-			System.out.println(_guiInfo);
-			System.out.println(startNode.loc);
-			Vec2d screenLocStart = _guiInfo.convertToScreen(startNode.loc);
-			MapNode endNode = NodesGUIWrapper.get(ways[i].end);
-			if (endNode != null) {
-				Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
-				brush.setColor(Color.BLACK);
-				brush.setStroke(new BasicStroke(1));
-				brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
+///////////////
+			if (startNode == null) {
+				System.out.println("STARTNODE NULL");
+				System.out.println("ways.length: " + ways.length);
+				System.out.println(ways[i].toString() + ", " + ways[i].end);
 			}
-		}
+			if (startNode != null) {
+				Vec2d screenLocStart = _guiInfo.convertToScreen(startNode.loc);
+				MapNode endNode = NodesGUIWrapper.get(ways[i].end);
+				if (endNode != null) {
+					Vec2d screenLocEnd = _guiInfo.convertToScreen(endNode.loc);
+					brush.setColor(Color.BLACK);
+					brush.setStroke(new BasicStroke(1));
+					brush.draw(new Line2D.Double(screenLocStart.x, screenLocStart.y, screenLocEnd.x, screenLocEnd.y));
+				}
+			}
+		}//end for
 	}
 	
 	/*INNER CLASSES*/
 	
-	private Integer prevScroll;
 	private Vec2d prev;
 	private class MapMouseListener implements MouseListener {
 		@Override

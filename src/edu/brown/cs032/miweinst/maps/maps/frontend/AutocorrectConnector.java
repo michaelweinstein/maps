@@ -22,18 +22,17 @@ public class AutocorrectConnector {
 	 */
 	public String[] getSuggestions(String s) {
 		ArrayList<String> list = new ArrayList<String>();
-		if (!s.isEmpty() && !"Enter a street".contains(s)) {
+		if (s != null && !s.isEmpty() && !"Enter a street".contains(s)) {
 			for (String suggestion: _autocorrect.generateSuggestions(s)) {
 				suggestion = suggestion.toLowerCase().trim();
 				if (_validWays.containsKey(suggestion)) list.add(_validWays.get(suggestion));
 			}
-			System.out.println("done");
 		}
-			return list.toArray(new String[list.size()]);
+		return list.toArray(new String[list.size()]);
 	}
 	
 	public void getDirections(String[] ways) {
-		for (String s: ways) {
+		for (String s: ways) { //DO SOMETHING
 			System.out.println(s);
 		}
 	}
