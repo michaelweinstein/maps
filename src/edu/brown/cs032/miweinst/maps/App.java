@@ -178,13 +178,14 @@ public class App {
 	 * Wrapper method for getting the nearest neighbor to a LatLng. 
 	 * Used to find nearest nodes to LatLng inputted by user.
 	 */
-	public static MapNode nearestNeighbor(LatLng latlng) throws IOException {
+	public static MapNode nearestNeighbor(LatLng latlng) {
 		if (_fp != null) {
 			NeighborSearch ns = new NeighborSearch(latlng);
-			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(_KDTree.getRoot());
+/////
+			System.out.println("before ns.nearestNeighbors");
+			
+			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(_KDTree.getRoot());			
 			KDComparable mapnode = neighbor_arr[0].getComparable();
-
-/////////	WE SHOULDN'T USE INSTANCEOF; NEED A NEW WAY TO GET MAPNODE
 			if (mapnode instanceof MapNode) {
 				return (MapNode) mapnode;
 			}

@@ -26,7 +26,8 @@ public class NeighborSearch {
 		_byRadius = byRadius;
 		_byName = byName;
 		_radius = r;
-		
+		_neighborsList = new ArrayList<KDTreeNode>();
+
 		if (!_byRadius) _radius = Double.MAX_VALUE;
 	}
 	
@@ -35,7 +36,7 @@ public class NeighborSearch {
 	 */
 	public NeighborSearch(LatLng ll) {
 		_point = new KDPoint(ll.lat,ll.lng,0.0);
-		//_neighbors = new KDTreeNode[1];
+		_neighbors = new KDTreeNode[1];
 		_neighborsList = new ArrayList<KDTreeNode>();
 		_byRadius = false;
 		_byName = false;
@@ -53,22 +54,18 @@ public class NeighborSearch {
 		_radius = r;
 	}
 	
-	public KDTreeNode[] nearestNeighbors(KDTreeNode n) {
-		
+	public KDTreeNode[] nearestNeighborsByRadius(KDTreeNode n) {
 		int dim = n.getDimension();
 		//if our node is a leaf and meets the criteria, add it to the neighbors array
 		if (n.isLeaf() && _point.dist(n.getComparable().getPoint()) < _radius) {
 			if (!_byName) {
-				//this.insertIntoNeighbors(n);
 				_neighborsList.add(n);
 			} 
 			else if (_point.dist(n.getComparable().getPoint()) > 0.0) {
-				//this.insertIntoNeighbors(n);
-				_neighborsList.add(n);
+				_neighborsList.add(n);	
 			}
 		} //end if
 		else if (!n.isLeaf()) { //if it's not a leaf, keep traversing the tree
-			
 			MyComparator comparator = new MyComparator(dim);
 			int c = comparator.compare(_point, n.getPoint());
 			
@@ -106,7 +103,7 @@ public class NeighborSearch {
 	 * constraint. We can eliminate a branch by comparing its root's split distance
 	 * to our search radius 
 	 */
-	/*
+	
 	public KDTreeNode[] nearestNeighbors(KDTreeNode n) {
 		
 		int dim = n.getDimension();
@@ -146,7 +143,7 @@ public class NeighborSearch {
 		n.setSearched(true); //set searched so we don't keep traversing same branch
 		return _neighbors;
 	}
-	*/
+
 	/*
 	 * inserts into the neighbors array that gets returned by the seach method.
 	 * this method looks through the array and inserts the neighbor into the 

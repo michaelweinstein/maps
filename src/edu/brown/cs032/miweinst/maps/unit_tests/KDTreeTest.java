@@ -32,12 +32,12 @@ public class KDTreeTest {
 			KDTree t = new KDTree(nodes_array);
 			
 			KDPoint p1 = new KDPoint(40.1581762, -73.7485663, 0.0);
-			NeighborSearch ns1 = new NeighborSearch(p1, 5, 0, false, false);
+			NeighborSearch ns1 = new NeighborSearch(p1, 1, 0, false, false);
 			KDTreeNode[] neighbors1 = ns1.nearestNeighbors(t.getRoot());
 			MapNode neighbor1 = (MapNode)neighbors1[0].getComparable();
 			
 			KDPoint p2 = new KDPoint(40.301302, -73.714131, 0.0);
-			NeighborSearch ns2 = new NeighborSearch(p2, 5, 0, false, false);
+			NeighborSearch ns2 = new NeighborSearch(p2, 1, 0, false, false);
 			KDTreeNode[] neighbors2 = ns2.nearestNeighbors(t.getRoot());
 			MapNode neighbor2 = (MapNode)neighbors2[0].getComparable();
 			if (neighbor1.id.compareTo("/n/4015.7374.527767659") == 0 &&

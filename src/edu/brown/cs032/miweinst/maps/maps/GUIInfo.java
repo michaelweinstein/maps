@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
 import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
@@ -25,12 +26,12 @@ public class GUIInfo {
 	private Vec2d _translate;	
 ////
 	private Vec2d _dpDim;
-	private KDTree _KDTree;
+	private KDTree _kdTree;
 	
 	public GUIInfo(FileProcessor fp, BoundingBox initialBounds, KDTree t) {
 		_fp = fp;
 		_boundingBox = initialBounds;
-		_KDTree = t;
+		_kdTree = t;
 		setDimensions();
 		updateBounds(fp, initialBounds);
 	}
@@ -84,6 +85,17 @@ public class GUIInfo {
 		y *= _scale.y;
 		return new Vec2d(x, y);
 	}
+	/**
+	 * Convert from XY java coordinates to LatLng.
+	 * Inverse of convertToScreen method
+	 */
+	public LatLng convertToLatLng(Vec2d screen) {
+		double lng = screen.x/_scale.x;
+		double lat = screen.y/_scale.y;
+		lng -= _translate.x;
+		lat -= _translate.y;
+		return new LatLng(lat, lng);
+	}
 
 	/**
 	 * Return MapNodes to be rendered. Reads from file within bounds
@@ -95,7 +107,7 @@ public class GUIInfo {
 			//MapNode[] nodes_arr = _fp.getNodesForGUI(center, diagonal);
 ////////////////
 			NeighborSearch ns = new NeighborSearch(center, diagonal);
-			KDTreeNode[] nodes_arr = ns.nearestNeighbors(_KDTree.getRoot());
+			KDTreeNode[] nodes_arr = ns.nearestNeighborsByRadius(_kdTree.getRoot());
 			Map<String, MapNode> map = new HashMap<String, MapNode>(nodes_arr.length);
 			for (KDTreeNode n: nodes_arr) {
 			//for (MapNode n: nodes_arr) {
@@ -145,10 +157,35 @@ public class GUIInfo {
 	public FileProcessor getFileProcessor() {
 		return _fp;
 	}
+	public KDTree getKDTree() {
+		return _kdTree;
+	}
+	
+	/**
+	 * Wrapper method for getting the nearest neighbor to a LatLng. 
+	 * Used to find nearest nodes to LatLng inputted by user.
+	 */
+/*	public MapNode nearestNeighbor(LatLng latlng) throws IOException {
+		if (_fp != null) {
+			NeighborSearch ns = new NeighborSearch(latlng);
+			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(_kdTree.getRoot());
+			KDComparable mapnode = neighbor_arr[0].getComparable();
+			if (mapnode instanceof MapNode) {
+				return (MapNode) mapnode;
+			}
+			else {
+				System.out.println("KDTreeNode.getComparable is NOT a MapNode (App.nearestNeighbor)");
+				return null;
+			}
+		}
+		else {
+			System.out.println("This shouldn't be happening! (App.nearestNeighbor)");
+			return null;
+		}
+	}*/
 
 //////////
 	private void setDimensions() {
-///////// 	DON'T HARDCODE SIZES; SOMEHOW GET DRAWINGPANEL SIZE 
 		int w = 800;
 		int h = 600;
 		Dimension size = new Dimension(w, h);

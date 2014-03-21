@@ -46,8 +46,7 @@ public class BinaryHelperTest {
 		setBinaryHelperFiles();
 		String id = "/n/4017.7374.527767851";
 		MapNode node = BinaryHelper.makeMapNode(id);
-		Way[] arr = BinaryHelper.nodeToWayArr(node);	
-				
+		Way[] arr = BinaryHelper.nodeToWayArr(node);		
 		assertTrue(arr.length == 2);
 		assertTrue(arr[0].id.equals("/w/4017.7374.42295268.5.2"));
 		assertTrue(arr[1].id.equals("/w/4017.7374.42295268.6.1"));

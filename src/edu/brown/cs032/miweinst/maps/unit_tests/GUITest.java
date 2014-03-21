@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import edu.brown.cs032.miweinst.maps.App;
 import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.maps.FileProcessor;
@@ -19,9 +18,32 @@ import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
 public class GUITest {
 	
-	private String waysPath = "/Users/michaelweinstein/Desktop/Work/cs032_software_engineering/maps/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/ways.tsv";
-	private String nodesPath = "/Users/michaelweinstein/Desktop/Work/cs032_software_engineering/maps/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/nodes.tsv";
-	private String indexPath = "/Users/michaelweinstein/Desktop/Work/cs032_software_engineering/maps/src/edu/brown/cs032/miweinst/maps/unit_tests/test_data_files/index.tsv";
+	private String waysPath = "/course/cs032/data/maps/ways.tsv";
+	private String nodesPath = "/course/cs032/data/maps/nodes.tsv";
+	private String indexPath = "/course/cs032/data/maps/index.tsv";
+	
+	@Test
+	public void conversionTest() 
+	{
+		try {
+			//make FileProcessor and set BinaryHelper files
+			MapsFile ways = new MapsFile(waysPath);
+			MapsFile nodes = new MapsFile(nodesPath);
+			MapsFile index = new MapsFile(indexPath);
+			BinaryHelper.setFiles(ways, nodes, index);
+			FileProcessor fp = new FileProcessor(nodes, index, ways);
+			BoundingBox box = new BoundingBox(new LatLng(40.2720844,	-73.7175365), new LatLng(40.1615135, -73.6937661));
+			GUIInfo gui = new GUIInfo(fp, box, new KDTree(new KDComparable[0]));
+			//test that LatLng remains the same after converting to screen and back
+			LatLng ll = new LatLng(45, -45);
+			Vec2d vec = gui.convertToScreen(ll);
+			LatLng test = gui.convertToLatLng(vec);
+			//LatLng before == after
+			assertTrue(test.equals(ll));
+		} catch (IOException e) {
+			assertTrue(false);
+		}
+	}
 	
 	@Test
 	public void centerTest()

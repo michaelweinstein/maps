@@ -12,11 +12,11 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
-import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import edu.brown.cs032.miweinst.maps.App;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfoThread;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
@@ -29,14 +29,9 @@ import edu.brown.cs032.miweinst.maps.util.Vec2d;
 
 @SuppressWarnings("serial")
 public class DrawingPanel extends JPanel {
+	
 	private GUIInfo _guiInfo;
-
-////
-//	private MapNode[] _nodes;
-	//private Map<String, MapNode> _nodes;
-	private NodesGUIWrapper _nodesWrapper;
-	private WaysGUIWrapper _waysWrapper;
-	//private Way[] _ways;
+	
 	
 	public DrawingPanel(GUIInfo info, MainPanel mp) {		
 		//Sets size, background color and border of DrawingPanel
@@ -47,9 +42,6 @@ public class DrawingPanel extends JPanel {
 		this.setSize(w, h);
 		this.setBackground(Color.WHITE);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));		
-
-		_nodesWrapper = new NodesGUIWrapper();
-		_waysWrapper = new WaysGUIWrapper();
 		
 		//receive info from back end about nodes and ways to paint
 		_guiInfo = info;
@@ -176,8 +168,6 @@ public class DrawingPanel extends JPanel {
 		Way[] ways = WaysGUIWrapper.get();
 		for (int i=0; i<ways.length; i++) {
 			MapNode startNode = NodesGUIWrapper.get(ways[i].start);
-			System.out.println(_guiInfo);
-			System.out.println(startNode.loc);
 			Vec2d screenLocStart = _guiInfo.convertToScreen(startNode.loc);
 			MapNode endNode = NodesGUIWrapper.get(ways[i].end);
 			if (endNode != null) {
@@ -190,9 +180,9 @@ public class DrawingPanel extends JPanel {
 	}
 	
 	/*INNER CLASSES*/
-	
-	private Integer prevScroll;
+
 	private Vec2d prev;
+	private boolean isStart = true;
 	private class MapMouseListener implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent arg0) { }
@@ -202,6 +192,28 @@ public class DrawingPanel extends JPanel {
 		public void mouseExited(MouseEvent arg0) { }
 		@Override
 		public void mousePressed(MouseEvent arg0) {		
+			//CNTRL + click sets 
+			if (arg0.isControlDown()) {
+////				
+				System.out.println("isControlDown");
+				
+				LatLng ll = _guiInfo.convertToLatLng(new Vec2d(arg0.getX(), arg0.getY()));
+				MapNode node = App.nearestNeighbor(ll);
+				if (isStart) {
+					
+				} 
+				else {
+					
+				}
+								
+				center = node.loc;
+////				
+				System.out.println("center: " + center);
+				
+				repaint();
+			}
+			
+			//stores prev pointer to find dx, dy when panning
 			prev = new Vec2d(arg0.getX(), arg0.getY());
 		}
 		@Override
