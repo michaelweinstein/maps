@@ -1,19 +1,15 @@
 package edu.brown.cs032.miweinst.maps.maps;
 
 import java.awt.Dimension;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import edu.brown.cs032.miweinst.maps.KDTree.KDComparable;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTree;
 import edu.brown.cs032.miweinst.maps.KDTree.KDTreeNode;
 import edu.brown.cs032.miweinst.maps.KDTree.NeighborSearch;
 import edu.brown.cs032.miweinst.maps.maps.path.BinaryHelper;
-import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
-import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
@@ -117,11 +113,6 @@ public class GUIInfo {
 				//map.put(n.id, n);
 			}
 			return map;
-		//} catch (IOException e) {
-		//	System.out.println("ERROR: " + "fp.getNodesForGUI throws IOException (GUIInfo.nodesForGUI)");
-		//	e.printStackTrace();
-		//	return null;
-		//}
 	}
 	
 	/**
@@ -160,31 +151,12 @@ public class GUIInfo {
 	public KDTree getKDTree() {
 		return _kdTree;
 	}
-	
-	/**
-	 * Wrapper method for getting the nearest neighbor to a LatLng. 
-	 * Used to find nearest nodes to LatLng inputted by user.
-	 */
-/*	public MapNode nearestNeighbor(LatLng latlng) throws IOException {
-		if (_fp != null) {
-			NeighborSearch ns = new NeighborSearch(latlng);
-			KDTreeNode[] neighbor_arr = ns.nearestNeighbors(_kdTree.getRoot());
-			KDComparable mapnode = neighbor_arr[0].getComparable();
-			if (mapnode instanceof MapNode) {
-				return (MapNode) mapnode;
-			}
-			else {
-				System.out.println("KDTreeNode.getComparable is NOT a MapNode (App.nearestNeighbor)");
-				return null;
-			}
-		}
-		else {
-			System.out.println("This shouldn't be happening! (App.nearestNeighbor)");
-			return null;
-		}
-	}*/
 
 //////////
+	/**
+	 * Stores dimensions of DrawingPanel so that
+	 * the BoundingBox can be scaled/translated accordingly.
+	 */
 	private void setDimensions() {
 		int w = 800;
 		int h = 600;

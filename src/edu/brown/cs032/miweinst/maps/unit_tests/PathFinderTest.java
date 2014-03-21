@@ -23,8 +23,9 @@ public class PathFinderTest {
 	public void pathFinderTest() 
 	{
 		/**
-		 * Makes sure PathFinder runs successfully on large tsv files.
-		 * STILL NEED EXAMPLE TO TEST AGAINST, WAITING FOR SYSTEM TESTS.
+		 * Makes sure PathFinder runs successfully on the large tsv files.
+		 * Chooses two nodes relatively close together so that I can 
+		 * check path.size by hand to compare against.
 		 */
 		setFullBinaryHelperFiles();	
 		String startId = "/n/4017.7374.527767851";
@@ -35,7 +36,7 @@ public class PathFinderTest {
 		ArrayDeque<GraphNode<MapNode>> path = PathFinder.buildGraphFromNames(g, startNode, endNode);
 
 		assertTrue(path.size() == 6);
-		assertTrue(g.size() == 11);
+		assertTrue(g.size() == 9);
 		
 ////	Tests output specification in console
 		App.printPath(g, path, startId, endId);

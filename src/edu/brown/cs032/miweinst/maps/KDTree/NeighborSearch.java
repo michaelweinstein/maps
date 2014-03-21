@@ -154,9 +154,6 @@ public class NeighborSearch {
 		
 		int index = 0;
 		boolean breakOut = false;
-////		
-		System.out.println(_neighbors);
-		
 		while (index < _neighbors.length && !breakOut) {
 			
 			double neighborDistance = _point.dist(neighbor.getComparable().getPoint());

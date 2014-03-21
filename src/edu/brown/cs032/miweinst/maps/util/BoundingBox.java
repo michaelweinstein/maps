@@ -15,7 +15,7 @@ public class BoundingBox {
 	}
 	
 	/**
-	 * Verify that BoundingBox is valid.
+	 * Verify that BoundingBox rep is valid.
 	 */
 	private boolean repOK() {
 		if (_southeast.lng > _northwest.lng) {

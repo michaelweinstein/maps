@@ -6,33 +6,14 @@ ARGS
 
 ---- TODO ----
 GUI
-	Put bounds on how far you can pan and zoom
-	Add threading 
-		- Panning
-		- Zooming
-	- GUIInfo
-		-- Needs reference to size of DrawingPanel
-	- Clicking on map and finding nearest intersection/node
-	- Highlighting relevant street segments
-Console.io
-	- Street/Cross-Street name inputs in REPL
-		-- BinaryHelper.findIntersection
-Threading
-Still need to switch from Dijkstra's to A* in PathFinder! 	
+	- Put bounds on how far you can pan and zoom
+Fix findIntersection
+GUIInfo
+	- Needs reference to size of DrawingPanel
 Holy Trinity: complete in LatLng, Vec2d, Way, MapNode
 	- hashCodes
 		-- Write Way.hashCode()
 		-- Fix LatLng.hashCode()
-
-
----- BUGS ----
-getNodesForGUI: ArrayOutOfBoundsException
-	- Trigger: Pan heavily; drag screen down as far as possible
-	- Trigger: One BoundingBox instantiation in App
-getNodesForGUI: OutOfMemoryError
-	- Trigger: One BoundingBox instantiation in App
-QUESTION
-	What do we do with Ways whose source node is getting rendered but its destination node is outside the BoundingBox? Should we add the destination node, or just not draw it?
 
 
 -- WRITE TESTS --

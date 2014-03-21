@@ -1,24 +1,21 @@
 package edu.brown.cs032.miweinst.maps.maps.path;
 
-import edu.brown.cs032.miweinst.maps.graph.Graph;
-import edu.brown.cs032.miweinst.maps.graph.GraphNode;
-import edu.brown.cs032.miweinst.maps.graph.Path;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
-import edu.brown.cs032.miweinst.maps.maps.Way;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 
-public class MapsPath extends Path<MapNode, Way> {
-	
-	public MapsPath(Graph<MapNode, Way> graph) {
-		super(graph);
-	}
+public class MapsPath {
 
-	@Override
-	public float heuristic(GraphNode<MapNode> node, GraphNode<MapNode> dest) {
+	/**
+	 * Returns heuristic, as in distance between two nodes. Used for A*
+	 * @param node
+	 * @param dest
+	 * @return
+	 */
+	public static float heuristic(MapNode node, MapNode dest) {
 		
 		//heuristic is euclidean distance between current node and destination
-		LatLng curr = node.getElement().loc;
-		LatLng dst = dest.getElement().loc;
+		LatLng curr = node.loc;
+		LatLng dst = dest.loc;
 		double heuristic = curr.dist2(dst);
 		
 ////

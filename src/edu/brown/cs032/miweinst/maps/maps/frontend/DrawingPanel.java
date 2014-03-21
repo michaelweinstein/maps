@@ -12,14 +12,21 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import edu.brown.cs032.miweinst.maps.App;
+import edu.brown.cs032.miweinst.maps.graph.Graph;
+import edu.brown.cs032.miweinst.maps.graph.GraphEdge;
+import edu.brown.cs032.miweinst.maps.graph.GraphNode;
 import edu.brown.cs032.miweinst.maps.maps.GUIInfo;
 import edu.brown.cs032.miweinst.maps.maps.MapNode;
 import edu.brown.cs032.miweinst.maps.maps.Way;
+import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
 import edu.brown.cs032.miweinst.maps.threading.GUIInfoThread;
@@ -33,9 +40,11 @@ public class DrawingPanel extends JPanel {
 	private GUIInfo _guiInfo;
 ////
 	//PathFinding vars
-	private Vec2d _startLoc;
-	private Vec2d _endLoc;
-
+	private MapNode _startNode = null;
+	private MapNode _endNode = null;
+	private ArrayDeque<GraphNode<MapNode>> _path = null;
+	private Graph<MapNode, Way> _graph = new Graph<MapNode, Way>();
+//	private List<Way> _waysInPath = new ArrayList<Way>();
 	
 	public DrawingPanel(GUIInfo info, MainPanel mp) {		
 		//Sets size, background color and border of DrawingPanel
@@ -108,7 +117,6 @@ public class DrawingPanel extends JPanel {
 ////
 		System.out.println("nodes.length: " + NodesGUIWrapper.get().size());
 		System.out.println("ways.length: " + WaysGUIWrapper.get().length);
-		center = _guiInfo.getBoundingBox().getCenter();
 		this.repaint();
 	}
 	
@@ -140,36 +148,70 @@ public class DrawingPanel extends JPanel {
 		this.repaint();
 	}
 	
-	
-//////
-	//Marks center of BoundingBox at all times
-	private LatLng center;
-	
+	/**
+	 * Called when a _startNode and _endNode have been set by the user.
+	 * Creates new Graph object for each pathfinding, and graph is used
+	 * by draw method to get edges between nodes. After finding the Path,
+	 * this method removes the Way from each GraphEdge in the path and
+	 * stores it in _waysInPath, to be rendered in paintComponent.
+	 */
+	public void pathfinding() {
+		if (_startNode!= null && _endNode != null) {
+			_graph = new Graph<MapNode, Way>();
+			try {
+				_path = PathFinder.buildGraphFromNames(_graph, _startNode, _endNode);
+				//no path was found, just print and get rid of start/end pointers
+				if (_path.size() <= 1) {
+					System.out.println(_startNode.id + " -/- " + _endNode.id);
+					_startNode = null;
+					_endNode = null;
+					_path = null;
+				}
+			} catch (StackOverflowError err) {
+				System.out.println("StackOverflowError when trying to find paths " + 
+						"in DrawingPanel.pathfinding()");
+				_path = null;
+			}
+			repaint();
+		}
+	}
+
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		Graphics2D brush = (Graphics2D) g;
+		Graphics2D brush = (Graphics2D) g;	
+/////DRAW PATH
+		if (_path != null) {	
+			//store all popped elts to add back to path, for continued drawing
+			ArrayDeque<GraphNode<MapNode>> tempStorage = new ArrayDeque<GraphNode<MapNode>>();
+			//path should be yellow
+			brush.setColor(new Color(237, 255, 41));
+			brush.setStroke(new BasicStroke(10f));
+			//store all Ways in path
+			GraphNode<MapNode> n1 = _path.pop();
+			tempStorage.add(n1);
+			GraphNode<MapNode> n2 = _path.pop();
+			tempStorage.add(n2);
+			while (!_path.isEmpty()) {
+				Vec2d startLoc = _guiInfo.convertToScreen(n1.getElement().loc);
+				Vec2d endLoc = _guiInfo.convertToScreen(n2.getElement().loc);				
+				brush.draw(new Line2D.Double(startLoc.x, startLoc.y, endLoc.x, endLoc.y));
+				//move to next edge/way
+				n1 = n2;
+				n2 = _path.pop();
+				//save popped nodes
+				tempStorage.add(n1);
+				tempStorage.add(n2);
+			}
+			//draw last way
+			Vec2d startLoc = _guiInfo.convertToScreen(n1.getElement().loc);
+			Vec2d endLoc = _guiInfo.convertToScreen(n2.getElement().loc);
+			brush.draw(new Line2D.Double(startLoc.x, startLoc.y, endLoc.x, endLoc.y));
+			//add all nodes back to path, so it can be drawn on next repaint
+			_path = tempStorage;
+		}
 		
-/////	MARK CENTER FOR TESTING
-		BoundingBox testBox = _guiInfo.getBoundingBox();
-		if (center == null)
-			center = testBox.getCenter();
-		Vec2d testScreenC = _guiInfo.convertToScreen(center);
-//		Vec2d testScreenC = _guiInfo.convertToScreen(new LatLng(center.lat+.05, center.lng+.5));
-		brush.setColor(Color.RED);
-		brush.fill(new Ellipse2D.Double(testScreenC.x, testScreenC.y, 15, 15));
-//////^^^^^		
-		
-///DRAW NODES
-//		for (int i=0; i<_nodes.size(); i++) {
-/*		for (MapNode node: _nodes.values()) {
-//			Vec2d screenLoc = _guiInfo.convertToScreen(_nodes[i].loc);
-			Vec2d screenLoc = _guiInfo.convertToScreen(node.loc);
-			System.out.println("screenLoc: " + screenLoc.toString());
-			brush.setColor(Color.BLACK);
-			brush.fill(new Ellipse2D.Double(screenLoc.x, screenLoc.y, 3, 3));
-		}*/
-///DRAW WAYS
+/////DRAW WAYS
 		//draw Ways between _nodes as Line2D
 		Way[] ways = WaysGUIWrapper.get();
 		for (int i=0; i<ways.length; i++) {
@@ -185,11 +227,30 @@ public class DrawingPanel extends JPanel {
 				}
 			}
 		}//end for
+		
+/////DRAW START, END NODE MARKERS
+	//draw starting and ending nodes
+	if (_startNode != null) {
+		Color startColor = new Color(47, 222, 52);
+		Color endColor = new Color(207, 33, 33);
+		double radius = 10;
+		//startNode should be green			
+		Vec2d startLoc = _guiInfo.convertToScreen(_startNode.loc);
+		brush.setColor(startColor);	//green		
+		brush.fill(new Ellipse2D.Double(startLoc.x-radius/2, startLoc.y-radius/2, radius, radius));
+		if (_endNode != null) {
+			//endNode should be red
+			Vec2d endLoc = _guiInfo.convertToScreen(_endNode.loc);
+			brush.setColor(endColor); //red
+			brush.fill(new Ellipse2D.Double(endLoc.x-radius/2, endLoc.y-radius/2, radius, radius));
+		}
+	}		
 	}
 	
 	/*INNER CLASSES*/
 
 	private Vec2d prev;
+	//whether adding start node or end node
 	private boolean isStart = true;
 	private class MapMouseListener implements MouseListener {
 		@Override
@@ -202,28 +263,24 @@ public class DrawingPanel extends JPanel {
 		public void mousePressed(MouseEvent arg0) {		
 			//CNTRL + click sets 
 			if (arg0.isControlDown()) {
-////				
-				System.out.println("isControlDown");
-				
-				Vec2d mouseLoc = new Vec2d(arg0.getX(), arg0.getY());
-				
+				//get nearest MapNode to where the user clicked
 				LatLng ll = _guiInfo.convertToLatLng(new Vec2d(arg0.getX(), arg0.getY()));
 				MapNode node = App.nearestNeighbor(ll);
+				//alternate between setting start and end node
 				if (isStart) {
-//					_startNode = node;
-				} 
-				else {
-//					_endLoc = node.loc;
+					_startNode = node;
+					_endNode =  null;
+					isStart = false;
+					repaint();
 				}
-								
-				center = node.loc;
-////				
-				System.out.println("center: " + center);
-				
-				repaint();
+				else {
+					_endNode = node;
+					isStart = true;
+					repaint();	//call before pathfinding(), better responsiveness
+					pathfinding();
+				}
 			}
-			
-			//stores prev pointer to find dx, dy when panning
+			//stores prev pointer; for finding dx, dy when panning
 			prev = new Vec2d(arg0.getX(), arg0.getY());
 		}
 		@Override
