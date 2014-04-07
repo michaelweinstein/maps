@@ -26,17 +26,13 @@ public class FileProcessorThread extends Thread {
 	public void run() {
 		try{ 
 			if (_function.compareTo("nodesArrayForKDTree") == 0) {
-				System.out.println("KDNODES STARTED");
 				_KDNodes = _fp.nodesArrayForKDTree();
-				System.out.println("KDNODES CREATED");
 			}
 			else if (_function.compareTo("getNodesForGUI") == 0 && _latLng != null) {
 				_guiNodes = _fp.getNodesForGUI(_latLng, _constraint);
 			}
 			else if (_function.compareTo("getWays") == 0) {
-				System.out.println("WAYS STARTED");
 				_ways = _fp.getWays();
-				System.out.println("WAYS CREATED");
 			}
 		}
 		catch (IOException e) {

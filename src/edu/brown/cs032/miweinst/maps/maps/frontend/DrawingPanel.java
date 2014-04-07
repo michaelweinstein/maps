@@ -28,6 +28,7 @@ import edu.brown.cs032.miweinst.maps.maps.path.PathFinder;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.NodesGUIWrapper;
 import edu.brown.cs032.miweinst.maps.maps.wrappers.WaysGUIWrapper;
 import edu.brown.cs032.miweinst.maps.threading.GUIInfoThread;
+import edu.brown.cs032.miweinst.maps.threading.PathFindingThread;
 import edu.brown.cs032.miweinst.maps.util.BoundingBox;
 import edu.brown.cs032.miweinst.maps.util.LatLng;
 import edu.brown.cs032.miweinst.maps.util.Vec2d;
@@ -37,7 +38,7 @@ public class DrawingPanel extends JPanel {
 	private GUIInfo _guiInfo;
 	//we only want to send call to backend every 25 clicks
 	private int _zoomCounter;
-
+	private PathFindingThread _pathFindingThread;
 	//PathFinding vars
 	private MapNode _startNode = null;
 	private MapNode _endNode = null;
@@ -149,14 +150,9 @@ public class DrawingPanel extends JPanel {
 		if (_startNode!= null && _endNode != null) {
 			_graph = new Graph<MapNode, Way>();
 			try {
-				_path = PathFinder.buildGraphFromNames(_graph, _startNode, _endNode);
-				//no path was found, just print and get rid of start/end pointers
-				if (_path.size() <= 1) {
-					System.out.println(_startNode.id + " -/- " + _endNode.id);
-					_startNode = null;
-					_endNode = null;
-					_path = null;
-				}
+				_pathFindingThread = new PathFindingThread();
+				_pathFindingThread.setInfo(_graph, _startNode, _endNode);
+				_pathFindingThread.start();
 			} catch (StackOverflowError err) {
 				System.out.println("StackOverflowError when trying to find paths " + 
 						"in DrawingPanel.pathfinding()");
@@ -183,34 +179,47 @@ public class DrawingPanel extends JPanel {
 		super.paintComponent(g);
 		Graphics2D brush = (Graphics2D) g;	
 /////DRAW PATH
+		_path = PathFindingThread.getPath();
 		if (_path != null) {	
-			//store all popped elts to add back to path, for continued drawing
-			ArrayDeque<GraphNode<MapNode>> tempStorage = new ArrayDeque<GraphNode<MapNode>>();
-			//path should be yellow
-			brush.setColor(new Color(237, 255, 41));
-			brush.setStroke(new BasicStroke(10f));
-			//store all Ways in path
-			GraphNode<MapNode> n1 = _path.pop();
-			tempStorage.add(n1);
-			GraphNode<MapNode> n2 = _path.pop();
-			tempStorage.add(n2);
-			while (!_path.isEmpty()) {
-				Vec2d startLoc = _guiInfo.convertToScreen(n1.getElement().loc);
-				Vec2d endLoc = _guiInfo.convertToScreen(n2.getElement().loc);				
-				brush.draw(new Line2D.Double(startLoc.x, startLoc.y, endLoc.x, endLoc.y));
-				//move to next edge/way
-				n1 = n2;
-				n2 = _path.pop();
-				//save popped nodes
-				tempStorage.add(n1);
-				tempStorage.add(n2);
+//////
+			//no path was found, just print and get rid of start/end pointers
+			if (_path.size() <= 1) {
+				if (_startNode!= null && _endNode != null) {
+					System.out.println(_startNode.id + " -/- " + _endNode.id);
+					_startNode = null;
+					_endNode = null;
+					_path = null;
+				}
 			}
-			//draw last way
-			Vec2d startLoc = _guiInfo.convertToScreen(n1.getElement().loc);
-			Vec2d endLoc = _guiInfo.convertToScreen(n2.getElement().loc);
-			brush.draw(new Line2D.Double(startLoc.x, startLoc.y, endLoc.x, endLoc.y));
-			//add all nodes back to path, so it can be drawn on next repaint
-			_path = tempStorage;
+			else {
+				//store all popped elts to add back to path, for continued drawing
+				ArrayDeque<GraphNode<MapNode>> tempStorage = new ArrayDeque<GraphNode<MapNode>>();
+				//path should be yellow
+				brush.setColor(new Color(237, 255, 41));
+				brush.setStroke(new BasicStroke(10f));
+				//store all Ways in path
+				GraphNode<MapNode> n1 = _path.pop();
+				tempStorage.add(n1);
+				GraphNode<MapNode> n2 = _path.pop();
+				tempStorage.add(n2);
+				while (!_path.isEmpty()) {
+					Vec2d startLoc = _guiInfo.convertToScreen(n1.getElement().loc);
+					Vec2d endLoc = _guiInfo.convertToScreen(n2.getElement().loc);				
+					brush.draw(new Line2D.Double(startLoc.x, startLoc.y, endLoc.x, endLoc.y));
+					//move to next edge/way
+					n1 = n2;
+					n2 = _path.pop();
+					//save popped nodes
+					tempStorage.add(n1);
+					tempStorage.add(n2);
+				}
+				//draw last way
+				Vec2d startLoc = _guiInfo.convertToScreen(n1.getElement().loc);
+				Vec2d endLoc = _guiInfo.convertToScreen(n2.getElement().loc);
+				brush.draw(new Line2D.Double(startLoc.x, startLoc.y, endLoc.x, endLoc.y));
+				//add all nodes back to path, so it can be drawn on next repaint
+				_path = tempStorage;
+			}
 		}
 		
 /////DRAW WAYS
